@@ -1,21 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://c15n2rhyambd"]
+[gd_scene load_steps=13 format=3 uid="uid://c15n2rhyambd"]
 
 [ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://bj2sf4si0h02l" path="res://characters/scripts/player.gd" id="1_smehm"]
 [ext_resource type="Texture2D" uid="uid://c32xbaehxe2j5" path="res://assets/characters/maincharacter/PandaRight.png" id="2_btcbx"]
 [ext_resource type="Texture2D" uid="uid://cfki10yi5p21a" path="res://assets/characters/maincharacter/PandaJump.png" id="2_fhl08"]
 [ext_resource type="Resource" uid="uid://cmttbdmx6bjuq" path="res://inventory/playerInventory.tres" id="2_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://c7s26oyr3kle7" path="res://assets/characters/maincharacter/Panda_leftWalk.png" id="3_fhl08"]
-[ext_resource type="Texture2D" uid="uid://bwbdtgcdtqnsl" path="res://assets/characters/maincharacter/PandaLeft.png" id="3_gwnis"]
 [ext_resource type="Texture2D" uid="uid://2tnelbwpqm7u" path="res://assets/characters/maincharacter/Panda_rightWalk.png" id="5_vtle1"]
 [ext_resource type="AudioStream" uid="uid://ids48rvdjrp3" path="res://assets/sounds/weee-337908.mp3" id="7_vtle1"]
 [ext_resource type="PackedScene" uid="uid://go7oc6bfpud2" path="res://inventory/scenes/inv_ui.tscn" id="10_y4r1p"]
 [ext_resource type="PackedScene" uid="uid://cqnkplwndib4x" path="res://scenes/leaf_particle.tscn" id="11_nal3f"]
-[ext_resource type="Script" uid="uid://dr440jso5ue87" path="res://characters/scripts/state_machine.gd" id="12_nxqrm"]
-[ext_resource type="Script" uid="uid://cfhisasdomeu8" path="res://characters/scripts/states/idle.gd" id="13_lk8yq"]
-[ext_resource type="Script" uid="uid://cuw6gekjrmjdv" path="res://characters/scripts/states/walk.gd" id="14_dt7v0"]
-[ext_resource type="Script" uid="uid://bnchb4rxx2knl" path="res://characters/scripts/states/jump.gd" id="15_io0cs"]
-[ext_resource type="Script" uid="uid://canhtbv00urdw" path="res://characters/scripts/states/fall.gd" id="16_5surh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k53q1"]
 animations = [{
@@ -37,24 +30,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_fhl08")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_gwnis")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("5_vtle1")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_btcbx")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -74,7 +56,7 @@ inv = ExtResource("2_ur7pv")
 position = Vector2(160, 89)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k53q1")
-animation = &"idle"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(160, 89)
@@ -103,18 +85,3 @@ scale = Vector2(2, 2)
 
 [node name="leaf" parent="." instance=ExtResource("11_nal3f")]
 position = Vector2(160, 122.66667)
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("12_nxqrm")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("13_lk8yq")
-
-[node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("14_dt7v0")
-
-[node name="Jump" type="Node" parent="StateMachine"]
-script = ExtResource("15_io0cs")
-
-[node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource("16_5surh")
