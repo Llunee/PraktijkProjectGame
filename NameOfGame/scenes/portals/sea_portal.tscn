@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqsfwm1j2fb0c"]
+[gd_scene load_steps=12 format=3 uid="uid://cqsfwm1j2fb0c"]
 
+[ext_resource type="Script" uid="uid://ew0ktteiq3cr" path="res://scenes/portals/sea_portal.gd" id="1_8wjmv"]
 [ext_resource type="Texture2D" uid="uid://dee37ett4u5ce" path="res://assets/homeworld/portals/portal_sea_spritesheet.png" id="1_de553"]
 [ext_resource type="Texture2D" uid="uid://bo4fyyspwrfvn" path="res://assets/homeworld/portals/portal_sea.png" id="2_8wjmv"]
 
@@ -69,8 +70,11 @@ animations = [{
 }]
 
 [node name="SeaPortal" type="Node2D"]
+z_index = -5
+script = ExtResource("1_8wjmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_67718")
 frame = 2
 frame_progress = 0.116195016

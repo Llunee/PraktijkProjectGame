@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsqwjr0xqhqx0"]
+[gd_scene load_steps=20 format=3 uid="uid://dsqwjr0xqhqx0"]
 
+[ext_resource type="Script" uid="uid://cdtk0sovovcn0" path="res://scenes/portals/jungle_portal.gd" id="1_ibusb"]
 [ext_resource type="Texture2D" uid="uid://c8kjudmwfb1hw" path="res://assets/homeworld/portals/portal_jungle_spritesheet.png" id="1_lnwtx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibusb"]
@@ -123,7 +124,10 @@ animations = [{
 }]
 
 [node name="JunglePortal" type="Node2D"]
+z_index = -5
+script = ExtResource("1_ibusb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_j2x6v")
 frame_progress = 0.093488365

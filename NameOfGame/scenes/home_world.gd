@@ -1,12 +1,14 @@
 extends Node2D
 
+@onready var safari_portal = $SafariPortal
+@onready var ice_portal = $IcePortal
+@onready var sea_portal = $SeaPortal
+@onready var jungle_portal = $JunglePortal
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	$SafariPortal.play("default")
-	$IcePortal.play("default")
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
