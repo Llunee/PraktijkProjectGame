@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://db86lj4xekvi7"]
+[gd_scene load_steps=35 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://scenes/home_world.gd" id="1_57wo6"]
 [ext_resource type="Texture2D" uid="uid://bgnfuep8aofj4" path="res://assets/tiles/Tileset32x32.png" id="1_c4omu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4fyyspwrfvn" path="res://assets/homeworld/portals/portal_sea.png" id="6_2wwgh"]
 [ext_resource type="Texture2D" uid="uid://cb1060of4cdrc" path="res://assets/homeworld/portals/portal_ice_spritesheet.png" id="7_57wo6"]
 [ext_resource type="Texture2D" uid="uid://cx8xteo5gmlu6" path="res://assets/homeworld/portals/portal_safari_spritesheet.png" id="8_5n2we"]
+[ext_resource type="Texture2D" uid="uid://bivxgkdc61xtm" path="res://assets/homeworld/Shop.png" id="11_764ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fetdj"]
 texture = ExtResource("1_c4omu")
@@ -344,3 +345,9 @@ z_index = -1
 position = Vector2(2416, 440.00003)
 scale = Vector2(2.0279987, 1.625)
 texture = ExtResource("6_2wwgh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(616.00006, 400.00003)
+scale = Vector2(1.8333334, 1.8333334)
+texture = ExtResource("11_764ef")

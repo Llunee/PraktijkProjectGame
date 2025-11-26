@@ -62,7 +62,7 @@ position = Vector2(160, 89)
 shape = SubResource("CapsuleShape2D_btcbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 90)
+position = Vector2(160, -32)
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
