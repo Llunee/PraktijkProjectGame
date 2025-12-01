@@ -52,17 +52,17 @@ script = ExtResource("1_smehm")
 inv = ExtResource("2_ur7pv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(160, 89)
+position = Vector2(0, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k53q1")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(160, 89)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_btcbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, -32)
+position = Vector2(0, -120)
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -74,13 +74,14 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection"]
-position = Vector2(160, 88)
 shape = SubResource("CircleShape2D_smehm")
 
 [node name="inv_ui" parent="." instance=ExtResource("10_y4r1p")]
-offset_top = 170.66667
-offset_bottom = 210.66667
+offset_left = -160.0
+offset_top = 82.66667
+offset_right = 0.0
+offset_bottom = 122.66667
 scale = Vector2(2, 2)
 
 [node name="leaf" parent="." instance=ExtResource("11_nal3f")]
-position = Vector2(160, 122.66667)
+position = Vector2(0, 34.66667)
