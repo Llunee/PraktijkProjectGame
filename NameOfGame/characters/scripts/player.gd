@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+signal player_died
+signal player_respawned
+
 var kill_height = 500
 
 @export var inv: Inv
+
+@onready var hud = %HUD
+@onready var health_label = hud.get_node("Label")
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $leaf/CPUParticles2D
 
@@ -43,6 +49,17 @@ func _physics_process(delta: float) -> void:
 func collect(item):
 	inv.insert(item)
 
+func handle_damage():
+	update_health_display()
+	if PlayerData.is_dead():
+		die()
+
+func die():
+	emit_signal("player_died")
+	global_position = start_location
+	PlayerData.reset()
+	emit_signal("player_respawned")
+
 func update_animation():
 	if not is_on_floor():
 		sprite.play("jump")
@@ -50,6 +67,9 @@ func update_animation():
 		sprite.play("walk")
 	else:
 		sprite.play("idle")
+
+func update_health_display():
+	health_label.text = str(PlayerData.health)
 
 func respawn_player():
 	get_tree().reload_current_scene()

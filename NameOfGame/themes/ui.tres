@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cghoexrjpxrh2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpnmc"]
+modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vhwyg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37kwd"]
+modulate_color = Color(0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf7g0"]
+bg_color = Color(0.4, 0.223529, 0.192157, 0.839216)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e52x"]
+bg_color = Color(0.4, 0.223529, 0.192157, 0.266667)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyj8d"]
+bg_color = Color(0.4, 0.223529, 0.192157, 0.784314)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dy63b"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 24
+Button/fonts/font = null
+Button/styles/hover = SubResource("StyleBoxTexture_bpnmc")
+Button/styles/normal = SubResource("StyleBoxTexture_vhwyg")
+Button/styles/pressed = SubResource("StyleBoxTexture_37kwd")
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_disabled_color = Color(0, 0, 0, 0.5)
+CheckButton/colors/font_focus_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckButton/font_sizes/font_size = 24
+CheckButton/icons/checked = null
+CheckButton/icons/unchecked = null
+CheckButton/styles/focus = SubResource("StyleBoxFlat_mf7g0")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_mf7g0")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_5e52x")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_fyj8d")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 24
+Label/fonts/font = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dy63b")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = null

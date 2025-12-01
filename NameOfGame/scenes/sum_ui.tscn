@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqo0pxgtcls70"]
+
+[ext_resource type="Script" uid="uid://cqc1foql1oepl" path="res://scripts/sum_ui.gd" id="2_ykuur"]
+[ext_resource type="Theme" uid="uid://crv1faefr6pa6" path="res://themes/sum_ui.tres" id="3_agkjb"]
+[ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="4_mqu1p"]
+
+[node name="SumUI" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(180, 34)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 224.0
+offset_bottom = 70.0
+theme = ExtResource("3_agkjb")
+script = ExtResource("2_ykuur")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(179, 34)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_agkjb")
+texture = ExtResource("4_mqu1p")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(136, 54)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -27.0
+offset_right = 103.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="NumberOne" type="Panel" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/NumberOne"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Operator" type="Panel" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(25, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/Operator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberTwo" type="Panel" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/GridContainer/NumberTwo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Answer" type="LineEdit" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+placeholder_text = "Typ..."
+alignment = 1
+max_length = 4
+caret_blink = true
+
+[connection signal="text_submitted" from="NinePatchRect/GridContainer/Answer" to="." method="_on_answer_text_submitted"]
