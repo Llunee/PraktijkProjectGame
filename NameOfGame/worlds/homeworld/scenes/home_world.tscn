@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://db86lj4xekvi7"]
+[gd_scene load_steps=13 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dsqwjr0xqhqx0" path="res://worlds/homeworld/portals/jungle_portal.tscn" id="7_5p35a"]
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="8_mh43n"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="9_pd26j"]
+[ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
+[ext_resource type="Script" uid="uid://npuf5ba631me" path="res://characters/scenes/mentor_home.gd" id="12_1vnqv"]
 
 [node name="HomeWorld" type="Node2D"]
 script = ExtResource("1_jjqr7")
@@ -40,6 +42,7 @@ texture = ExtResource("4_b75s3")
 
 [node name="SafariPortal" parent="." instance=ExtResource("5_2133q")]
 position = Vector2(1647, 424)
+target_scene_path = "res://worlds/safari/scenes/safari_world.tscn"
 
 [node name="SeaPortal" parent="." instance=ExtResource("6_1vnqv")]
 position = Vector2(2581, 424)
@@ -49,3 +52,7 @@ position = Vector2(-505, 424)
 
 [node name="IcePortal" parent="." instance=ExtResource("8_mh43n")]
 position = Vector2(-1720, 96)
+
+[node name="Mentor" parent="." instance=ExtResource("11_2133q")]
+position = Vector2(230, 456.00003)
+script = ExtResource("12_1vnqv")

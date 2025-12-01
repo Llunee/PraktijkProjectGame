@@ -26,10 +26,13 @@ PlayerData="*res://characters/scripts/PlayerData.gd"
 
 directories/dch_directory={
 "baobuns": "res://characters/dialogic_plugin/charactersNPC_dialogic/baobuns.dch",
-"bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch"
+"bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
+"mentor": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor.dch",
+"portals": "res://characters/dialogic_plugin/portals_dialogic/portals.dch"
 }
 directories/dtl_directory={
-"firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl"
+"firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
+"introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl"
 }
 layout/style_directory={
 "custom_styles": "res://assets/Dialogic_Styles/custom_styles.tres"
