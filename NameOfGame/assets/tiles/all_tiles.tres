@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dqmb13l4b00me"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://dqmb13l4b00me"]
 
 [ext_resource type="Texture2D" uid="uid://bgnfuep8aofj4" path="res://assets/tiles/Tileset32x32.png" id="1_wocsm"]
 [ext_resource type="Texture2D" uid="uid://3g0lpt4cug0l" path="res://assets/tiles/SafariTileSet.png" id="2_70rcq"]
@@ -220,6 +220,13 @@ texture_region_size = Vector2i(32, 32)
 10:6/0 = 0
 10:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70rcq"]
+resource_name = "no physics"
+texture = ExtResource("2_y3p58")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/z_index = -1
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -228,3 +235,4 @@ sources/3 = SubResource("TileSetAtlasSource_r0e30")
 sources/4 = SubResource("TileSetAtlasSource_5n2we")
 sources/5 = SubResource("TileSetAtlasSource_57wo6")
 sources/1 = SubResource("TileSetAtlasSource_ast5t")
+sources/7 = SubResource("TileSetAtlasSource_70rcq")
