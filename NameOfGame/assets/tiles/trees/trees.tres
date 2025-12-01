@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bk5fbf1bk80uy"]
+
+[ext_resource type="Texture2D" uid="uid://bkouuqrxqqgyq" path="res://assets/tiles/trees/safari/acacia-tree.png" id="1_yy6ct"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0v0j"]
+texture = ExtResource("1_yy6ct")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yy6ct"]
+resource_name = "no_physics"
+texture = ExtResource("1_yy6ct")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 256)
+sources/0 = SubResource("TileSetAtlasSource_d0v0j")
+sources/1 = SubResource("TileSetAtlasSource_yy6ct")

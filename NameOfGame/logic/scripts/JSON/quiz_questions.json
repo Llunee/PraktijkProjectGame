@@ -1,0 +1,29 @@
+{
+  "questions": [
+	{
+	  "question": "Wat is 25% van 40?",
+	  "options": ["5", "10", "15", "20"],
+	  "answer": 1
+	},
+	{
+	  "question": "Welke breuk is gelijk aan 0.25?",
+	  "options": ["1/4", "1/2", "3/4", "1/8"],
+	  "answer": 0
+	},
+	{
+	  "question": "Wat is 50% van 12?",
+	  "options": ["3", "4", "5", "6"],
+	  "answer": 3
+	},
+	{
+	  "question": "Wat is 3/4 van 20?",
+	  "options": ["10", "12", "15", "18"],
+	  "answer": 2
+	},
+	{
+	  "question": "Wat is 10% van 90?",
+	  "options": ["8", "9", "10", "11"],
+	  "answer": 1
+	}
+  ]
+}

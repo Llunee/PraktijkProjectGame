@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqsfwm1j2fb0c"]
+
+[ext_resource type="Script" uid="uid://ew0ktteiq3cr" path="res://worlds/homeworld/portals/sea_portal.gd" id="1_8wjmv"]
+[ext_resource type="Texture2D" uid="uid://dee37ett4u5ce" path="res://assets/worlds/homeworld/portals/portal_sea_spritesheet.png" id="1_de553"]
+[ext_resource type="Texture2D" uid="uid://bo4fyyspwrfvn" path="res://assets/worlds/homeworld/portals/portal_sea.png" id="2_8wjmv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyxkd"]
+atlas = ExtResource("1_de553")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkti1"]
+atlas = ExtResource("1_de553")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vu2j"]
+atlas = ExtResource("1_de553")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rds5"]
+atlas = ExtResource("1_de553")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6sau"]
+atlas = ExtResource("1_de553")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiwx3"]
+atlas = ExtResource("1_de553")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61wnj"]
+atlas = ExtResource("1_de553")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67718"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyxkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkti1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vu2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rds5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6sau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiwx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61wnj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wjmv")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
+
+[node name="SeaPortal" type="Node2D"]
+z_index = -5
+script = ExtResource("1_8wjmv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_67718")
+frame = 2
+frame_progress = 0.116195016

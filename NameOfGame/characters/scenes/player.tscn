@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2tnelbwpqm7u" path="res://assets/characters/maincharacter/Panda_rightWalk.png" id="5_vtle1"]
 [ext_resource type="AudioStream" uid="uid://ids48rvdjrp3" path="res://assets/sounds/weee-337908.mp3" id="7_vtle1"]
 [ext_resource type="PackedScene" uid="uid://go7oc6bfpud2" path="res://inventory/scenes/inv_ui.tscn" id="10_y4r1p"]
-[ext_resource type="PackedScene" uid="uid://cqnkplwndib4x" path="res://scenes/leaf_particle.tscn" id="11_nal3f"]
+[ext_resource type="PackedScene" uid="uid://cqnkplwndib4x" path="res://particles/leaf_particle.tscn" id="11_nal3f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k53q1"]
 animations = [{

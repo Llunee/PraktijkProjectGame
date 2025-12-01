@@ -17,15 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-QuestManager="*res://scripts/QuestManager.gd"
+QuestManager="*res://logic/scripts/QuestManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-QuizManager="*res://scripts/QuizManager.gd"
+QuizManager="*res://logic/scripts/QuizManager.gd"
 PlayerData="*res://characters/scripts/PlayerData.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"Bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/Bruno.dch",
 "baobuns": "res://characters/dialogic_plugin/charactersNPC_dialogic/baobuns.dch",
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch"
 }
