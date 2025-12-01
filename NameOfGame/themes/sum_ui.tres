@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://crv1faefr6pa6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdkmi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iopsu"]
+
+[resource]
+Label/colors/font_outline_color = Color(0.4, 0.223529, 0.192157, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 20
+Label/fonts/font = null
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_outline_color = Color(0.4, 0.223529, 0.192157, 1)
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.690196)
+LineEdit/constants/outline_size = 6
+LineEdit/font_sizes/font_size = 20
+LineEdit/fonts/font = null
+LineEdit/styles/normal = SubResource("StyleBoxTexture_qdkmi")
+Panel/styles/panel = SubResource("StyleBoxTexture_iopsu")
