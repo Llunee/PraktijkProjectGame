@@ -8,7 +8,6 @@ var kill_height = 500
 @export var inv: Inv
 
 @onready var hud = %HUD
-@onready var health_label = hud.get_node("Label")
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $leaf/CPUParticles2D
 
@@ -16,8 +15,11 @@ var screen_size
 var facing_right = true
 var can_move = true
 var start_location
+var health_label
 
 func _ready():
+	if hud:
+		health_label = hud.get_node("Label")
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	screen_size = get_viewport_rect().size
 	start_location = global_position
