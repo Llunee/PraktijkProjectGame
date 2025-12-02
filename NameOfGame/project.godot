@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Panda Math Quest"
+config/name="NameOfGame"
 run/main_scene="uid://c6rkhc74vuabj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

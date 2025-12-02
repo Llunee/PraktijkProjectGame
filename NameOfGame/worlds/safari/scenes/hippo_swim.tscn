@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcb21jm423ut"]
+
+[ext_resource type="Texture2D" uid="uid://c68t4hf21y3hy" path="res://assets/characters/NPCS/safari/hippo_swim.png" id="1_8sq7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjic5"]
+size = Vector2(54.032806, 11.049179)
+
+[node name="Hippo_swim" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1297.0001, 226.00002)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8sq7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1296.5, 246.53127)
+scale = Vector2(1.90625, 1.90625)
+shape = SubResource("RectangleShape2D_vjic5")
