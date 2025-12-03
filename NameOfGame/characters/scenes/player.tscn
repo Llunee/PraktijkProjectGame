@@ -1,44 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://c15n2rhyambd"]
+[gd_scene load_steps=9 format=3 uid="uid://c15n2rhyambd"]
 
-[ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://bj2sf4si0h02l" path="res://characters/scripts/player.gd" id="1_smehm"]
-[ext_resource type="Texture2D" uid="uid://c32xbaehxe2j5" path="res://assets/characters/maincharacter/PandaRight.png" id="2_btcbx"]
-[ext_resource type="Texture2D" uid="uid://cfki10yi5p21a" path="res://assets/characters/maincharacter/PandaJump.png" id="2_fhl08"]
 [ext_resource type="Resource" uid="uid://cmttbdmx6bjuq" path="res://inventory/playerInventory.tres" id="2_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://2tnelbwpqm7u" path="res://assets/characters/maincharacter/Panda_rightWalk.png" id="5_vtle1"]
+[ext_resource type="SpriteFrames" uid="uid://bfqtp87aqj2w3" path="res://assets/characters/maincharacter/panda_spriteframes.tres" id="3_7o3r7"]
 [ext_resource type="AudioStream" uid="uid://ids48rvdjrp3" path="res://assets/sounds/weee-337908.mp3" id="7_vtle1"]
 [ext_resource type="PackedScene" uid="uid://go7oc6bfpud2" path="res://inventory/scenes/inv_ui.tscn" id="10_y4r1p"]
 [ext_resource type="PackedScene" uid="uid://cqnkplwndib4x" path="res://particles/leaf_particle.tscn" id="11_nal3f"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k53q1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_l8h54")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_fhl08")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_vtle1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_btcbx")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btcbx"]
 radius = 32.0
@@ -54,8 +21,8 @@ inv = ExtResource("2_ur7pv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_k53q1")
-animation = &"walk"
+sprite_frames = ExtResource("3_7o3r7")
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

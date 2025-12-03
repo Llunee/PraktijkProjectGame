@@ -12,7 +12,7 @@ var kill_height = 500
 @onready var particles = $leaf/CPUParticles2D
 
 var screen_size
-var facing_right = true
+var facing_right = false
 var can_move = true
 var start_location
 var health_label
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * PlayerData.speed
-		facing_right = direction < 0
+		facing_right = direction > 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, PlayerData.speed)
 
