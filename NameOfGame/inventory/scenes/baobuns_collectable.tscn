@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://wa408eqo2la7"]
+
+[ext_resource type="Script" uid="uid://plaj6lvpkcgy" path="res://items/baobuns_collectable.gd" id="1_gfieg"]
+[ext_resource type="Texture2D" uid="uid://ctwk184ykdjhh" path="res://assets/inventory/items/baobuns/baobun.png" id="2_2060o"]
+[ext_resource type="Resource" uid="uid://xww3fnk5rdd8" path="res://inventory/items/baobuns.tres" id="2_svr8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svr8s"]
+size = Vector2(32, 24)
+
+[node name="baobuns_collectable" type="StaticBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_gfieg")
+item = ExtResource("2_svr8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2060o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_svr8s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

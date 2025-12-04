@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://2js5sxpl1u0"]
+
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_e0onf"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e0onf")
+
+[node name="Label" type="Label" parent="."]
+z_index = 100
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "3"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.0
+offset_top = 8.0
+offset_right = -36.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Health Points:"

@@ -1,0 +1,58 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "ice",
+&"description": "",
+&"display_name": "portals",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"ice": {
+"export_overrides": {
+"image": "\"res://assets/worlds/homeworld/portals/portal_ice.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -150),
+"scale": 0.2,
+"scene": ""
+},
+"jungle": {
+"export_overrides": {
+"image": "\"res://assets/worlds/homeworld/portals/portal_jungle.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -150),
+"scale": 0.2,
+"scene": ""
+},
+"safari": {
+"export_overrides": {
+"image": "\"res://assets/worlds/homeworld/portals/portal_safari.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -150),
+"scale": 0.2,
+"scene": ""
+},
+"sea": {
+"export_overrides": {
+"image": "\"res://assets/worlds/homeworld/portals/portal_sea.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -150),
+"scale": 0.2,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

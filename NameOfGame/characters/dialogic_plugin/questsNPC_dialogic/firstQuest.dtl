@@ -1,0 +1,35 @@
+if {firstQuest} == true:
+	jump quest_return
+join Bruno right
+Bruno: Hey! Ik ben Bruno.
+join baobuns right
+Bruno: We bereiden een groot feest voor maar helaas hebben we nog geen Bao buns.
+Bruno: Ik heb er al 20 gemaakt, maar we hebben nog 25% extra nodig (25% van 20). Kun jij er het juiste aantal bijmaken?
+Bruno: Verzamel de juiste hoeveelheid Bao buns en kom dan bij me terug!
+leave baobuns
+- Ja, ga ik doen!
+	Bruno: Je bent geweldigg!!
+- Nee ga ik niet doen
+	jump 
+label quest_start
+[signal arg="firstQuest"]
+[end_timeline]
+label quest_return
+if {quest_objective_met} == false:
+	Bruno: Je hebt nog niet genoeg Bao Buns
+	[end_timeline]
+if {quest_objective_met} == true:
+	Bruno: Je hebt genoeg! Nu de laatste test\: Wat is 25% van 20?
+	- 4
+		jump Fout
+	- 5
+		jump Goed
+	- 10
+		jump Fout
+label Goed
+Bruno: Dat is helemaal juist! De 5 extra broodjes waren precies wat we nodig hadden! Quest volbracht!
+set {firstQuest} = false
+[end_timeline]
+label Fout
+Bruno: Helaas, dat is niet het juist. Denk nog even na!
+jump quest_return

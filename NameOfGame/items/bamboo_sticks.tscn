@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b63s58tw8n51g"]
+
+[ext_resource type="Script" uid="uid://v8ic7yw5iqw3" path="res://items/bamboo_sticks.gd" id="1_7vgei"]
+[ext_resource type="Texture2D" uid="uid://cgswe830ffcp7" path="res://assets/inventory/items/bamboo/BambooSticks.png" id="1_lamss"]
+[ext_resource type="Resource" uid="uid://dx7kjyekv6km2" path="res://inventory/items/bamboo.tres" id="2_uxpns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lamss"]
+size = Vector2(28, 28)
+
+[node name="bambooSticks" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_7vgei")
+item = ExtResource("2_uxpns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_lamss")
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_lamss")
+
+[node name="growth_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-0.5, 1)
+scale = Vector2(1e-05, 1e-05)
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

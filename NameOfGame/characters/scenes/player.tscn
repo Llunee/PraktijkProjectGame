@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://c15n2rhyambd"]
+
+[ext_resource type="Script" uid="uid://bj2sf4si0h02l" path="res://characters/scripts/player.gd" id="1_smehm"]
+[ext_resource type="Resource" uid="uid://cmttbdmx6bjuq" path="res://inventory/playerInventory.tres" id="2_ur7pv"]
+[ext_resource type="SpriteFrames" uid="uid://bfqtp87aqj2w3" path="res://assets/characters/maincharacter/panda_spriteframes.tres" id="3_7o3r7"]
+[ext_resource type="AudioStream" uid="uid://ids48rvdjrp3" path="res://assets/sounds/weee-337908.mp3" id="7_vtle1"]
+[ext_resource type="PackedScene" uid="uid://go7oc6bfpud2" path="res://inventory/scenes/inv_ui.tscn" id="10_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://cqnkplwndib4x" path="res://particles/leaf_particle.tscn" id="11_nal3f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btcbx"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smehm"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_smehm")
+inv = ExtResource("2_ur7pv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_7o3r7")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_btcbx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -120)
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_vtle1")
+volume_db = -25.0
+
+[node name="Player_Detection" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection"]
+shape = SubResource("CircleShape2D_smehm")
+
+[node name="inv_ui" parent="." instance=ExtResource("10_y4r1p")]
+offset_left = -160.0
+offset_top = 82.66667
+offset_right = 0.0
+offset_bottom = 122.66667
+scale = Vector2(2, 2)
+
+[node name="leaf" parent="." instance=ExtResource("11_nal3f")]
+position = Vector2(0, 34.66667)

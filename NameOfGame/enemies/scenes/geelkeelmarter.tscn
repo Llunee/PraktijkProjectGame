@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu8irxdkrawqh"]
+
+[ext_resource type="Texture2D" uid="uid://dxunv31ad1bw0" path="res://assets/characters/enemies/geelkeelmarter/geelkeelmarter_left.png" id="1_3pgdf"]
+[ext_resource type="Script" uid="uid://bory84yupauj7" path="res://enemies/scripts/geelkeelmarter.gd" id="1_ck4eo"]
+[ext_resource type="Texture2D" uid="uid://dwq5lvdf14s51" path="res://assets/characters/enemies/geelkeelmarter/geelkeelmarter_right.png" id="2_ck4eo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cycn3"]
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4crm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3pgdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ck4eo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ck4eo"]
+radius = 24.0
+height = 48.0
+
+[node name="geelkeelmarter" type="CharacterBody2D"]
+script = ExtResource("1_ck4eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cycn3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e4crm")
+animation = &"walk"
+frame_progress = 0.674997
+
+[node name="RayCast2DHorizontaal" type="RayCast2D" parent="Sprite2D"]
+target_position = Vector2(-128, 0)
+
+[node name="RayCast2DDown" type="RayCast2D" parent="Sprite2D"]
+position = Vector2(-12, 0)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ck4eo")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

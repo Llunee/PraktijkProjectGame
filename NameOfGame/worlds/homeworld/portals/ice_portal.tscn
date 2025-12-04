@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://wefou6fko2mx"]
+
+[ext_resource type="Script" uid="uid://b11mu7unhxitq" path="res://worlds/homeworld/portals/ice_portal.gd" id="1_aoopm"]
+[ext_resource type="Texture2D" uid="uid://cb1060of4cdrc" path="res://assets/worlds/homeworld/portals/portal_ice_spritesheet.png" id="1_gjrv7"]
+[ext_resource type="Texture2D" uid="uid://bo5ha6d7gryvb" path="res://assets/worlds/homeworld/portals/portal_ice.png" id="2_aoopm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8trwj"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78eyo"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rjf4"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3slt"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwbp5"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wac1g"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cecn5"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uc5l"]
+atlas = ExtResource("1_gjrv7")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1b0ev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8trwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78eyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rjf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3slt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwbp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wac1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cecn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uc5l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aoopm")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
+
+[node name="IcePortal" type="Node2D"]
+z_index = -5
+script = ExtResource("1_aoopm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1b0ev")
+frame = 4
+frame_progress = 0.38838688

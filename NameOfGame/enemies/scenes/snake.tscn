@@ -1,0 +1,222 @@
+[gd_scene load_steps=28 format=3 uid="uid://b5sciffoo4doq"]
+
+[ext_resource type="Script" uid="uid://bbmqarj16sgr4" path="res://enemies/scripts/snake.gd" id="1_o2scv"]
+[ext_resource type="Texture2D" uid="uid://c3ta4nscg7rph" path="res://assets/characters/enemies/snake/idle/snake_idle.png" id="1_pox6b"]
+[ext_resource type="Texture2D" uid="uid://wfjr82mihfhq" path="res://assets/characters/enemies/snake/walk/snake_slither.png" id="2_rku0m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rku0m"]
+radius = 3.99999
+height = 63.9782
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rku0m"]
+size = Vector2(23, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmvgn"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnn8g"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p48en"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tu6o"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1exp"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpoka"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjxvt"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf0t3"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sunx"]
+atlas = ExtResource("1_pox6b")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmxil"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaj0w"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u844"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km451"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(192, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34qw1"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(256, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7okff"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(320, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70syq"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(384, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i58y"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(448, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypyf3"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(512, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjwnq"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(576, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i8ub"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(640, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn20l"]
+atlas = ExtResource("2_rku0m")
+region = Rect2(704, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aulw7"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_lmvgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnn8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p48en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tu6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1exp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpoka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjxvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf0t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sunx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmxil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaj0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u844")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km451")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34qw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7okff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70syq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i58y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypyf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjwnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i8ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn20l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Snake" type="CharacterBody2D"]
+script = ExtResource("1_o2scv")
+
+[node name="WalkCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+rotation = -1.57234
+shape = SubResource("CapsuleShape2D_rku0m")
+disabled = true
+
+[node name="IdleCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_rku0m")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_aulw7")
+animation = &"idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 4)
+target_position = Vector2(-75, 0)
+
+[node name="HoleCheckLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-31.073074, 4.2633286)
+target_position = Vector2(0, 40)
+
+[node name="HoleCheckRight" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(33.226418, 4.2633286)
+target_position = Vector2(0, 40)
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
