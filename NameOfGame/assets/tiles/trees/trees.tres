@@ -7,6 +7,7 @@
 texture = ExtResource("1_yy6ct")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35.049377, -3.9828873, -83.48125, -24.693886, -108.33445, -59.424637, 93.67746, -50.821606, 40.147476, -9.399609, 57.034912, -0.47794724, 62.770264, 17.046745, 42.059265, 10.036865, 31.544449, 45.08625, 46.520096, 54.963806, 50.02504, 65.79725, 29.314041, 54.326546, 27.402252, 93.1995, 31.863083, 128.88614, -20.07373, 131.75381, 0.9559021, 104.98884, -6.3726044, 90.650444, -32.81897, 69.939445, -37.917053, 42.855835)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yy6ct"]
 resource_name = "no_physics"
@@ -22,7 +23,8 @@ texture_region_size = Vector2i(256, 256)
 2:0/0 = 0
 
 [resource]
-tile_size = Vector2i(32, 256)
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d0v0j")
 sources/1 = SubResource("TileSetAtlasSource_yy6ct")
 sources/2 = SubResource("TileSetAtlasSource_rfvea")
