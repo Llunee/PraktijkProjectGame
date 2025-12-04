@@ -16,9 +16,3 @@ func spawn_item(pos: Vector2, scene: PackedScene) -> void:
 	add_child(item)
 	item.global_position = pos
 	item.player = $Player
-	item.connect("collected", Callable(self, "_on_item_collected").bind(scene))
-
-func _on_item_collected(pos: Vector2, scene: PackedScene) -> void:
-	var timer = get_tree().create_timer(5.0)
-	await timer.timeout
-	spawn_item(pos, scene)

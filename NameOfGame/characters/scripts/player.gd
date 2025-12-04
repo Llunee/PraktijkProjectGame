@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if global_position.y > kill_height:
-		respawn_player()
+		die()
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -65,9 +65,6 @@ func update_animation():
 		sprite.play("walk")
 	else:
 		sprite.play("idle")
-
-func respawn_player():
-	get_tree().reload_current_scene()
 	
 func Player():
 	pass
