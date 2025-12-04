@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cghoexrjpxrh2"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cghoexrjpxrh2"]
+
+[ext_resource type="FontFile" uid="uid://ba3bjnbsyad4e" path="res://assets/fonts/BoldPixels.ttf" id="1_k5lm2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpnmc"]
 modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
@@ -57,11 +59,11 @@ CheckButton/styles/focus = SubResource("StyleBoxFlat_mf7g0")
 CheckButton/styles/hover = SubResource("StyleBoxFlat_mf7g0")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_5e52x")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_fyj8d")
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/colors/font_outline_color = Color(1, 1, 1, 1)
-Label/colors/font_shadow_color = Color(1, 1, 1, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 24
-Label/fonts/font = null
+Label/fonts/font = ExtResource("1_k5lm2")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_dy63b")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 32

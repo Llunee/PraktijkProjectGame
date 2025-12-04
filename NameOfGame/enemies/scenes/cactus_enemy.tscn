@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://glehll8w5uql"]
+
+[ext_resource type="Texture2D" uid="uid://0lqgsnovhoqe" path="res://assets/characters/enemies/cactus/cactus.png" id="1_7beua"]
+[ext_resource type="Script" uid="uid://vpcq7iguyk4f" path="res://enemies/scripts/cactus_enemy.gd" id="1_oxhh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxhh2"]
+atlas = ExtResource("1_7beua")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f46n0"]
+atlas = ExtResource("1_7beua")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1jpr"]
+atlas = ExtResource("1_7beua")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcf2e"]
+atlas = ExtResource("1_7beua")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfxvs"]
+atlas = ExtResource("1_7beua")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whtmi"]
+atlas = ExtResource("1_7beua")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70exr"]
+atlas = ExtResource("1_7beua")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsb2g"]
+atlas = ExtResource("1_7beua")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4b54"]
+animations = [{
+"frames": [{
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_oxhh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f46n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1jpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcf2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfxvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whtmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70exr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsb2g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxhh2"]
+radius = 27.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f46n0"]
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1jpr"]
+radius = 8.481339
+
+[node name="CactusEnemy" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_oxhh2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c4b54")
+frame_progress = 0.48205543
+
+[node name="DamageShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_oxhh2")
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_f46n0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-7, 5)
+rotation = -0.7549135
+shape = SubResource("CapsuleShape2D_r1jpr")

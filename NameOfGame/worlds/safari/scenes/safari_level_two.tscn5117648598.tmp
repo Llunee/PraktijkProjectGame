@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://dbvkdctskuxbo"]
+[gd_scene load_steps=12 format=4 uid="uid://dbvkdctskuxbo"]
 
 [ext_resource type="Script" uid="uid://blx57afjwh712" path="res://worlds/safari/scenes/safari_level_two.gd" id="1_mfu4k"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_sja4e"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_whq2m"]
-[ext_resource type="PackedScene" uid="uid://61n0605njhhw" path="res://items/coin_gold.tscn" id="2_7x1v6"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="2_ix4rs"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="2_y4y43"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="3_008j7"]
-[ext_resource type="PackedScene" uid="uid://ci1jhprdgfal" path="res://items/coin_red.tscn" id="3_bpl0m"]
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="4_hm0sf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="5_k340r"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="6_008j7"]
@@ -16,8 +14,6 @@
 
 [node name="SafariLevelTwo" type="Node2D"]
 script = ExtResource("1_mfu4k")
-gold_coin_scene = ExtResource("2_7x1v6")
-red_coin_scene = ExtResource("3_bpl0m")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -74,7 +70,7 @@ tile_map_data = PackedByteArray("AAAOAP7/AAADAAIAAAAZAP3/AAACAAAAAAApAPz/AAACAAI
 tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
-position = Vector2(-3725, -118)
+position = Vector2(-3712, -128)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
@@ -122,13 +118,3 @@ player = NodePath("../Player")
 [node name="Snake3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(9281, 168)
 player = NodePath("../Player")
-
-[node name="RedCoinSpawns" type="Node" parent="."]
-
-[node name="RedCoinSpawn" type="Marker2D" parent="RedCoinSpawns"]
-position = Vector2(1868, -3)
-
-[node name="GoldCoinSpawns" type="Node" parent="."]
-
-[node name="GoldCoinSpawn" type="Marker2D" parent="GoldCoinSpawns"]
-position = Vector2(926, -292)

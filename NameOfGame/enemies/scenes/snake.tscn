@@ -172,6 +172,7 @@ animations = [{
 }]
 
 [node name="Snake" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_o2scv")
 
 [node name="WalkCollisionShape2D" type="CollisionShape2D" parent="."]
