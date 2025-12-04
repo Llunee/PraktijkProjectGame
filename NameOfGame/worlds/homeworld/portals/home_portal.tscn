@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cf0orft4jtwa2"]
+[gd_scene load_steps=21 format=3 uid="uid://cf0orft4jtwa2"]
 
+[ext_resource type="Script" uid="uid://c0yabh6kpf47y" path="res://worlds/homeworld/portals/home_portal.gd" id="1_0b3me"]
 [ext_resource type="Texture2D" uid="uid://d1powj3e8xjjn" path="res://assets/worlds/homeworld/portals/portal_home.png" id="1_kf6gi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0b3me"]
@@ -123,12 +124,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65a2u"]
-radius = 20.0
-height = 70.0
+radius = 41.0
+height = 100.0
 
 [node name="HomePortal" type="Node2D"]
+script = ExtResource("1_0b3me")
+target_scene_path = "res://worlds/homeworld/scenes/home_world.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jd88q")
 frame = 10
 frame_progress = 0.27453542
@@ -138,3 +142,30 @@ frame_progress = 0.27453542
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 14)
 shape = SubResource("CapsuleShape2D_65a2u")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.684204
+offset_top = -48.27752
+offset_right = 28.282288
+offset_bottom = 16.0
+
+[node name="PressELabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.28787
+offset_top = -26.124405
+offset_right = 267.80307
+offset_bottom = -3.124405
+grow_horizontal = 2
+text = "Druk op F"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]

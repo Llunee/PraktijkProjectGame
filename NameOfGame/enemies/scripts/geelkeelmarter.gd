@@ -29,6 +29,7 @@ func _ready():
 	left_bounds = self.position + Vector2(-250, 0)
 	right_bounds = self.position + Vector2(250, 0)
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
+	QuizManager.connect("quiz_finished", Callable(self, "_on_quiz_finished"))
 
 func _physics_process(delta: float) -> void:
 	if quiz_active:
@@ -110,10 +111,8 @@ func start_quiz():
 	current_state = States.WANDER
 	velocity = Vector2.ZERO
 	player.set_process_input(false)
-	get_tree().paused = true
-
+	player.set_physics_process(false)  
 	QuizManager.start_quiz(self)
-	QuizManager.connect("quiz_finished", Callable(self, "_on_quiz_finished"), CONNECT_ONE_SHOT)
 
 func take_damage(amount: int):
 	hp -= amount
@@ -124,4 +123,3 @@ func take_damage(amount: int):
 func _on_quiz_finished(success: bool):
 	quiz_active = false
 	player.set_process_input(true)
-	get_tree().paused = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d4kxsb0n5yqn8"]
+[gd_scene load_steps=11 format=4 uid="uid://d4kxsb0n5yqn8"]
 
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_q0jir"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_jq56v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_nmhdb"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="8_t5ni6"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="9_kclwk"]
+[ext_resource type="PackedScene" uid="uid://cf0orft4jtwa2" path="res://worlds/homeworld/portals/home_portal.tscn" id="10_t8pwr"]
 
 [node name="IntroLevel" type="Node2D"]
 
@@ -50,3 +51,7 @@ offset_top = 290.3589
 offset_right = 717.0256
 offset_bottom = 360.3589
 snake = NodePath("../../Snake")
+
+[node name="HomePortal" parent="." instance=ExtResource("10_t8pwr")]
+z_index = -1
+position = Vector2(3044, 128)

@@ -67,5 +67,10 @@ func _on_answer_selected(index):
 
 func end_quiz():
 	if quiz_ui_instance:
-		quiz_ui_instance.hide()  # <-- verberg i.p.v. verwijderen
-	emit_signal("quiz_finished", correct_answers >= 2)
+		quiz_ui_instance.hide()
+	
+	if enemy_ref and enemy_ref.player:
+		enemy_ref.player.set_process_input(true)
+		enemy_ref.player.set_physics_process(true)
+		
+	emit_signal("quiz_finished", correct_answers == 3)
