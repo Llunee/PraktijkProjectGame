@@ -14,7 +14,7 @@ func _unhandled_input(event):
 		_on_start_button_pressed()
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/home_world.tscn")
+	get_tree().change_scene_to_file("res://worlds/introworld/scenes/intro_level.tscn")
 	
 func _on_quit_button_pressed():
 	get_tree().quit()

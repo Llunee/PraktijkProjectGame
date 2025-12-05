@@ -17,6 +17,7 @@
 script = ExtResource("1_jjqr7")
 
 [node name="Player" parent="." instance=ExtResource("2_pd26j")]
+unique_name_in_owner = true
 position = Vector2(383, 449)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
