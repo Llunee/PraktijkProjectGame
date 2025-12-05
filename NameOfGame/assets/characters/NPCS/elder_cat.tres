@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c1lsgb7vbtmxh"]
+
+[ext_resource type="Texture2D" uid="uid://bren6ee8axujm" path="res://assets/characters/NPCS/elder-cat.png" id="1_4obol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8e8b"]
+atlas = ExtResource("1_4obol")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0wop"]
+atlas = ExtResource("1_4obol")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r1m2"]
+atlas = ExtResource("1_4obol")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i16nm"]
+atlas = ExtResource("1_4obol")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omrjr"]
+atlas = ExtResource("1_4obol")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk2tg"]
+atlas = ExtResource("1_4obol")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8e8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0wop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r1m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i16nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omrjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk2tg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
