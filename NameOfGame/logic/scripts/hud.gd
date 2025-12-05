@@ -5,6 +5,7 @@ extends Control
 
 @onready var hearts_parent = $HBoxContainer
 @onready var coin_label = $CoinLabel
+@onready var wave_timer = $WaveTimer
 
 var hearts_list : Array[TextureRect]
 
@@ -30,4 +31,9 @@ func reset_health():
 	update_hearts_display()
 	
 func update_coins():
+	coin_label.text = "[wave amp=40.0 freq=5.0 connected=1][color=green]" + str(PlayerData.coin_amount) + "[/color][/wave]"
+	wave_timer.start()
+
+
+func _on_wave_timer_timeout() -> void:
 	coin_label.text = str(PlayerData.coin_amount)

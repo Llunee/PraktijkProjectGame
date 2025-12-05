@@ -26,7 +26,7 @@ offset_right = 49.0
 offset_bottom = 99.0
 texture = ExtResource("5_pxja0")
 
-[node name="CoinLabel" type="Label" parent="."]
+[node name="CoinLabel" type="RichTextLabel" parent="."]
 z_index = 100
 layout_mode = 1
 anchors_preset = 1
@@ -37,7 +37,7 @@ offset_top = 59.0
 offset_right = -1027.0
 offset_bottom = 100.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 25
+bbcode_enabled = true
 text = "0"
 vertical_alignment = 1
 
@@ -63,3 +63,9 @@ stretch_mode = 3
 layout_mode = 2
 texture = ExtResource("2_lxnjo")
 stretch_mode = 3
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

@@ -74,7 +74,7 @@ tile_map_data = PackedByteArray("AAAOAP7/AAADAAIAAAAZAP3/AAACAAAAAAApAPz/AAACAAI
 tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
-position = Vector2(-3766, -73)
+position = Vector2(-3766, -77)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
