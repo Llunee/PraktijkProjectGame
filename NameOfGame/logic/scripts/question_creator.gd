@@ -1,15 +1,15 @@
 class_name Question_creator
 
-func rand_digits(d: int) -> int:
+static func rand_digits(d: int) -> int:
 	var min_val = int(pow(10, d - 1))
 	var max_val = int(pow(10, d)) - 1
 	return randi_range(min_val, max_val)
 
-func generate_question(difficulty: int) -> Dictionary:
+static func generate_question(difficulty: int) -> Dictionary:
 	# Pick operation
 	var operations = ["+", "-", "/", "*"]
 	var op = operations[randi() % operations.size()]
-
+	
 	var a: int
 	var b: int
 	var question: String

@@ -13,7 +13,7 @@ var sum_info : Dictionary
 func _ready() -> void:
 	if snake:
 		snake.connect("hit_player", Callable(self, "_on_player_hit"))
-	sum_info = Calculator.get_random_sum("EASY") # originally dependent on difficulty setting
+	sum_info = Question_creator.generate_question(2)
 	close()
 
 
@@ -38,8 +38,8 @@ func fill_labels():
 	if !sum_info:
 		close()
 	
-	number_one_label.text = str(sum_info["number_one"])
-	number_two_label.text = str(sum_info["number_two"])
+	number_one_label.text = str(sum_info["a"])
+	number_two_label.text = str(sum_info["b"])
 	operator_label.text = str(sum_info["operator"])
 	line_edit.text = ""
 
@@ -54,6 +54,6 @@ func _on_answer_text_submitted(answer: String) -> void:
 		
 		
 func _on_player_hit():
-	sum_info = Calculator.get_random_sum("EASY")
+	sum_info = Question_creator.generate_question(2)
 	fill_labels()
 	open()
