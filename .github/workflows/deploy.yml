@@ -22,6 +22,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Open and import files
+        run: godot --headless --editor --quit --import .
+
       - name: Move HTML5 templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
