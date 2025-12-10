@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 func open():
 	get_tree().paused = true
-	print("pause")
+	
 	visible = true
 	is_open = true
 	
