@@ -1,0 +1,13 @@
+[
+  { "text": "Hé avonturier! Ik heb jouw hulp nodig!, Overal verschijnen paarse crystals en ik wil ze graag onderzoeken." },
+  { "text": "Denk je dat je er 5 voor me kunt vinden?" },
+
+  { "event": "SPAWN_CRYSTALS" },
+
+  { "text": "Je hebt ze allemaal gevonden!" },
+  { "text": "Maar… om zeker te weten dat je slim genoeg bent voor de volgende safari-quests, moet je twee opdrachten oplossen!" },
+
+  { "event": "START_SUMS" },
+
+  { "text": "Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!" }
+]

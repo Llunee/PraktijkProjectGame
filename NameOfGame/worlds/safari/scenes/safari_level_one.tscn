@@ -1,20 +1,23 @@
-[gd_scene load_steps=16 format=4 uid="uid://dptvao563xn4e"]
+[gd_scene load_steps=19 format=4 uid="uid://dptvao563xn4e"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_8xs48"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_fnves"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="2_gbq4e"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="2_x57a3"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="3_gbq4e"]
+[ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="3_k8ycn"]
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="4_8xs48"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="5_dfh5s"]
 [ext_resource type="PackedScene" uid="uid://chcb21jm423ut" path="res://worlds/safari/scenes/hippo_swim.tscn" id="6_fax6y"]
-[ext_resource type="Texture2D" uid="uid://bkg1p34j53lpc" path="res://assets/characters/NPCS/safari/giraffe.png" id="7_k8ycn"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_x57a3"]
 [ext_resource type="Texture2D" uid="uid://v08ikb71k81m" path="res://assets/characters/NPCS/safari/elephant.png" id="8_cd74u"]
 [ext_resource type="Texture2D" uid="uid://df5o8rd8rya7x" path="res://assets/characters/NPCS/safari/ostrich.png" id="9_5qiaw"]
 [ext_resource type="Texture2D" uid="uid://gdjhxmg3klh1" path="res://assets/characters/NPCS/safari/hippo.png" id="10_fs1hd"]
 [ext_resource type="Texture2D" uid="uid://c7gvseyrj63a3" path="res://assets/characters/NPCS/safari/happy_elephant.png" id="11_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
+[ext_resource type="PackedScene" uid="uid://dcnxh3vhj2lra" path="res://inventory/scenes/purple_crystal.tscn" id="15_fax6y"]
+[ext_resource type="PackedScene" uid="uid://bxpk3g775uy2k" path="res://worlds/safari/scenes/giraffe_first_quest.tscn" id="16_fax6y"]
+[ext_resource type="Script" uid="uid://cq8lp4j12y3jp" path="res://worlds/safari/scripts/giraffe_first_quest.gd" id="18_cd74u"]
 
 [node name="SafariLevelOne" type="Node2D"]
 
@@ -28,6 +31,11 @@ offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
 snake = NodePath("../../Snake")
+
+[node name="DialogUI" parent="HUD" instance=ExtResource("3_k8ycn")]
+visible = false
+offset_top = -200.0
+dialog_script = "res://logic/scripts/JSON/first_quest_safari_world.json"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -58,6 +66,7 @@ tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAAAD8/wMAAAADAAEAAAD7/wMAAAACAAE
 tile_set = ExtResource("4_8xs48")
 
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
+unique_name_in_owner = true
 position = Vector2(-1566, 178)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
@@ -69,31 +78,38 @@ player = NodePath("../Player")
 SPEED = 150
 CHASE_SPEED = 300
 
-[node name="Giraffe" type="Sprite2D" parent="."]
-position = Vector2(376, 213)
-scale = Vector2(2.65625, 2.65625)
-texture = ExtResource("7_k8ycn")
-
 [node name="Elephant" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(472, 216)
 scale = Vector2(2.5625, 2.5625)
 texture = ExtResource("8_cd74u")
 
 [node name="Ostrich" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(566, 225)
 scale = Vector2(2, 2)
 texture = ExtResource("9_5qiaw")
 
 [node name="Hippo" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(639, 225)
 scale = Vector2(2, 2)
 texture = ExtResource("10_fs1hd")
 
 [node name="Happy_elephant" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(712, 215.99998)
 scale = Vector2(2.563, 2.563)
 texture = ExtResource("11_5wcrv")
 
+[node name="purple_crystal" parent="." instance=ExtResource("15_fax6y")]
+position = Vector2(-591, 240)
+
 [node name="SafariPortal" parent="." instance=ExtResource("15_dfh5s")]
-position = Vector2(8760, 64)
+position = Vector2(8757, 65)
 target_scene_path = "res://worlds/safari/scenes/safari_level_two.tscn"
+
+[node name="Giraffe" parent="." node_paths=PackedStringArray("dialog_ui") instance=ExtResource("16_fax6y")]
+position = Vector2(-398, 253)
+script = ExtResource("18_cd74u")
+dialog_ui = NodePath("../HUD/DialogUI")

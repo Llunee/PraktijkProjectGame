@@ -47,6 +47,7 @@ process_mode = 3
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("9_kclwk")]
 unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
 
 [node name="DialogUI" parent="CanvasLayer" instance=ExtResource("10_81cnt")]
 visible = false

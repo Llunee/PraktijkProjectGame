@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxpk3g775uy2k"]
+
+[ext_resource type="Texture2D" uid="uid://bkg1p34j53lpc" path="res://assets/characters/NPCS/safari/giraffe.png" id="1_1w6gm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w6gm"]
+size = Vector2(23.717667, 32.800034)
+
+[node name="Giraffe" type="Area2D"]
+scale = Vector2(2.65625, 2.65625)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.1411753, -17.57647)
+scale = Vector2(1.160294, 1.160294)
+texture = ExtResource("1_1w6gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.588231, -15.599997)
+scale = Vector2(0.9999989, 0.9999989)
+shape = SubResource("RectangleShape2D_1w6gm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -17.694
+offset_top = -59.482
+offset_right = 18.272
+offset_bottom = 0.79600143
+metadata/_edit_use_anchors_ = true
+
+[node name="PressELabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.77500004
+anchor_top = 0.287
+anchor_right = 2.125
+anchor_bottom = 0.287
+offset_left = 0.014703751
+offset_top = -18.053082
+offset_right = -0.0043411255
+offset_bottom = 18.088093
+grow_horizontal = 2
+text = "Hallo Speler!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
