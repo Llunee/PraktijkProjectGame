@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="8_mh43n"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="9_pd26j"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
-[ext_resource type="Script" uid="uid://3nbeb334ac0" path="res://characters/scripts/mentor.gd" id="12_1vnqv"]
+[ext_resource type="Script" uid="uid://dh4qovolcigil" path="res://characters/scripts/mentor_home.gd" id="12_1vnqv"]
 [ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="13_5p35a"]
 
 [node name="HomeWorld" type="Node2D"]
@@ -55,10 +55,9 @@ position = Vector2(-505, 424)
 [node name="IcePortal" parent="." instance=ExtResource("8_mh43n")]
 position = Vector2(-1720, 96)
 
-[node name="Mentor" parent="." node_paths=PackedStringArray("dialog_ui") instance=ExtResource("11_2133q")]
+[node name="Mentor" parent="." instance=ExtResource("11_2133q")]
 position = Vector2(230, 456.00003)
 script = ExtResource("12_1vnqv")
-dialog_ui = NodePath("../CanvasLayer/DialogUI")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
