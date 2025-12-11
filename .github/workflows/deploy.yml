@@ -1,51 +1,47 @@
-name: "Publish to GitHub Pages"
+# This is a basic workflow to help you get started with Actions
+name: Itch Build and Deploy
 
-env:
-  GODOT_VERSION: 4.5
-
+# Controls when the workflow will run
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
-    branches:
-      - main
-
+      branches:
+        - main
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
+  html:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
-    container:
-      image: barichello/godot-ci:4.5
-
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Setup Godot
+        uses: solarlabyrinth/action-setup-godot@v2
+        with:
+          version: 4.5.1-stable
+
+      - name: Setup butler
+        uses: remarkablegames/setup-butler@v1
+
+      - name: Create export dir
+        run: |
+          # Ensure export folders exist both at repo root and inside the project folder
+          mkdir -p ./build/web
+          mkdir -p ./NameOfGame/build/web
 
       - name: Open and import files
         run: godot --headless --editor --quit --import .
 
-      - name: Move HTML5 templates into position
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-      - name: Create staging directory
-        run: mkdir -v -p build/web
+      - name: Export game for web
+        run:  |
+          cd NameOfGame
+          godot --headless --export-release "Web" ./build/web/index.html
 
-      - name: Build
-        run: godot -v --export-release --headless "Web" ../build/web/index.html NameOfGame/project.godot
-
-      - name: Add coi-service-worker
-        run: |
-          git clone https://github.com/gzuidhof/coi-serviceworker.git
-          mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
-          sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3.9.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
-          force_orphan: true
-          user_name: "github-ci[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_message: "Publish to gh-pages"
+      - name: Upload to itch.io
+        run: butler push build/web llunalemon/animal-math-quest:html5
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
