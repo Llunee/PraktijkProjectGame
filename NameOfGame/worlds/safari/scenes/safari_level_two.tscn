@@ -126,7 +126,7 @@ position = Vector2(9281, 168)
 player = NodePath("../Player")
 
 [node name="lion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_bpl0m")]
-position = Vector2(22287, -238)
+position = Vector2(22390, -238)
 player = NodePath("../Player")
 
 [node name="RedCoinSpawns" type="Node" parent="."]

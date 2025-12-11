@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://cwmhihcav1au0" path="res://enemies/scripts/lion.gd" id="1_faw4g"]
 [ext_resource type="AudioStream" uid="uid://riee4ndwxvu8" path="res://assets/sounds/‬lion_sound.mp3" id="3_02b2i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6alvn"]
-radius = 48.09366
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02b2i"]
+radius = 77.0
+height = 480.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_faw4g"]
-radius = 204.08821
+radius = 240.10414
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_02b2i"]
-radius = 87.0
+radius = 156.20499
 
 [node name="lion" type="CharacterBody2D"]
 script = ExtResource("1_faw4g")
@@ -23,7 +24,7 @@ texture = ExtResource("1_41ojy")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_6alvn")
+shape = SubResource("CapsuleShape2D_02b2i")
 
 [node name="AreaLion" type="Area2D" parent="."]
 
