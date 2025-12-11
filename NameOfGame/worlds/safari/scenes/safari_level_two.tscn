@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dbvkdctskuxbo"]
+[gd_scene load_steps=15 format=4 uid="uid://dbvkdctskuxbo"]
 
 [ext_resource type="Script" uid="uid://blx57afjwh712" path="res://worlds/safari/scenes/safari_level_two.gd" id="1_mfu4k"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_sja4e"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="6_008j7"]
 [ext_resource type="PackedScene" uid="uid://glehll8w5uql" path="res://enemies/scenes/cactus_enemy.tscn" id="7_hm0sf"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="10_ix4rs"]
+[ext_resource type="PackedScene" uid="uid://dbmsyv6ys1r6u" path="res://enemies/scenes/lion.tscn" id="14_bpl0m"]
 
 [node name="SafariLevelTwo" type="Node2D"]
 script = ExtResource("1_mfu4k")
@@ -24,11 +25,12 @@ red_coin_scene = ExtResource("3_bpl0m")
 [node name="HUD" parent="HUD" instance=ExtResource("1_whq2m")]
 unique_name_in_owner = true
 
-[node name="SumUI" parent="HUD" instance=ExtResource("2_ix4rs")]
+[node name="SumUI" parent="HUD" node_paths=PackedStringArray("lion") instance=ExtResource("2_ix4rs")]
 offset_left = 467.0
 offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
+lion = NodePath("../../lion")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -121,6 +123,10 @@ player = NodePath("../Player")
 
 [node name="Snake3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(9281, 168)
+player = NodePath("../Player")
+
+[node name="lion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_bpl0m")]
+position = Vector2(22390, -238)
 player = NodePath("../Player")
 
 [node name="RedCoinSpawns" type="Node" parent="."]

@@ -9,11 +9,15 @@ signal dialog_closed
 
 var dialog_lines = []
 var dialog_index = 0
+var dialog_opened : bool = false
 
 func _ready() -> void:
 	close_button.pressed.connect(_on_close_button_pressed)
 
 func _process(delta: float) -> void:
+	if not dialog_opened:
+		return
+	
 	if Input.is_action_just_pressed("talk") or Input.is_action_just_pressed("read"):
 		change_line()
 
@@ -27,10 +31,12 @@ func change_line():
 		close_dialog()
 
 func open_dialog():
+	dialog_opened = true
 	dialog_lines = load_script(dialog_script)
 	visible = true
 
 func close_dialog():
+	dialog_opened = false
 	visible = false
 	emit_signal("dialog_closed")
 
