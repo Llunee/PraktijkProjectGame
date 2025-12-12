@@ -1,34 +1,43 @@
-if {firstQuest} == true:
-	jump quest_return
-join giraffe right
-giraffe: Hé avonturier! Ik heb jouw hulp nodig!
-join purple_crystal center
-giraffe: Overal verschijnen paarse kristallen en ik wil ze graag onderzoeken.
-giraffe: Denk je dat je er 5 voor me kunt vinden?
-leave purple_crystal
-- Ja, ga ik doen!
-	giraffe: Je bent een topper!
-- Nee ga ik niet doen
-	jump 
-label quest_start
-[signal arg="firstQuest"]
+label firstQuest_intro
+if {firstQuest_active} == false:
+    join giraffe right
+    giraffe: Hé avonturier! Ik heb jouw hulp nodig!
+    join purple_crystal center
+    giraffe: Overal verschijnen paarse kristallen en ik wil ze graag onderzoeken.
+    giraffe: Denk je dat je er 5 voor me kunt vinden?
+    leave purple_crystal
+    - Ja, ga ik doen!
+        set {firstQuest_active} = true
+        jump quest_return
+    - Nee ga ik niet doen
+        jump end_dialog
 [end_timeline]
+
 label quest_return
-if {quest_objective_met} == false:
-	giraffe: Je hebt nog niet genoeg paarse kristallen.
-	[end_timeline]
-if {quest_objective_met} == true:
-	Bruno: Je hebt ze allemaal gevonden!" Nu de laatste test\: Wat is 21 + 15
-	- 37
-		jump Fout
-	- 36
-		jump Goed
-	- 35
-		jump Fout
-label Goed
-Bruno: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
-set {firstQuest} = false
+if {firstQuest_current} < 5:
+    giraffe: Je hebt nog niet genoeg paarse kristallen.
+    [end_timeline]
+
+if {firstQuest_current} >= 5:
+    giraffe: Je hebt ze allemaal gevonden! Nu de laatste test: Wat is 21 + 15?
+    - 37
+        jump Fout
+    - 36
+        jump Goed
+    - 35
+        jump Fout
 [end_timeline]
+
+label Goed
+giraffe: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
+set {firstQuest_complete} = true
+set {firstQuest_active} = false
+[end_timeline]
+
 label Fout
-Bruno: Helaas, dat is niet het juist. Denk nog even na!
+giraffe: Helaas, dat is niet correct. Denk nog even na!
 jump quest_return
+
+label end_dialog
+giraffe: Oké, misschien later!
+[end_timeline]

@@ -61,8 +61,10 @@ text/autopauses={}
 audio/channel_defaults={}
 variables={
 "firstQuest": false,
-"purple_crystal_collected": 0,
-"quest_objective_met": false
+"firstQuest_active": false,
+"firstQuest_complete": false,
+"firstQuest_current": 0,
+"purple_crystal_collected": 0
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/Dialogic_Styles/custom_styles.tres"]
