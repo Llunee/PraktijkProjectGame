@@ -27,12 +27,15 @@ PlayerData="*res://characters/scripts/PlayerData.gd"
 directories/dch_directory={
 "baobuns": "res://characters/dialogic_plugin/charactersNPC_dialogic/baobuns.dch",
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
+"elephant": "res://characters/dialogic_plugin/charactersNPC_dialogic/elephant.dch",
 "giraffe": "res://characters/dialogic_plugin/charactersNPC_dialogic/giraffe.dch",
 "mentor": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor.dch",
+"mouse": "res://characters/dialogic_plugin/charactersNPC_dialogic/mouse.dch",
 "portals": "res://characters/dialogic_plugin/portals_dialogic/portals.dch",
 "purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch"
 }
 directories/dtl_directory={
+"elephant_mouse_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_mouse_quest.dtl",
 "firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
 "introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl"
 }
@@ -60,6 +63,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 audio/channel_defaults={}
 variables={
+"anwser_sum": 0,
 "firstQuest": false,
 "purple_crystal_collected": 0,
 "quest_objective_met": false

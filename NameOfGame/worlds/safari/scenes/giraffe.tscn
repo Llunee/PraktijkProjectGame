@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbum5vueic20f"]
+[gd_scene load_steps=6 format=3 uid="uid://bbum5vueic20f"]
 
 [ext_resource type="Script" uid="uid://ddcxv0brjpolj" path="res://worlds/safari/scripts/giraffe.gd" id="1_4k7xm"]
 [ext_resource type="Texture2D" uid="uid://bkg1p34j53lpc" path="res://assets/characters/NPCS/safari/giraffe.png" id="1_gyvjj"]
+[ext_resource type="Texture2D" uid="uid://c38umsqte0qy2" path="res://assets/ui/mark.png" id="3_f1vrq"]
+[ext_resource type="Script" uid="uid://mqwgdb56g7vj" path="res://logic/scripts/interact_icon.gd" id="3_lcepl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gyvjj"]
 radius = 12.047058
@@ -16,3 +18,10 @@ texture = ExtResource("1_gyvjj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gyvjj")
+
+[node name="InteractIcon" type="Node2D" parent="."]
+script = ExtResource("3_lcepl")
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractIcon"]
+position = Vector2(0, -29.268291)
+texture = ExtResource("3_f1vrq")
