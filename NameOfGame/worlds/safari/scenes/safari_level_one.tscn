@@ -65,6 +65,7 @@ scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("12_k8ycn")
 
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
+unique_name_in_owner = true
 position = Vector2(-1566, 178)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
