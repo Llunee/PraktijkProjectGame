@@ -1,9 +1,14 @@
 class_name Question_creator
 
-static func rand_digits(d: int) -> int:
+static func rand_digits(d: int, operator: String) -> int:
 	var min_val = int(pow(10, d - 1))
 	var max_val = int(pow(10, d)) - 1
-	return randi_range(min_val, max_val)
+	var value = randi_range(min_val, max_val)
+	
+	if operator == "+" or operator == "-":
+		return value
+		
+	return int(round(value / 10)) * 10
 
 static func generate_question(difficulty: int) -> Dictionary:
 	# Pick operation
@@ -16,14 +21,14 @@ static func generate_question(difficulty: int) -> Dictionary:
 	var answer: int
 
 	if op == "+":
-		a = rand_digits(difficulty)
-		b = rand_digits(difficulty)
+		a = rand_digits(difficulty, op)
+		b = rand_digits(difficulty, op)
 		answer = a + b
 		question = "%d + %d" % [a, b]
 
 	elif op == "-":
-		a = rand_digits(difficulty)
-		b = rand_digits(difficulty)
+		a = rand_digits(difficulty, op)
+		b = rand_digits(difficulty, op)
 		if b > a:
 			var tmp = a
 			a = b
@@ -37,7 +42,7 @@ static func generate_question(difficulty: int) -> Dictionary:
 	# ---------------------------
 	elif op == "/":
 		answer = randi_range(1, 9)   # keep division kid-friendly
-		b = rand_digits(difficulty)
+		b = rand_digits(difficulty, op) / 10 # make sure it doesn't ask things like 200/50
 		a = answer * b               # ensures a / b = answer
 		question = "%d / %d" % [a, b]
 
@@ -46,17 +51,16 @@ static func generate_question(difficulty: int) -> Dictionary:
 	# Ensures the result has <difficulty> digits
 	# ---------------------------
 	else:
+		b = randi_range(2, 12)
+
 		var min_res = int(pow(10, difficulty - 1))
 		var max_res = int(pow(10, difficulty)) - 1
-		answer = randi_range(min_res, max_res)
 
-		# Try to find a factorization with manageable numbers
-		# Pick a divisor b and compute a = answer / b
-		while true:
-			b = randi_range(2, 12)  # kid-friendly multiplier
-			if answer % b == 0:
-				a = answer / b
-				break
+		var min_a = int(ceil(min_res / float(b)))
+		var max_a = int(floor(max_res / float(b)))
+
+		a = randi_range(min_a, max_a)
+		answer = a * b
 
 		question = "%d * %d" % [a, b]
 

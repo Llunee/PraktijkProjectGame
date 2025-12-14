@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=4 uid="uid://dyglbqaart5xc"]
+
+[ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_0h4rn"]
+[ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="2_sssqc"]
+[ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="3_sssqc"]
+[ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="4_52ast"]
+[ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="5_4w5v8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAGAAIAAAACAAAAAAAHAAIAAAACAAAAAAAIAAIAAAACAAAAAAAJAAIAAAACAAAAAAAKAAIAAAACAAAAAAALAAIAAAACAAAAAAAMAAIAAAACAAAAAAANAAIAAAACAAAAAAAOAAIAAAACAAAAAAAPAAIAAAACAAAAAAAQAAIAAAACAAAAAAARAAIAAAACAAAAAAASAAIAAAACAAAAAAATAAIAAAACAAAAAAAUAAIAAAACAAAAAAAVAAIAAAACAAAAAAAWAAIAAAACAAAAAAAXAAIAAAACAAAAAAAYAAIAAAACAAAAAAAZAAIAAAACAAAAAAAaAAIAAAACAAAAAAAbAAIAAAACAAAAAAAcAAIAAAACAAAAAAAdAAIAAAACAAAAAAAeAAIAAAACAAAAAAAfAAIAAAACAAAAAAAgAAIAAAACAAAAAAAhAAIAAAACAAAAAAAiAAIAAAACAAAAAAAjAAIAAAACAAAAAAAkAAIAAAACAAAAAAAlAAIAAAACAAAAAAAmAAIAAAACAAAAAAAnAAIAAAACAAAAAAAoAAIAAAACAAAAAAApAAIAAAACAAAAAAAqAAIAAAACAAAAAAArAAIAAAACAAAAAAAsAAIAAAACAAAAAAAtAAIAAAACAAAAAAAuAAIAAAACAAAAAAAvAAIAAAACAAAAAAAwAAIAAAACAAAAAAAxAAIAAAACAAAAAAAyAAIAAAACAAAAAAAzAAIAAAACAAAAAAA0AAIAAAACAAAAAAA1AAIAAAACAAAAAAA2AAIAAAACAAAAAAA3AAIAAAACAAAAAAA4AAIAAAACAAAAAAA5AAIAAAACAAAAAAA6AAIAAAACAAAAAAA7AAIAAAACAAAAAAA8AAIAAAACAAAAAAA9AAIAAAACAAAAAAA+AAIAAAACAAAAAAA/AAIAAAACAAAAAAA=")
+tile_set = ExtResource("1_0h4rn")
+
+[node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(1746, 25)
+player = NodePath("../Player")
+
+[node name="Snake2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(1385, 26)
+player = NodePath("../Player")
+
+[node name="Snake3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(1101, 25)
+player = NodePath("../Player")
+
+[node name="Snake4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(847, 23)
+player = NodePath("../Player")
+
+[node name="Snake5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(607, 25)
+player = NodePath("../Player")
+
+[node name="Snake6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(415, 23)
+player = NodePath("../Player")
+
+[node name="Snake7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_sssqc")]
+position = Vector2(283, 13)
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_sssqc")]
+position = Vector2(40, 17)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_52ast")]
+
+[node name="SumUI" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake")
+
+[node name="SumUI2" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake2")
+
+[node name="SumUI3" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake3")
+
+[node name="SumUI4" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake4")
+
+[node name="SumUI5" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake5")
+
+[node name="SumUI6" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake6")
+
+[node name="SumUI7" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("5_4w5v8")]
+offset_left = 489.0
+offset_top = 367.0
+offset_right = 713.0
+offset_bottom = 437.0
+snake = NodePath("../../Snake7")
