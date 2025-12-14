@@ -1,3 +1,6 @@
+if {quest_elephant_mouse} == "completed":
+	elephant: Deze taak heb je al voltooid, avonturier!
+	[end_timeline]
 [signal arg="freeze_player"]
 join mouse right
 mouse: Meneer de olifant, je zat weer op mijn kaas!
@@ -36,6 +39,7 @@ elephant: Wat is 318+37
 if {anwser_sum} == "355":
 	mouse: Krijg ik nu een nieuwe kaas?
 	elephant: Zeker weten!
+	set {quest_elephant_mouse} = "completed"
 	[signal arg="add_coins"]
 	[signal arg="unfreeze_player"]
 else:
