@@ -66,6 +66,8 @@ variables={
 "anwser_sum": 0,
 "firstQuest": false,
 "purple_crystal_collected": 0,
+"quest_elephant_mouse": "",
+"quest_giraffe": "",
 "quest_objective_met": false
 }
 glossary/default_case_sensitive=true

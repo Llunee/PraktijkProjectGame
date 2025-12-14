@@ -1,3 +1,6 @@
+if {quest_giraffe} == "completed":
+	giraffe: Deze taak heb je al voltooid, avonturier!
+	[end_timeline]
 if {firstQuest} == true:
 	jump quest_return
 [signal arg="freeze_player"]
@@ -9,6 +12,7 @@ giraffe: Denk je dat je er 5 voor me kunt vinden?
 leave purple_crystal
 - Ja, ga ik doen!
 	giraffe: Je bent een topper!
+	set {quest_giraffe} = "active"
 	[signal arg="unfreeze_player"]
 - Nee ga ik niet doen
 	jump 
@@ -16,6 +20,8 @@ label quest_start
 [signal arg="firstQuest"]
 [end_timeline]
 label quest_return
+if {quest_giraffe} != "active":
+	[end_timeline]
 if {quest_objective_met} == false:
 	giraffe: Je hebt nog niet genoeg paarse kristallen.
 	[end_timeline]
@@ -29,6 +35,8 @@ if {quest_objective_met} == true:
 	- 35
 		jump Fout
 label Goed
+label quest_complete
+set {quest_giraffe} = "completed"
 [signal arg="add_coins"]
 giraffe: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
 [signal arg="unfreeze_player"]

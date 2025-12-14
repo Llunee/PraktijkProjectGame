@@ -18,8 +18,11 @@ func _input(event: InputEvent) -> void:
 func _on_body_entered(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = true
-		interact_icon.visible = true
 		print("Druk op 'E' om te praten.")
+		if not is_quest_completed():
+			interact_icon.visible = true
+		else:
+			interact_icon.visible = false
 
 func _on_body_exited(body) -> void:
 	if body.name == "Player":
@@ -39,3 +42,6 @@ func _on_dialogic_signal(signal_name: String) -> void:
 		elif signal_name == "unfreeze_player":
 			player.set_physics_process(true)
 			is_chatting = false
+
+func is_quest_completed() -> bool:
+	return Dialogic.VAR.get("quest_elephant_mouse") == "completed"
