@@ -13,7 +13,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if is_player_in_range and event.is_action_pressed("talk"):
 		print("talk")
-		run_dialog("firstQuest")
+		run_dialog("elephant_mouse_quest")
 
 func _on_body_entered(body) -> void:
 	if body.name == "Player":

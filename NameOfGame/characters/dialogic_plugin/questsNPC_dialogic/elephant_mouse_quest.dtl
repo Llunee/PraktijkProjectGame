@@ -1,0 +1,43 @@
+[signal arg="freeze_player"]
+join mouse right
+mouse: Meneer de olifant, je zat weer op mijn kaas!
+join elephant center
+elephant: Oeps… dat was niet expres. Ik ben gewoon… groot.
+mouse: Ja, maar groot zijn betekent niet dat je altijd gelijk hebt!
+elephant: Oh nee? Ik ben tien keer zo groot als jij!
+mouse: Misschien… maar wie is slimmer?
+elephant: Dat weet ik niet. Zullen we het eerlijk oplossen?
+mouse: Ja! Met… REKENSOMMEN!
+leave mouse
+label back_to_sum_1
+elephant: Wat is 12 + 16?
+[text_input text="12 + 16 = ..." var="anwser_sum"]
+if {anwser_sum} == "28":
+	elephant: Dat is goed!
+else:
+	elephant: We kunnen het!
+	jump back_to_sum
+label back_to_sum_2
+leave elephant
+join mouse right
+mouse: Wat is 3 x 4?
+[text_input var="anwser_sum"]
+if {anwser_sum} == "12":
+	mouse: Goed gedaan!
+else:
+	mouse: Hint wat is 3 + 3 + 3 + 3?
+	jump back_to_sum_2
+join elephant center
+elephant: Lekker bezig!!
+mouse: Nog 1 laatse vraag!!!
+label back_to_sum_3
+elephant: Wat is 318+37
+[text_input var="anwser_sum"]
+if {anwser_sum} == "355":
+	mouse: Krijg ik nu een nieuwe kaas?
+	elephant: Zeker weten!
+	[signal arg="add_coins"]
+	[signal arg="unfreeze_player"]
+else:
+	mouse: Je kan dit!
+	jump back_to_sum_3

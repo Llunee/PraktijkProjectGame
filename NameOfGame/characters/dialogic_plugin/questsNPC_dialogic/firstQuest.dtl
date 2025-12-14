@@ -1,5 +1,6 @@
 if {firstQuest} == true:
 	jump quest_return
+[signal arg="freeze_player"]
 join giraffe right
 giraffe: Hé avonturier! Ik heb jouw hulp nodig!
 join purple_crystal center
@@ -8,6 +9,7 @@ giraffe: Denk je dat je er 5 voor me kunt vinden?
 leave purple_crystal
 - Ja, ga ik doen!
 	giraffe: Je bent een topper!
+	[signal arg="unfreeze_player"]
 - Nee ga ik niet doen
 	jump 
 label quest_start
@@ -18,7 +20,8 @@ if {quest_objective_met} == false:
 	giraffe: Je hebt nog niet genoeg paarse kristallen.
 	[end_timeline]
 if {quest_objective_met} == true:
-	Bruno: Je hebt ze allemaal gevonden!" Nu de laatste test\: Wat is 21 + 15
+	[signal arg="freeze_player"]
+	giraffe: Je hebt ze allemaal gevonden!" Nu de laatste test\: Wat is 21 + 15
 	- 37
 		jump Fout
 	- 36
@@ -26,9 +29,11 @@ if {quest_objective_met} == true:
 	- 35
 		jump Fout
 label Goed
-Bruno: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
+[signal arg="add_coins"]
+giraffe: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
+[signal arg="unfreeze_player"]
 set {firstQuest} = false
 [end_timeline]
 label Fout
-Bruno: Helaas, dat is niet het juist. Denk nog even na!
+giraffe: Helaas, dat is niet het juist. Denk nog even na!
 jump quest_return
