@@ -29,6 +29,8 @@ directories/dch_directory={
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
 "elephant": "res://characters/dialogic_plugin/charactersNPC_dialogic/elephant.dch",
 "giraffe": "res://characters/dialogic_plugin/charactersNPC_dialogic/giraffe.dch",
+"hippo": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo.dch",
+"hippo_grass": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo_grass.dch",
 "mentor": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor.dch",
 "mouse": "res://characters/dialogic_plugin/charactersNPC_dialogic/mouse.dch",
 "portals": "res://characters/dialogic_plugin/portals_dialogic/portals.dch",
@@ -37,6 +39,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "elephant_mouse_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_mouse_quest.dtl",
 "firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
+"hippo_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/hippo_quest.dtl",
 "introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl"
 }
 layout/style_directory={
@@ -65,9 +68,12 @@ audio/channel_defaults={}
 variables={
 "anwser_sum": 0,
 "firstQuest": false,
+"hippoQuest": false,
+"hippo_grass_collected": 0,
 "purple_crystal_collected": 0,
 "quest_elephant_mouse": "",
 "quest_giraffe": "",
+"quest_hippo": "",
 "quest_objective_met": false
 }
 glossary/default_case_sensitive=true
