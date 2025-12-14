@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbmsyv6ys1r6u"]
+
+[ext_resource type="Texture2D" uid="uid://bp6aaghcwyne1" path="res://assets/characters/enemies/lion/angry_lion.png" id="1_41ojy"]
+[ext_resource type="Script" uid="uid://cwmhihcav1au0" path="res://enemies/scripts/lion.gd" id="1_faw4g"]
+[ext_resource type="AudioStream" uid="uid://riee4ndwxvu8" path="res://assets/sounds/‬lion_sound.mp3" id="3_02b2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02b2i"]
+radius = 77.0
+height = 480.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_faw4g"]
+radius = 240.10414
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02b2i"]
+radius = 156.20499
+
+[node name="lion" type="CharacterBody2D"]
+script = ExtResource("1_faw4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, -24)
+scale = Vector2(2.234375, 2.234375)
+texture = ExtResource("1_41ojy")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_02b2i")
+
+[node name="AreaLion" type="Area2D" parent="."]
+
+[node name="CollisionShapeSound" type="CollisionShape2D" parent="AreaLion"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_faw4g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AreaLion"]
+position = Vector2(-12, -8)
+stream = ExtResource("3_02b2i")
+volume_db = 1.0
+
+[node name="sum2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sum2D"]
+shape = SubResource("CircleShape2D_02b2i")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://rdcqwo7ams75"]
+
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_oixmp"]
+[ext_resource type="Script" uid="uid://bikt01nttu658" path="res://logic/scripts/dialog_ui.gd" id="2_dy63b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy63b"]
+bg_color = Color(0, 0, 0, 0.227451)
+shadow_color = Color(0, 0, 0, 0.227451)
+shadow_size = 12
+
+[node name="DialogUI" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_oixmp")
+script = ExtResource("2_dy63b")
+metadata/_edit_group_ = true
+
+[node name="shadow" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy63b")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is the dialog box :D
+This is an enter!
+"
+
+[node name="CloseButton" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = -32.0
+offset_bottom = 48.0
+grow_horizontal = 0

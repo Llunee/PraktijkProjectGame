@@ -1,32 +1,20 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cghoexrjpxrh2"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cghoexrjpxrh2"]
 
+[ext_resource type="Texture2D" uid="uid://db81tyxhcoedn" path="res://assets/ui/close.png" id="1_hbfgb"]
 [ext_resource type="FontFile" uid="uid://ba3bjnbsyad4e" path="res://assets/fonts/BoldPixels.ttf" id="1_k5lm2"]
 [ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="2_h6ia1"]
+[ext_resource type="Texture2D" uid="uid://bo6doan2dsneq" path="res://assets/ui/dialog_box.png" id="4_v6eyv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ia1"]
-bg_color = Color(0.3536414, 0.23403358, 0.10829962, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffde8"]
+texture = ExtResource("1_hbfgb")
+modulate_color = Color(0.92581546, 0.797468, 0.7722842, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhwv2"]
-bg_color = Color(0.5711108, 0.39263383, 0.20325607, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6ega"]
+texture = ExtResource("1_hbfgb")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37kwd"]
-modulate_color = Color(0.230315, 0.230315, 0.230315, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gpds"]
+texture = ExtResource("1_hbfgb")
+modulate_color = Color(0.45436192, 0.25568733, 0.22366035, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf7g0"]
 bg_color = Color(0.4, 0.223529, 0.192157, 0.839216)
@@ -57,6 +45,7 @@ content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
 content_margin_bottom = 20.0
+texture = ExtResource("4_v6eyv")
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -64,9 +53,9 @@ Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 24
 Button/fonts/font = null
-Button/styles/hover = SubResource("StyleBoxFlat_h6ia1")
-Button/styles/normal = SubResource("StyleBoxFlat_bhwv2")
-Button/styles/pressed = SubResource("StyleBoxTexture_37kwd")
+Button/styles/hover = SubResource("StyleBoxTexture_ffde8")
+Button/styles/normal = SubResource("StyleBoxTexture_n6ega")
+Button/styles/pressed = SubResource("StyleBoxTexture_7gpds")
 CheckButton/colors/font_color = Color(0, 0, 0, 1)
 CheckButton/colors/font_disabled_color = Color(0, 0, 0, 0.5)
 CheckButton/colors/font_focus_color = Color(0, 0, 0, 1)

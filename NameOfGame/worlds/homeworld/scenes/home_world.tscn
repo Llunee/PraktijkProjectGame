@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://db86lj4xekvi7"]
+[gd_scene load_steps=14 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="8_mh43n"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="9_pd26j"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
-[ext_resource type="Script" uid="uid://npuf5ba631me" path="res://characters/scenes/mentor_home.gd" id="12_1vnqv"]
+[ext_resource type="Script" uid="uid://dh4qovolcigil" path="res://characters/scripts/mentor_home.gd" id="12_1vnqv"]
+[ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="13_5p35a"]
 
 [node name="HomeWorld" type="Node2D"]
 script = ExtResource("1_jjqr7")
@@ -27,12 +28,12 @@ tile_set = ExtResource("3_72xmv")
 [node name="TreeMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 position = Vector2(0, -31)
-tile_map_data = PackedByteArray("AAAwAAEAAQAAAAAAAABYAAEAAgABAAAAAABgAAEAAgABAAAAAABoAAEAAgACAAAAAABQAAEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AABRAAwAAgAAAAAAAABZAAwAAgABAAAAAABhAAwAAgACAAAAAAAwAAwAAQAAAAAAAAA2AAwAAQAAAAAAAAA=")
 tile_set = ExtResource("9_pd26j")
 
 [node name="EnvironmentMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAA2AA4AAAAAAAAAAAA3AA4AAAADAAAAAAA1AA4AAAACAAEAAAAwAA4AAAADAAIAAAAqAA4AAAADAAEAAAAsAA4AAAAAAAMAAAAtAA4AAAAAAAMAAAAuAA4AAAAAAAMAAAAxAA4AAAACAAEAAAAoAA4AAAACAAAAAAA/AA4AAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAA2AA4AAAAAAAAAAAA3AA4AAAADAAAAAAA1AA4AAAACAAEAAAAwAA4AAAADAAIAAAAqAA4AAAADAAEAAAAsAA4AAAAAAAMAAAAtAA4AAAAAAAMAAAAuAA4AAAAAAAMAAAAxAA4AAAACAAEAAAAoAA4AAAACAAAAAAA/AA4AAAACAAIAAABKAA4AAQAAAAAAAABNAA4AAQABAAEAAABOAA4AAQACAAEAAABWAA4AAQADAAAAAABXAA4AAQABAAIAAABZAA4AAQABAAEAAABaAA4AAQAAAAAAAABdAA4AAQAAAAIAAABgAA4AAQACAAEAAABhAA4AAQABAAIAAABTAA4AAQAAAAMAAABLAA4AAQADAAEAAABGAA4AAQABAAAAAABIAA4AAQACAAAAAAA=")
 tile_set = ExtResource("5_1vnqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -57,3 +58,9 @@ position = Vector2(-1720, 96)
 [node name="Mentor" parent="." instance=ExtResource("11_2133q")]
 position = Vector2(230, 456.00003)
 script = ExtResource("12_1vnqv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogUI" parent="CanvasLayer" instance=ExtResource("13_5p35a")]
+visible = false
+dialog_script = "res://logic/scripts/JSON/home_world_mentor_dialog.json"

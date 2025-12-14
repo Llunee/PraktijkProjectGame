@@ -1,14 +1,15 @@
 if {firstQuest} == true:
 	jump quest_return
-join Bruno right
-Bruno: Hey! Ik ben Bruno.
-join baobuns right
-Bruno: We bereiden een groot feest voor maar helaas hebben we nog geen Bao buns.
-Bruno: Ik heb er al 20 gemaakt, maar we hebben nog 25% extra nodig (25% van 20). Kun jij er het juiste aantal bijmaken?
-Bruno: Verzamel de juiste hoeveelheid Bao buns en kom dan bij me terug!
-leave baobuns
+[signal arg="freeze_player"]
+join giraffe right
+giraffe: Hé avonturier! Ik heb jouw hulp nodig!
+join purple_crystal center
+giraffe: Overal verschijnen paarse kristallen en ik wil ze graag onderzoeken.
+giraffe: Denk je dat je er 5 voor me kunt vinden?
+leave purple_crystal
 - Ja, ga ik doen!
-	Bruno: Je bent geweldigg!!
+	giraffe: Je bent een topper!
+	[signal arg="unfreeze_player"]
 - Nee ga ik niet doen
 	jump 
 label quest_start
@@ -16,20 +17,23 @@ label quest_start
 [end_timeline]
 label quest_return
 if {quest_objective_met} == false:
-	Bruno: Je hebt nog niet genoeg Bao Buns
+	giraffe: Je hebt nog niet genoeg paarse kristallen.
 	[end_timeline]
 if {quest_objective_met} == true:
-	Bruno: Je hebt genoeg! Nu de laatste test\: Wat is 25% van 20?
-	- 4
+	[signal arg="freeze_player"]
+	giraffe: Je hebt ze allemaal gevonden!" Nu de laatste test\: Wat is 21 + 15
+	- 37
 		jump Fout
-	- 5
+	- 36
 		jump Goed
-	- 10
+	- 35
 		jump Fout
 label Goed
-Bruno: Dat is helemaal juist! De 5 extra broodjes waren precies wat we nodig hadden! Quest volbracht!
+[signal arg="add_coins"]
+giraffe: Fantastisch! Jij wordt een echte safari-held. Tot binnenkort!!
+[signal arg="unfreeze_player"]
 set {firstQuest} = false
 [end_timeline]
 label Fout
-Bruno: Helaas, dat is niet het juist. Denk nog even na!
+giraffe: Helaas, dat is niet het juist. Denk nog even na!
 jump quest_return

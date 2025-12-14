@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpklpqqy4yf8k"]
+
+[ext_resource type="Script" uid="uid://cnvub0n22t2ov" path="res://inventory/scripts/purple_crystals.gd" id="1_0c027"]
+[ext_resource type="Texture2D" uid="uid://cab5sqdo2c3wo" path="res://assets/inventory/items/crystals/purple_crystal.png" id="1_utx6l"]
+[ext_resource type="Resource" uid="uid://d0i4n11fd0mgy" path="res://inventory/items/purple_crystals.tres" id="2_w8w64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c027"]
+size = Vector2(19, 24)
+
+[node name="PurpleCrystals" type="StaticBody2D"]
+script = ExtResource("1_0c027")
+item = ExtResource("2_w8w64")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_utx6l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_0c027")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

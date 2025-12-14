@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://d0i4n11fd0mgy"]
+
+[ext_resource type="Script" uid="uid://b1klwnavaul8r" path="res://inventory/scripts/inventory_item.gd" id="1_ic75n"]
+[ext_resource type="Texture2D" uid="uid://cab5sqdo2c3wo" path="res://assets/inventory/items/crystals/purple_crystal.png" id="2_shiiw"]
+
+[resource]
+script = ExtResource("1_ic75n")
+name = "purple_crystals"
+texture = ExtResource("2_shiiw")
+metadata/_custom_type_script = "uid://b1klwnavaul8r"

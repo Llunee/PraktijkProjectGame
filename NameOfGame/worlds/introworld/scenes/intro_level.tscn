@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d4kxsb0n5yqn8"]
+[gd_scene load_steps=14 format=4 uid="uid://d4kxsb0n5yqn8"]
 
 [ext_resource type="Script" uid="uid://0tfnrmw0hsrb" path="res://worlds/introworld/scripts/intro_level.gd" id="1_aosbt"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_q0jir"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_nmhdb"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="8_t5ni6"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="9_kclwk"]
+[ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="10_81cnt"]
 [ext_resource type="PackedScene" uid="uid://cf0orft4jtwa2" path="res://worlds/homeworld/portals/home_portal.tscn" id="10_t8pwr"]
+[ext_resource type="Texture2D" uid="uid://dwpn6v10pye8b" path="res://assets/backgrounds/title_screen.png" id="13_px1q7"]
 
 [node name="IntroLevel" type="Node2D"]
 script = ExtResource("1_aosbt")
@@ -23,9 +25,10 @@ tile_set = ExtResource("1_q0jir")
 unique_name_in_owner = true
 position = Vector2(96, 160)
 
-[node name="Mentor" parent="." instance=ExtResource("3_jjk5a")]
+[node name="Mentor" parent="." node_paths=PackedStringArray("dialog_ui") instance=ExtResource("3_jjk5a")]
 position = Vector2(190.51535, 167.78409)
 script = ExtResource("4_jjk5a")
+dialog_ui = NodePath("../CanvasLayer/DialogUI")
 
 [node name="bambooSticks" parent="." instance=ExtResource("5_aimfc")]
 position = Vector2(1262.5217, 156.79073)
@@ -45,6 +48,11 @@ process_mode = 3
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("9_kclwk")]
 unique_name_in_owner = true
 
+[node name="DialogUI" parent="CanvasLayer" instance=ExtResource("10_81cnt")]
+visible = false
+offset_top = -200.0
+dialog_script = "res://logic/scripts/JSON/intro_level_mentor_dialog.json"
+
 [node name="SumUI" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("8_t5ni6")]
 visible = false
 offset_left = 493.02557
@@ -56,3 +64,14 @@ snake = NodePath("../../Snake")
 [node name="HomePortal" parent="." instance=ExtResource("10_t8pwr")]
 z_index = -1
 position = Vector2(3044, 128)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_px1q7")
