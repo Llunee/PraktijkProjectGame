@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmrdaa6xbum1"]
+
+[ext_resource type="Texture2D" uid="uid://gdjhxmg3klh1" path="res://assets/characters/NPCS/safari/hippo.png" id="1_cupre"]
+[ext_resource type="Script" uid="uid://dc0y1vfg102yk" path="res://worlds/safari/scripts/hippo.gd" id="1_xar84"]
+[ext_resource type="Script" uid="uid://mqwgdb56g7vj" path="res://logic/scripts/interact_icon.gd" id="2_xar84"]
+[ext_resource type="Texture2D" uid="uid://c38umsqte0qy2" path="res://assets/ui/mark.png" id="3_c0srb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51420"]
+radius = 16.505978
+
+[node name="hippo" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_xar84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cupre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.731707)
+shape = SubResource("CircleShape2D_51420")
+
+[node name="InteractIcon" type="Node2D" parent="."]
+script = ExtResource("2_xar84")
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractIcon"]
+position = Vector2(0, -29.268291)
+texture = ExtResource("3_c0srb")

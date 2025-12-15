@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://r5xapfgjt20x"]
+
+[ext_resource type="Script" uid="uid://b1klwnavaul8r" path="res://inventory/scripts/inventory_item.gd" id="1_muaf8"]
+[ext_resource type="Texture2D" uid="uid://cxe3wcy8lq13u" path="res://assets/inventory/items/grass/hippo_grass.png" id="2_j7xt8"]
+
+[resource]
+script = ExtResource("1_muaf8")
+name = "hippo_grass"
+texture = ExtResource("2_j7xt8")
+metadata/_custom_type_script = "uid://b1klwnavaul8r"
