@@ -19,7 +19,7 @@ if {anwser_sum} == "28":
 	elephant: Dat is goed!
 else:
 	elephant: We kunnen het!
-	jump back_to_sum
+	jump back_to_sum_1
 label back_to_sum_2
 leave elephant
 join mouse right
