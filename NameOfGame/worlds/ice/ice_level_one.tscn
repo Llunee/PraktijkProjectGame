@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=4 uid="uid://cunvjkdhkykrn"]
+
+[ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
+[ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
+[ext_resource type="Texture2D" uid="uid://c7r1plw1ba0m0" path="res://assets/backgrounds/ice/background-ice.png" id="1_i8ljg"]
+[ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_k2g86"]
+[ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="2_k2g86"]
+
+[node name="IceLevelOne" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_crlo6")]
+position = Vector2(76, 85)
+
+[node name="HUDlayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="HUDlayer" instance=ExtResource("1_k2g86")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i8ljg")
+expand_mode = 1
+
+[node name="Environment" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_akvxf")
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9/wYABQAAAAAAAAD+/wYABQAAAAAAAAD//wYABQAAAAAAAAAAAAYABQAAAAAAAAABAAYABQAAAAAAAAACAAYABQAAAAAAAAADAAYABQAAAAAAAAAEAAYABQAAAAAAAAAFAAYABQAAAAAAAAAGAAYABQAAAAAAAAAHAAYABQAAAAAAAAAIAAYABQAAAAAAAAAJAAYABQAAAAAAAAAKAAYABQAAAAAAAAALAAYABQAAAAAAAAAMAAYABQAAAAAAAAANAAYABQAAAAAAAAAOAAYABQAAAAAAAAAPAAYABQAAAAAAAAAQAAYABQAAAAAAAAARAAYABQAAAAAAAAASAAYABQAAAAAAAAATAAYABQAAAAAAAAAUAAYABQAAAAAAAAAVAAYABQAAAAAAAAAWAAYABQAAAAAAAAAXAAYABQAAAAAAAAAYAAYABQAAAAAAAAAZAAYABQAAAAAAAAAaAAYABQAAAAAAAAAbAAYABQAAAAAAAAAcAAYABQAAAAAAAAAdAAYABQAAAAAAAAAeAAYABQAAAAAAAAAfAAYABQAAAAAAAAAgAAYABQAAAAAAAAAhAAYABQAAAAAAAAAiAAYABQAAAAAAAAAjAAYABQAAAAAAAAAkAAYABQAAAAAAAAA=")
+tile_set = ExtResource("2_k2g86")
+
+[node name="Trees" type="TileMapLayer" parent="."]
