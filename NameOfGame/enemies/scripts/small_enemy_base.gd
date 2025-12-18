@@ -87,7 +87,7 @@ func collide_with_player(collision_info):
 		return
 	
 	if collision_info.get_collider() == player:
-		emit_signal("hit_player")
+		emit_signal("hit_player", self)
 		damage_timer.start()
 
 func handle_movement(delta: float):

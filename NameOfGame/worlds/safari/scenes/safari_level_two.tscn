@@ -27,12 +27,12 @@ red_coin_scene = ExtResource("3_bpl0m")
 [node name="HUD" parent="HUD" instance=ExtResource("1_whq2m")]
 unique_name_in_owner = true
 
-[node name="SumUI" parent="HUD" node_paths=PackedStringArray("lion") instance=ExtResource("2_ix4rs")]
+[node name="SumUI" parent="HUD" node_paths=PackedStringArray("enemies") instance=ExtResource("2_ix4rs")]
 offset_left = 467.0
 offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
-lion = NodePath("../../lion")
+enemies = [NodePath("../../Snake"), NodePath("../../Snake2"), NodePath("../../Snake3"), NodePath("../../lion")]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

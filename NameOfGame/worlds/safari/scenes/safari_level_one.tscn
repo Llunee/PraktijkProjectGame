@@ -24,12 +24,12 @@
 
 [node name="HUD" parent="HUD" instance=ExtResource("1_8xs48")]
 
-[node name="SumUI" parent="HUD" node_paths=PackedStringArray("snake") instance=ExtResource("2_gbq4e")]
+[node name="SumUI" parent="HUD" node_paths=PackedStringArray("enemies") instance=ExtResource("2_gbq4e")]
 offset_left = 467.0
 offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
-snake = NodePath("../../Snake")
+enemies = [NodePath("../../Snake")]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
