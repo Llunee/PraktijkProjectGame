@@ -13,13 +13,10 @@ var enemy : CharacterBody2D
 
 func _ready() -> void:
 	if enemies:
-		for enemy in enemies:
-			enemy.connect("hit_player", Callable(self, "_on_player_hit"))
+		for e in enemies:
+			e.connect("hit_player", Callable(self, "_on_player_hit"))
 		sum_info = Question_creator.generate_question(2)
 	close()
-
-func _process(delta: float) -> void:
-	pass
 
 func open():
 	get_tree().paused = true
@@ -51,8 +48,8 @@ func _on_answer_text_submitted(answer: String) -> void:
 		
 		
 func _on_player_hit(enemy_hit : CharacterBody2D):
+	print(enemy_hit)
 	enemy = enemy_hit
-	print(enemy)
 	sum_info = Question_creator.generate_question(2)
 	fill_labels()
 	open()

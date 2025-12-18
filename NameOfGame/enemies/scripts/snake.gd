@@ -8,6 +8,15 @@ class_name Snake
 
 func _ready():
 	super()
+	
+	if enemy_hud_scene:
+		enemy_hud = enemy_hud_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(enemy_hud)
+		enemy_hud.setup(HEALTH)
+
+func _process(_delta):
+	if enemy_hud:
+		enemy_hud.global_position = global_position + hud_offset
 
 func change_state(new_state: States):
 	current_state = new_state

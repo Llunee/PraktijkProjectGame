@@ -10,6 +10,8 @@ signal hit_player
 @export var ACCELLERATION: int = 400
 @export var HEALTH: int = 2
 @export var BOUNDS : Vector2 = Vector2(175, 0)
+@export var enemy_hud_scene: PackedScene
+@export var hud_offset: Vector2 = Vector2.ZERO
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player_raycast: RayCast2D = $AnimatedSprite2D/PlayerRaycast
@@ -25,6 +27,7 @@ var left_bounds: Vector2
 var player_died: bool = false
 var left_target_position = Vector2.ZERO
 var right_target_position = Vector2.ZERO
+var enemy_hud: EnemyHUD
 
 enum States {
 	WANDER,
@@ -40,6 +43,9 @@ func _ready():
 	var raycast_length = player_raycast.target_position
 	left_target_position = raycast_length
 	right_target_position = raycast_length * -1
+	
+	hud_offset.x = -((HEALTH * 16) / 2.0)
+	hud_offset.y = -40
 	
 	change_state(current_state)
 	
@@ -162,10 +168,14 @@ func handle_gravity(delta: float):
 
 func take_damage(amount: int):
 	HEALTH -= amount
+	if enemy_hud:
+		enemy_hud.set_health(HEALTH)
 	if HEALTH <= 0:
 		die()
 
 func die():
+	if enemy_hud:
+		enemy_hud.queue_free()
 	queue_free()
 
 # event functions

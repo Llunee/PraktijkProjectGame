@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://yw4dgyfp0g2v"]
+[gd_scene load_steps=10 format=4 uid="uid://yw4dgyfp0g2v"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_fwndb"]
 [ext_resource type="Texture2D" uid="uid://r3q13gql52eg" path="res://assets/backgrounds/sea/background-sea.png" id="1_pwiks"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="4_yos65"]
 [ext_resource type="PackedScene" uid="uid://iycltcngjtt7" path="res://enemies/scenes/crab.tscn" id="6_e4j0k"]
 [ext_resource type="PackedScene" uid="uid://cv4yud1tsu0ff" path="res://enemies/scenes/jellyfish.tscn" id="7_fripf"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="9_bpx5t"]
 
 [node name="SeaLevelOne" type="Node2D"]
 
@@ -55,10 +56,11 @@ tile_set = ExtResource("4_yos65")
 [node name="Trees" type="TileMapLayer" parent="."]
 
 [node name="Crab" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_e4j0k")]
-position = Vector2(1241, 92)
+position = Vector2(582, 56)
 player = NodePath("../Player")
 
 [node name="Jellyfish" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_fripf")]
 position = Vector2(1557, 87)
 player = NodePath("../Player")
 BOUNDS = Vector2(75, 0)
+enemy_hud_scene = ExtResource("9_bpx5t")
