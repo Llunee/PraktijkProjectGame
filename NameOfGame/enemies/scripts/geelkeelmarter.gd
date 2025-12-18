@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var ACCELERATION: int = 300
 @export var hp: int = 3
 @export var enemy_hud_scene: PackedScene
+@export var hud_offset: Vector2 = Vector2.ZERO
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var ray_cast_horizontal: RayCast2D = $Sprite2D/RayCast2DHorizontaal
@@ -47,6 +48,9 @@ func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	look_for_player()
 
+func _process(_delta):
+	if enemy_hud:
+		enemy_hud.global_position = global_position + hud_offset
 
 func look_for_player():
 	if ray_cast_horizontal.is_colliding():
@@ -124,9 +128,18 @@ func start_quiz():
 
 func take_damage(amount: int):
 	hp -= amount
-	print("Enemy HP:", hp)
+	if enemy_hud:
+		enemy_hud.set_health(hp)
+	
 	if hp <= 0:
-		queue_free()
+		die()
+	else:
+		emit_signal("hit_player", self)
+
+func die():
+	if enemy_hud:
+		enemy_hud.queue_free()
+	queue_free()
 
 func _on_quiz_finished(success: bool):
 	quiz_active = false

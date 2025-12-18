@@ -2,12 +2,12 @@ extends CanvasLayer
 
 signal answer_selected(index: int)
 
-@onready var question_label = $Panel/VBoxContainer/Label
+@onready var question_label = $VBoxContainer/Label
 @onready var buttons = [
-	$Panel/VBoxContainer/Button,
-	$Panel/VBoxContainer/Button2,
-	$Panel/VBoxContainer/Button3,
-	$Panel/VBoxContainer/Button4
+	$VBoxContainer/Button,
+	$VBoxContainer/Button2,
+	$VBoxContainer/Button3,
+	$VBoxContainer/Button4
 ]
 
 var current_question_data

@@ -43,6 +43,7 @@ enemy_hud_scene = ExtResource("8_k3eb3")
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nmhdb")]
 position = Vector2(1706.3167, 169.07994)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("8_k3eb3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -74,6 +75,8 @@ layer = -5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_px1q7")
