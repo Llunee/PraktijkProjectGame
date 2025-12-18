@@ -191,17 +191,17 @@ position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_aulw7")
 animation = &"idle"
 
-[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="PlayerRaycast" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 4)
 target_position = Vector2(-75, 0)
 
-[node name="HoleCheckLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="FloorRaycastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(-31.073074, 4.2633286)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 15)
 
-[node name="HoleCheckRight" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="FloorRaycastRight" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(33.226418, 4.2633286)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 15)
 
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 10.0

@@ -40,9 +40,10 @@ tile_set = ExtResource("4_yos65")
 [node name="Trees" type="TileMapLayer" parent="."]
 
 [node name="Crab" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_e4j0k")]
-position = Vector2(2024, 163)
+position = Vector2(1241, 92)
 player = NodePath("../Player")
 
 [node name="Jellyfish" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_fripf")]
-position = Vector2(742, 46)
+position = Vector2(1557, 87)
 player = NodePath("../Player")
+BOUNDS = Vector2(75, 0)
