@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dbvkdctskuxbo"]
+[gd_scene load_steps=18 format=4 uid="uid://dbvkdctskuxbo"]
 
 [ext_resource type="Script" uid="uid://blx57afjwh712" path="res://worlds/safari/scripts/safari_level_two.gd" id="1_mfu4k"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_sja4e"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dbmsyv6ys1r6u" path="res://enemies/scenes/lion.tscn" id="14_bpl0m"]
 [ext_resource type="PackedScene" uid="uid://cw3as8ac6poul" path="res://inventory/scenes/hippo_grass.tscn" id="15_i6a2p"]
 [ext_resource type="PackedScene" uid="uid://bmrdaa6xbum1" path="res://worlds/safari/scenes/hippo.tscn" id="15_q4k3y"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="15_rda1a"]
 
 [node name="SafariLevelTwo" type="Node2D"]
 script = ExtResource("1_mfu4k")
@@ -27,17 +28,17 @@ red_coin_scene = ExtResource("3_bpl0m")
 [node name="HUD" parent="HUD" instance=ExtResource("1_whq2m")]
 unique_name_in_owner = true
 
-[node name="SumUI" parent="HUD" node_paths=PackedStringArray("lion") instance=ExtResource("2_ix4rs")]
+[node name="SumUI" parent="HUD" node_paths=PackedStringArray("enemies") instance=ExtResource("2_ix4rs")]
 offset_left = 467.0
 offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
-lion = NodePath("../../lion")
+enemies = [NodePath("../../Snake"), NodePath("../../Snake2"), NodePath("../../Snake3"), NodePath("../../lion")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
 z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +50,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_sja4e")
 
-[node name="TextureRect2" type="ColorRect" parent="CanvasLayer"]
+[node name="TextureRect2" type="ColorRect" parent="Background"]
 offset_left = 1216.0
 offset_top = -96.0
 offset_right = 1984.0
@@ -78,7 +79,7 @@ tile_map_data = PackedByteArray("AAAOAP7/AAADAAIAAAAZAP3/AAACAAAAAAApAPz/AAACAAI
 tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
-position = Vector2(-3766, -77)
+position = Vector2(21628, -379)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
@@ -118,18 +119,22 @@ player = NodePath("../Player")
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(17164, 138)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="Snake2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(5103, -479)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="Snake3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(9281, 168)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="lion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_bpl0m")]
 position = Vector2(22390, -238)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="hippo" parent="." instance=ExtResource("15_q4k3y")]
 position = Vector2(13513, 160)

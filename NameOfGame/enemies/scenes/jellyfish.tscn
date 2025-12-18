@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv4yud1tsu0ff"]
+
+[ext_resource type="Script" uid="uid://bkrg8bu17hnha" path="res://enemies/scripts/jellyfish.gd" id="1_4p4c5"]
+[ext_resource type="Texture2D" uid="uid://cxak27d0fe4tv" path="res://assets/characters/enemies/sea/jellyfish.png" id="1_jr4bu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p4c5"]
+atlas = ExtResource("1_jr4bu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo15w"]
+atlas = ExtResource("1_jr4bu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srlw3"]
+atlas = ExtResource("1_jr4bu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6xlv"]
+atlas = ExtResource("1_jr4bu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnu23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p4c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo15w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srlw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6xlv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jr4bu"]
+radius = 11.0
+
+[node name="Jellyfish" type="CharacterBody2D"]
+script = ExtResource("1_4p4c5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jnu23")
+animation = &"walk"
+
+[node name="PlayerRaycast" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(-40, 0)
+
+[node name="FloorRaycastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-11, 1)
+target_position = Vector2(0, 20)
+
+[node name="FloorRaycastRight" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(8, 1)
+target_position = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_jr4bu")
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]

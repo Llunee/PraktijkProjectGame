@@ -53,13 +53,13 @@ visible = false
 offset_top = -200.0
 dialog_script = "res://logic/scripts/JSON/intro_level_mentor_dialog.json"
 
-[node name="SumUI" parent="CanvasLayer" node_paths=PackedStringArray("snake") instance=ExtResource("8_t5ni6")]
+[node name="SumUI" parent="CanvasLayer" node_paths=PackedStringArray("enemies") instance=ExtResource("8_t5ni6")]
 visible = false
 offset_left = 493.02557
 offset_top = 290.3589
 offset_right = 717.0256
 offset_bottom = 360.3589
-snake = NodePath("../../Snake")
+enemies = [NodePath("../../Snake")]
 
 [node name="HomePortal" parent="." instance=ExtResource("10_t8pwr")]
 z_index = -1
