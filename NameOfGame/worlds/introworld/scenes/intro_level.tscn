@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d4kxsb0n5yqn8"]
+[gd_scene load_steps=15 format=4 uid="uid://d4kxsb0n5yqn8"]
 
 [ext_resource type="Script" uid="uid://0tfnrmw0hsrb" path="res://worlds/introworld/scripts/intro_level.gd" id="1_aosbt"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_q0jir"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b63s58tw8n51g" path="res://items/bamboo_sticks.tscn" id="5_aimfc"]
 [ext_resource type="PackedScene" uid="uid://cu8irxdkrawqh" path="res://enemies/scenes/geelkeelmarter.tscn" id="6_nmhdb"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_nmhdb"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="8_k3eb3"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="8_t5ni6"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="9_kclwk"]
 [ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="10_81cnt"]
@@ -37,6 +38,7 @@ position = Vector2(1262.5217, 156.79073)
 position = Vector2(2865.671, 154.74445)
 scale = Vector2(2, 2)
 player = NodePath("../Player")
+enemy_hud_scene = ExtResource("8_k3eb3")
 
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nmhdb")]
 position = Vector2(1706.3167, 169.07994)
