@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccho0kwjq3oq4"]
+[gd_scene load_steps=9 format=3 uid="uid://ccho0kwjq3oq4"]
 
 [ext_resource type="Texture2D" uid="uid://dac8mq4dc3x05" path="res://assets/characters/NPCS/mentor.png" id="1_molap"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="2_h8e8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8e8b"]
 atlas = ExtResource("1_molap")
@@ -63,9 +64,11 @@ offset_left = -20.684204
 offset_top = -48.27752
 offset_right = 28.282288
 offset_bottom = 16.0
+theme = ExtResource("2_h8e8b")
 
 [node name="PressELabel" type="Label" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -75,7 +78,7 @@ offset_top = -26.124405
 offset_right = 267.80307
 offset_bottom = -3.124405
 grow_horizontal = 2
-text = "Hallo Speler!"
+text = "Hallo avonturier!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

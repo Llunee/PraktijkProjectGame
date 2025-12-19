@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b6uqvj4hk7oo2"]
+
+[ext_resource type="Texture2D" uid="uid://bo6doan2dsneq" path="res://assets/ui/dialog_box.png" id="1_gbxsi"]
+
+[resource]
+texture = ExtResource("1_gbxsi")
+modulate_color = Color(0.16206557, 0.1620656, 0.16206554, 1)

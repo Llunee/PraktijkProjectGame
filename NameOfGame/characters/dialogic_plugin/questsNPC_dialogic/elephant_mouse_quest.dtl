@@ -18,7 +18,7 @@ elephant: Wat is 12 + 16?
 if {anwser_sum} == "28":
 	elephant: Dat is goed!
 else:
-	elephant: We kunnen het!
+	elephant: We kunnen het! Probeer het nog een keer!
 	jump back_to_sum_1
 label back_to_sum_2
 leave elephant
@@ -28,7 +28,7 @@ mouse: Wat is 3 x 4?
 if {anwser_sum} == "12":
 	mouse: Goed gedaan!
 else:
-	mouse: Hint wat is 3 + 3 + 3 + 3?
+	mouse: Hint\: 3 x 4 is hetzelfde als 3 + 3 + 3 + 3.
 	jump back_to_sum_2
 join elephant center
 elephant: Lekker bezig!!
@@ -43,5 +43,5 @@ if {anwser_sum} == "355":
 	[signal arg="add_coins"]
 	[signal arg="unfreeze_player"]
 else:
-	mouse: Je kan dit!
+	mouse: Je kan dit! Probeer het nog een keer!
 	jump back_to_sum_3

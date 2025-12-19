@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dptvao563xn4e"]
+[gd_scene load_steps=20 format=4 uid="uid://dptvao563xn4e"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_8xs48"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_fnves"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chcb21jm423ut" path="res://worlds/safari/scenes/hippo_swim.tscn" id="6_fax6y"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_x57a3"]
 [ext_resource type="Texture2D" uid="uid://df5o8rd8rya7x" path="res://assets/characters/NPCS/safari/ostrich.png" id="9_5qiaw"]
+[ext_resource type="Script" uid="uid://b7d6g2qpsfjqd" path="res://characters/scripts/mentor_safari_one.gd" id="9_fs1hd"]
 [ext_resource type="PackedScene" uid="uid://bbum5vueic20f" path="res://worlds/safari/scenes/giraffe.tscn" id="10_dfh5s"]
 [ext_resource type="Texture2D" uid="uid://gdjhxmg3klh1" path="res://assets/characters/NPCS/safari/hippo.png" id="10_fs1hd"]
 [ext_resource type="Texture2D" uid="uid://c7gvseyrj63a3" path="res://assets/characters/NPCS/safari/happy_elephant.png" id="11_5wcrv"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bepb2mq0x1cjs" path="res://assets/characters/NPCS/mouse.png" id="12_k8ycn"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
 [ext_resource type="PackedScene" uid="uid://dpklpqqy4yf8k" path="res://inventory/scenes/purple_crystals.tscn" id="16_fax6y"]
+[ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="18_cd74u"]
 
 [node name="SafariLevelOne" type="Node2D"]
 
@@ -67,6 +69,10 @@ tile_set = ExtResource("4_8xs48")
 position = Vector2(5488, 322)
 scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("12_k8ycn")
+
+[node name="Mentor" parent="." instance=ExtResource("18_cd74u")]
+position = Vector2(-1466, 232)
+script = ExtResource("9_fs1hd")
 
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true

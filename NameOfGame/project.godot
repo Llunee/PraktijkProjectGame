@@ -42,10 +42,14 @@ directories/dtl_directory={
 "elephant_mouse_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_mouse_quest.dtl",
 "firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
 "hippo_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/hippo_quest.dtl",
-"introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl"
+"introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl",
+"mentor_intro_level": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_intro_level.dtl",
+"mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl"
 }
 layout/style_directory={
-"custom_styles": "res://assets/Dialogic_Styles/custom_styles.tres"
+"": "res://assets/Dialogic_Styles/wood_style.tres",
+"custom_styles": "res://assets/Dialogic_Styles/custom_styles.tres",
+"wood_style": "res://assets/Dialogic_Styles/wood_style.tres"
 }
 extensions_folder="res://addons/dialogic"
 text/letter_speed=0.01
@@ -79,8 +83,8 @@ variables={
 "quest_objective_met": false
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://assets/Dialogic_Styles/custom_styles.tres"]
-layout/default_style="Default"
+layout/style_list=["res://assets/Dialogic_Styles/custom_styles.tres", "res://assets/Dialogic_Styles/wood_style.tres"]
+layout/default_style="res://assets/Dialogic_Styles/wood_style.tres"
 
 [display]
 

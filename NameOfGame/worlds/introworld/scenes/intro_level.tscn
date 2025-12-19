@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_q0jir"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_jq56v"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="3_jjk5a"]
-[ext_resource type="Script" uid="uid://3nbeb334ac0" path="res://characters/scripts/mentor.gd" id="4_jjk5a"]
+[ext_resource type="Script" uid="uid://3nbeb334ac0" path="res://characters/scripts/mentor_intro.gd" id="4_jjk5a"]
 [ext_resource type="PackedScene" uid="uid://b63s58tw8n51g" path="res://items/bamboo_sticks.tscn" id="5_aimfc"]
 [ext_resource type="PackedScene" uid="uid://cu8irxdkrawqh" path="res://enemies/scenes/geelkeelmarter.tscn" id="6_nmhdb"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_nmhdb"]
@@ -27,10 +27,9 @@ tile_set = ExtResource("1_q0jir")
 unique_name_in_owner = true
 position = Vector2(96, 160)
 
-[node name="Mentor" parent="." node_paths=PackedStringArray("dialog_ui") instance=ExtResource("3_jjk5a")]
+[node name="Mentor" parent="." instance=ExtResource("3_jjk5a")]
 position = Vector2(190.51535, 167.78409)
 script = ExtResource("4_jjk5a")
-dialog_ui = NodePath("../CanvasLayer/DialogUI")
 
 [node name="bambooSticks" parent="." instance=ExtResource("5_aimfc")]
 position = Vector2(1262.5217, 156.79073)
