@@ -1,0 +1,7 @@
+[signal arg="freeze_player"]
+join mentor right [animation="Fade In"]
+mentor: Dag avonturier! Dit is het eerste level van de safariwereld. Er zijn een aantal nieuwe dingen te vinden in deze wereld.
+mentor: Zo zul je quests tegenkomen. Wanneer je een dier ziet met een rood uitroepteken boven hun hoofd, druk dan op "E" of "F" op je toetsenbord om met ze te praten!
+mentor: Daarnaast heb je verschillende vijanden. Sommigen vallen direct aan, anderen vragen eerst een som. Let goed op waar je loopt!
+[signal arg="unfreeze_player"]
+[end_timeline]

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if is_player_in_range and event.is_action_pressed("interact"):
-		run_dialog("introduction_story")
+		run_dialog("mentor_intro_level")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

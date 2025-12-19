@@ -4,19 +4,19 @@ mentor: Welkom in de thuiswereld van [naam spel]! In deze wereld staan verschill
 Door ieder portaal kun je een nieuwe wereld binnenstappen. Maar let goed op…\
 Elk portaal heeft zijn eigen rekenopdrachten!
 join portals (safari) center [animation="Fade In"]
-Bij de safari wereld staat [...] centraal!\
+mentor: Bij de safariwereld staat [...] centraal!\
 Voorbeeld som\:
 leave portals [animation="Fade Out" length="0.1" wait="true"]
 join portals (jungle) center [animation="Fade In"]
-Bij de jungle wereld staat [...] centraal!\
+mentor: Bij de junglewereld staat [...] centraal!\
 Voorbeeld som\:
 leave portals [animation="Fade Out" length="0.1" wait="true"]
 join portals (ice) center [animation="Fade In"]
-Bij de ijs wereld staat [...] centraal!\
+mentor: Bij de ijswereld staat [...] centraal!\
 Voorbeeld som\:
 leave portals [animation="Fade Out" length="0.1" wait="true"]
 join portals (sea) center [animation="Fade In"]
-Bij de zee wereld staat [...] centraal!\
+mentor: Bij de zeewereld staat [...] centraal!\
 Voorbeeld som\:
 leave portals [animation="Fade Out"]
 mentor: Ben jij klaar om te kiezen en de uitdaging aan te gaan?

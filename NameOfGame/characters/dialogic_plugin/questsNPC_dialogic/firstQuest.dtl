@@ -14,8 +14,10 @@ leave purple_crystal
 	giraffe: Je bent een topper!
 	set {quest_giraffe} = "active"
 	[signal arg="unfreeze_player"]
-- Nee ga ik niet doen
-	jump 
+- Nee, ga ik niet doen.
+	giraffe: Jammer... Veel geluk op je reis, avonturier!
+	[signal arg="unfreeze_player"]
+	[end_timeline]
 label quest_start
 [signal arg="firstQuest"]
 [end_timeline]
