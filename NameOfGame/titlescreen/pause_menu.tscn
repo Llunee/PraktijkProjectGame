@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://kvtvuglr4ues"]
+
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
+[ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
+[ext_resource type="Script" uid="uid://ccx3b3x3f1h0l" path="res://titlescreen/pause_menu.gd" id="2_pijhd"]
+[ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="4_qjimk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44pam"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fftlo"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjs17"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vmyb1"]
+modulate_color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myy0f"]
+modulate_color = Color(0.733005, 0.733005, 0.733005, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmyb1"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1och7")
+script = ExtResource("2_pijhd")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -36.0
+offset_right = 135.5
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="NinePatchRect/GridContainer/Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
+theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
+text = "Doorgaan"
+
+[node name="Consoles" type="Button" parent="NinePatchRect/GridContainer/Container"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_44pam")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fftlo")
+text = "Besturing
+"
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_sjs17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vmyb1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_myy0f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmyb1")
+text = "Sluiten"
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="NinePatchRect/Close" to="." method="_on_close_pressed"]
