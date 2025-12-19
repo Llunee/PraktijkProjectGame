@@ -11,7 +11,7 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	
 func _input(event: InputEvent) -> void:
-	if is_player_in_range and event.is_action_pressed("talk"):
+	if is_player_in_range and event.is_action_pressed("interact"):
 		print("talk")
 		run_dialog("firstQuest")
 

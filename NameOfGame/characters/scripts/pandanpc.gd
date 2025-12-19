@@ -8,7 +8,7 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 	
 func _input(event: InputEvent) -> void:
-	if is_player_in_range and event.is_action_pressed("talk"):
+	if is_player_in_range and event.is_action_pressed("interact"):
 		print("talk")
 		run_dialog("firstQuest")
 

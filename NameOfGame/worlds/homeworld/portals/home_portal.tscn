@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cf0orft4jtwa2"]
+[gd_scene load_steps=22 format=3 uid="uid://cf0orft4jtwa2"]
 
 [ext_resource type="Script" uid="uid://c0yabh6kpf47y" path="res://worlds/homeworld/portals/home_portal.gd" id="1_0b3me"]
 [ext_resource type="Texture2D" uid="uid://d1powj3e8xjjn" path="res://assets/worlds/homeworld/portals/portal_home.png" id="1_kf6gi"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="3_b0mgh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0b3me"]
 atlas = ExtResource("1_kf6gi")
@@ -150,6 +151,7 @@ offset_left = -20.684204
 offset_top = -48.27752
 offset_right = 28.282288
 offset_bottom = 16.0
+theme = ExtResource("3_b0mgh")
 
 [node name="PressELabel" type="Label" parent="Control"]
 unique_name_in_owner = true
@@ -157,12 +159,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -276.28787
-offset_top = -26.124405
-offset_right = 267.80307
-offset_bottom = -3.124405
+offset_left = -276.79904
+offset_top = -37.72248
+offset_right = 267.2919
+offset_bottom = -14.722481
 grow_horizontal = 2
-text = "Druk op F"
+text = "Druk op E of F!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
