@@ -26,6 +26,7 @@ PlayerData="*res://characters/scripts/PlayerData.gd"
 
 directories/dch_directory={
 "baobuns": "res://characters/dialogic_plugin/charactersNPC_dialogic/baobuns.dch",
+"beaver": "res://characters/dialogic_plugin/charactersNPC_dialogic/beaver.dch",
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
 "elephant": "res://characters/dialogic_plugin/charactersNPC_dialogic/elephant.dch",
 "giraffe": "res://characters/dialogic_plugin/charactersNPC_dialogic/giraffe.dch",
@@ -37,6 +38,7 @@ directories/dch_directory={
 "purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch"
 }
 directories/dtl_directory={
+"beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/beaver_story.dtl",
 "elephant_mouse_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_mouse_quest.dtl",
 "firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
 "hippo_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/hippo_quest.dtl",
