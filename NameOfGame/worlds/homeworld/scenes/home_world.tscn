@@ -53,11 +53,12 @@ tile_map_data = PackedByteArray("AABRAAwAAgAAAAAAAABZAAwAAgABAAAAAABhAAwAAgACAAA
 tile_set = ExtResource("9_pd26j")
 
 [node name="EnvironmentMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAA2AA4AAAAAAAAAAAA3AA4AAAADAAAAAAA1AA4AAAACAAEAAAAwAA4AAAADAAIAAAAqAA4AAAADAAEAAAAsAA4AAAAAAAMAAAAtAA4AAAAAAAMAAAAuAA4AAAAAAAMAAAAxAA4AAAACAAEAAAAoAA4AAAACAAAAAAA/AA4AAAACAAIAAABKAA4AAQAAAAAAAABNAA4AAQABAAEAAABOAA4AAQACAAEAAABWAA4AAQADAAAAAABXAA4AAQABAAIAAABZAA4AAQABAAEAAABaAA4AAQAAAAAAAABdAA4AAQAAAAIAAABgAA4AAQACAAEAAABhAA4AAQABAAIAAABTAA4AAQAAAAMAAABLAA4AAQADAAEAAABGAA4AAQABAAAAAABIAA4AAQACAAAAAAA=")
+z_index = -1
+position = Vector2(-2880, -480)
+tile_map_data = PackedByteArray("AABWAA4AAQADAAAAAABXAA4AAQABAAIAAABZAA4AAQABAAEAAABaAA4AAQAAAAAAAABdAA4AAQAAAAIAAABTAA4AAQAAAAMAAABCAA4AAAAAAAMAAABDAA4AAAAAAAMAAABFAA4AAAADAAIAAABKAA4AAAACAAEAAABLAA4AAAAAAAAAAABMAA4AAAADAAAAAABPAA4AAQACAAAAAABQAA4AAQADAAEAAABRAA4AAQAAAAAAAAA=")
 tile_set = ExtResource("5_1vnqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Shop" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(714.00006, 391.00003)
 scale = Vector2(1.8333334, 1.8333334)
@@ -81,6 +82,7 @@ position = Vector2(230, 456.00003)
 script = ExtResource("12_1vnqv")
 
 [node name="FenceSea" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(2560, 448)
 texture = ExtResource("14_mh43n")
 
@@ -88,6 +90,7 @@ texture = ExtResource("14_mh43n")
 position = Vector2(2656, 448)
 
 [node name="FenceJungle" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(-512, 448)
 texture = ExtResource("14_mh43n")
 
@@ -95,6 +98,7 @@ texture = ExtResource("14_mh43n")
 position = Vector2(-416, 448)
 
 [node name="FenceIce" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(-1728, 128)
 texture = ExtResource("14_mh43n")
 
