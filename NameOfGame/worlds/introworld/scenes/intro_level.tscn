@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="9_kclwk"]
 [ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="10_81cnt"]
 [ext_resource type="PackedScene" uid="uid://cf0orft4jtwa2" path="res://worlds/homeworld/portals/home_portal.tscn" id="10_t8pwr"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="12_k3eb3"]
 [ext_resource type="Texture2D" uid="uid://dwpn6v10pye8b" path="res://assets/backgrounds/title_screen.png" id="13_px1q7"]
 
 [node name="IntroLevel" type="Node2D"]
@@ -63,6 +64,9 @@ offset_top = 290.3589
 offset_right = 717.0256
 offset_bottom = 360.3589
 enemies = [NodePath("../../Snake")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_k3eb3")]
+visible = false
 
 [node name="HomePortal" parent="." instance=ExtResource("10_t8pwr")]
 z_index = -1
