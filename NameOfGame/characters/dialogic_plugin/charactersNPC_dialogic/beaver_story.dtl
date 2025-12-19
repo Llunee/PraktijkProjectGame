@@ -1,0 +1,4 @@
+[signal arg="freeze_player"]
+join beaver right [animation="Fade In"]
+beaver: Dit portaal is nog in opbouw. Het zou klaar moeten zijn wanneer je de safariwereld hebt afgerond.
+[signal arg="unfreeze_player"]

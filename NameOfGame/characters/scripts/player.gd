@@ -11,16 +11,15 @@ var kill_height = 500
 @onready var particles = $leaf/CPUParticles2D
 
 var screen_size
-var facing_right = false
-var can_move = true
-var start_location
-var health_label
+var facing_right : bool = false
+var can_move : bool = true
+var respawn_location : Vector2
 
 func _ready():
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	screen_size = get_viewport_rect().size
-	start_location = global_position
+	respawn_location = global_position
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -53,9 +52,12 @@ func handle_damage():
 	if PlayerData.is_dead():
 		die()
 
+func update_respawn_location(location : Vector2):
+	respawn_location = location
+
 func die():
 	emit_signal("player_died")
-	global_position = start_location
+	global_position = respawn_location
 	PlayerData.reset()
 	emit_signal("player_respawned")
 

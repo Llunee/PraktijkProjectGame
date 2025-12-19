@@ -23,6 +23,8 @@ func open():
 	
 	visible = true
 	is_open = true
+	await get_tree().process_frame
+	line_edit.grab_focus()
 
 func close():
 	get_tree().paused = false
