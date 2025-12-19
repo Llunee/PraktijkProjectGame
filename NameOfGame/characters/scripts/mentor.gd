@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	else:
 		facing_right = false
 		
-	if player_inside and Input.is_action_just_pressed("talk"):
+	if player_inside and Input.is_action_just_pressed("interact"):
 		_open_dialog()
 	
 	$AnimatedSprite2D.play("default")

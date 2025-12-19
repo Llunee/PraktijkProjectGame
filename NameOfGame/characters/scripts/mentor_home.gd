@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	animated_sprite.flip_h = facing_right
 
 func _input(event: InputEvent) -> void:
-	if is_player_in_range and event.is_action_pressed("talk"):
+	if is_player_in_range and event.is_action_pressed("interact"):
 		run_dialog("introduction_story")
 
 func _on_body_entered(body: Node2D) -> void:

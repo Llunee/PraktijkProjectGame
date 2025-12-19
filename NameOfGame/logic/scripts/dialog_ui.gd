@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	if not dialog_opened:
 		return
 	
-	if Input.is_action_just_pressed("talk") or Input.is_action_just_pressed("read"):
+	if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("read"):
 		change_line()
 
 func change_line():
