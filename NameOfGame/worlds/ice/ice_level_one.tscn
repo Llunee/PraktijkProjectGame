@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cunvjkdhkykrn"]
+[gd_scene load_steps=7 format=4 uid="uid://cunvjkdhkykrn"]
 
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
 [ext_resource type="Texture2D" uid="uid://c7r1plw1ba0m0" path="res://assets/backgrounds/ice/background-ice.png" id="1_i8ljg"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_k2g86"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="2_k2g86"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="3_ro7lx"]
 
 [node name="IceLevelOne" type="Node2D"]
 
@@ -14,6 +15,9 @@ position = Vector2(76, 85)
 [node name="HUDlayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDlayer" instance=ExtResource("1_k2g86")]
+
+[node name="PauseMenu" parent="HUDlayer" instance=ExtResource("3_ro7lx")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -5
