@@ -1,5 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://db86lj4xekvi7"]
-
+[gd_scene load_steps=18 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
@@ -27,6 +26,9 @@ script = ExtResource("1_jjqr7")
 [node name="DialogUI" parent="HUD" instance=ExtResource("13_5p35a")]
 visible = false
 dialog_script = "res://logic/scripts/JSON/home_world_mentor_dialog.json"
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("14_5p35a")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -5
@@ -87,13 +89,6 @@ script = ExtResource("12_1vnqv")
 z_index = -1
 position = Vector2(2560, 448)
 texture = ExtResource("14_mh43n")
-
-[node name="DialogUI" parent="CanvasLayer" instance=ExtResource("13_5p35a")]
-visible = false
-dialog_script = "res://logic/scripts/JSON/home_world_mentor_dialog.json"
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_5p35a")]
-visible = false
 
 [node name="BeaverSea" parent="." instance=ExtResource("15_shlyg")]
 position = Vector2(2656, 448)
