@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dbvkdctskuxbo"]
+[gd_scene load_steps=19 format=4 uid="uid://dbvkdctskuxbo"]
 
 [ext_resource type="Script" uid="uid://blx57afjwh712" path="res://worlds/safari/scripts/safari_level_two.gd" id="1_mfu4k"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_sja4e"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="4_hm0sf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="5_k340r"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="6_008j7"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="6_pgwlm"]
 [ext_resource type="PackedScene" uid="uid://glehll8w5uql" path="res://enemies/scenes/cactus_enemy.tscn" id="7_hm0sf"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="10_ix4rs"]
 [ext_resource type="PackedScene" uid="uid://dbmsyv6ys1r6u" path="res://enemies/scenes/lion.tscn" id="14_bpl0m"]
@@ -34,6 +35,9 @@ offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
 enemies = [NodePath("../../Snake"), NodePath("../../Snake2"), NodePath("../../Snake3"), NodePath("../../lion")]
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("6_pgwlm")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

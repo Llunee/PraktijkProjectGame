@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://db86lj4xekvi7"]
+[gd_scene load_steps=15 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
 [ext_resource type="Script" uid="uid://dh4qovolcigil" path="res://characters/scripts/mentor_home.gd" id="12_1vnqv"]
 [ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="13_5p35a"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="14_5p35a"]
 
 [node name="HomeWorld" type="Node2D"]
 script = ExtResource("1_jjqr7")
@@ -64,3 +65,6 @@ script = ExtResource("12_1vnqv")
 [node name="DialogUI" parent="CanvasLayer" instance=ExtResource("13_5p35a")]
 visible = false
 dialog_script = "res://logic/scripts/JSON/home_world_mentor_dialog.json"
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_5p35a")]
+visible = false

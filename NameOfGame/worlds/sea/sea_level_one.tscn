@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://yw4dgyfp0g2v"]
+[gd_scene load_steps=11 format=4 uid="uid://yw4dgyfp0g2v"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_fwndb"]
 [ext_resource type="Texture2D" uid="uid://r3q13gql52eg" path="res://assets/backgrounds/sea/background-sea.png" id="1_pwiks"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_yos65"]
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="3_4okhm"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="3_fripf"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="4_7x2e5"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="4_yos65"]
 [ext_resource type="PackedScene" uid="uid://iycltcngjtt7" path="res://enemies/scenes/crab.tscn" id="6_e4j0k"]
 [ext_resource type="PackedScene" uid="uid://cv4yud1tsu0ff" path="res://enemies/scenes/jellyfish.tscn" id="7_fripf"]
@@ -32,6 +33,9 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 enemies = [NodePath("../../Crab"), NodePath("../../Jellyfish")]
+
+[node name="PauseMenu" parent="HUDlayer" instance=ExtResource("4_7x2e5")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -5
