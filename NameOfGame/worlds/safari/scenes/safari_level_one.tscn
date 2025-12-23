@@ -74,12 +74,13 @@ texture = ExtResource("12_k8ycn")
 position = Vector2(-1466, 232)
 script = ExtResource("9_fs1hd")
 
-[node name="Player" parent="." instance=ExtResource("5_dfh5s")]
+[node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true
-position = Vector2(-1566, 178)
+position = Vector2(-1566, 223)
+tilemap = NodePath("../TileMapLayer")
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
-position = Vector2(0, -2)
+position = Vector2(0, -144)
 
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_x57a3")]
 position = Vector2(3070, 229)

@@ -12,7 +12,7 @@ radius = 32.0
 height = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smehm"]
-radius = 32.0
+radius = 37.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_smehm")
@@ -52,3 +52,5 @@ scale = Vector2(2, 2)
 
 [node name="leaf" parent="." instance=ExtResource("11_nal3f")]
 position = Vector2(0, 34.66667)
+
+[connection signal="body_entered" from="Player_Detection" to="." method="_on_player_detection_body_entered"]
