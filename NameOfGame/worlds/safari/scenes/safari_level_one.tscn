@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dptvao563xn4e"]
+[gd_scene load_steps=22 format=4 uid="uid://dptvao563xn4e"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_8xs48"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_fnves"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cdhnvr428gp20" path="res://worlds/safari/scenes/elephant.tscn" id="11_fax6y"]
 [ext_resource type="Texture2D" uid="uid://bepb2mq0x1cjs" path="res://assets/characters/NPCS/mouse.png" id="12_k8ycn"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
+[ext_resource type="Script" uid="uid://dm36ibfx4s5fj" path="res://worlds/safari/scripts/elephant.gd" id="16_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://dpklpqqy4yf8k" path="res://inventory/scenes/purple_crystals.tscn" id="16_fax6y"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="18_cd74u"]
 
@@ -92,6 +93,7 @@ position = Vector2(376, 213)
 
 [node name="Elephant" parent="." instance=ExtResource("11_fax6y")]
 position = Vector2(5321.0005, 345.00003)
+script = ExtResource("16_5wcrv")
 
 [node name="Ostrich" type="Sprite2D" parent="."]
 visible = false

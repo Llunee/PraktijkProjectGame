@@ -24,7 +24,7 @@ label back_to_sum_2
 leave elephant
 join mouse right
 mouse: Wat is 3 x 4?
-[text_input var="anwser_sum"]
+[text_input text="3 * 4 = ..." var="anwser_sum"]
 if {anwser_sum} == "12":
 	mouse: Goed gedaan!
 else:
@@ -35,7 +35,7 @@ elephant: Lekker bezig!!
 mouse: Nog 1 laatse vraag!!!
 label back_to_sum_3
 elephant: Wat is 318+37
-[text_input var="anwser_sum"]
+[text_input text="318 + 37 = ..." var="anwser_sum"]
 if {anwser_sum} == "355":
 	mouse: Krijg ik nu een nieuwe kaas?
 	elephant: Zeker weten!
