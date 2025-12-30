@@ -14,6 +14,7 @@ var health: int = max_health
 var speed: float = 300.0
 var jump_velocity: float = -450.0
 var coin_amount : int
+var safari_world_finished : bool = false
 
 enum Animals {
 	PANDA,

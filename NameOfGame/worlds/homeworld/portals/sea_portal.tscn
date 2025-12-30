@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqsfwm1j2fb0c"]
+[gd_scene load_steps=14 format=3 uid="uid://cqsfwm1j2fb0c"]
 
 [ext_resource type="Script" uid="uid://ew0ktteiq3cr" path="res://worlds/homeworld/portals/sea_portal.gd" id="1_8wjmv"]
 [ext_resource type="Texture2D" uid="uid://dee37ett4u5ce" path="res://assets/worlds/homeworld/portals/portal_sea_spritesheet.png" id="1_de553"]
 [ext_resource type="Texture2D" uid="uid://bo4fyyspwrfvn" path="res://assets/worlds/homeworld/portals/portal_sea.png" id="2_8wjmv"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="4_g32s8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyxkd"]
 atlas = ExtResource("1_de553")
@@ -69,6 +70,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4lfc"]
+radius = 40.0
+height = 112.0
+
 [node name="SeaPortal" type="Node2D"]
 z_index = -5
 script = ExtResource("1_8wjmv")
@@ -78,3 +83,22 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_67718")
 frame = 2
 frame_progress = 0.116195016
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 24)
+shape = SubResource("CapsuleShape2D_e4lfc")
+
+[node name="PressELabel" type="Label" parent="."]
+visible = false
+offset_left = -84.0
+offset_top = -97.0
+offset_right = 85.0
+offset_bottom = -73.0
+theme = ExtResource("4_g32s8")
+text = "Druk op E of F!"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
