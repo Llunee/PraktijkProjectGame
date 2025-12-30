@@ -23,21 +23,21 @@ else:
 label back_to_sum_2
 leave elephant
 join mouse right
-mouse: Wat is 3 x 4?
+mouse: Wat is 3 × 4?
 [text_input text="3 * 4 = ..." var="anwser_sum"]
 if {anwser_sum} == "12":
 	mouse: Goed gedaan!
 else:
-	mouse: Hint\: 3 x 4 is hetzelfde als 3 + 3 + 3 + 3.
+	mouse: Hint\: 3 × 4 is hetzelfde als 3 + 3 + 3 + 3.
 	jump back_to_sum_2
 join elephant center
 elephant: Lekker bezig!!
 mouse: Nog 1 laatse vraag!!!
 label back_to_sum_3
-elephant: Wat is 318+37
+elephant: Wat is 318 + 37?
 [text_input text="318 + 37 = ..." var="anwser_sum"]
 if {anwser_sum} == "355":
-	mouse: Krijg ik nu een nieuwe kaas?
+	mouse: Krijg ik nu nieuwe kaas?
 	elephant: Zeker weten!
 	set {quest_elephant_mouse} = "completed"
 	[signal arg="add_coins"]
