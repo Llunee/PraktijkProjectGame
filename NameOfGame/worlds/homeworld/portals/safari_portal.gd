@@ -10,12 +10,12 @@ func _ready() -> void:
 	animated_sprite.play("default")
 
 func _on_area_entered(body):
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		player_inside = true
 		interact_label.visible = true
 
 func _on_area_exited(body):
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		player_inside = false
 		interact_label.visible = false
 

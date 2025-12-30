@@ -51,3 +51,7 @@ func set_animal(animal_name: Animals):
 			spriteframes = froggy_spriteframes
 		Animals.PANDA:
 			spriteframes = panda_spriteframes
+			
+func set_safari_world_finished(happened : bool):
+	safari_world_finished = happened
+	print(safari_world_finished)
