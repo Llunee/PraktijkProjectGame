@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsqwjr0xqhqx0"]
+[gd_scene load_steps=22 format=3 uid="uid://dsqwjr0xqhqx0"]
 
 [ext_resource type="Script" uid="uid://cdtk0sovovcn0" path="res://worlds/homeworld/portals/jungle_portal.gd" id="1_ibusb"]
 [ext_resource type="Texture2D" uid="uid://c8kjudmwfb1hw" path="res://assets/worlds/homeworld/portals/portal_jungle_spritesheet.png" id="1_lnwtx"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="3_yje5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibusb"]
 atlas = ExtResource("1_lnwtx")
@@ -123,6 +124,10 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1j08w"]
+radius = 40.0
+height = 112.0
+
 [node name="JunglePortal" type="Node2D"]
 z_index = -5
 script = ExtResource("1_ibusb")
@@ -131,3 +136,22 @@ script = ExtResource("1_ibusb")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_j2x6v")
 frame_progress = 0.093488365
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 24)
+shape = SubResource("CapsuleShape2D_1j08w")
+
+[node name="PressELabel" type="Label" parent="."]
+visible = false
+offset_left = -84.0
+offset_top = -97.0
+offset_right = 85.0
+offset_bottom = -73.0
+theme = ExtResource("3_yje5n")
+text = "Druk op E of F!"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]

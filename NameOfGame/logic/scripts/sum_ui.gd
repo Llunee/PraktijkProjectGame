@@ -37,7 +37,20 @@ func fill_labels():
 	
 	number_one_label.text = str(sum_info["a"])
 	number_two_label.text = str(sum_info["b"])
-	operator_label.text = str(sum_info["operator"])
+	
+	var displayed_operator : String = ""
+	
+	match str(sum_info["operator"]):
+		"*":
+			displayed_operator = "×"
+		"/":
+			displayed_operator = ":"
+		"-": 
+			displayed_operator = "-"
+		"+":
+			displayed_operator = "+"
+	
+	operator_label.text = displayed_operator
 	line_edit.text = ""
 
 func _on_answer_text_submitted(answer: String) -> void:

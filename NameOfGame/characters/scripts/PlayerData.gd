@@ -14,6 +14,7 @@ var health: int = max_health
 var speed: float = 300.0
 var jump_velocity: float = -450.0
 var coin_amount : int
+var safari_world_finished : bool = false
 
 enum Animals {
 	PANDA,
@@ -50,3 +51,7 @@ func set_animal(animal_name: Animals):
 			spriteframes = froggy_spriteframes
 		Animals.PANDA:
 			spriteframes = panda_spriteframes
+			
+func set_safari_world_finished(happened : bool):
+	safari_world_finished = happened
+	print(safari_world_finished)

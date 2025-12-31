@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b41yjh575g6hk"]
+[gd_scene load_steps=15 format=3 uid="uid://b41yjh575g6hk"]
 
 [ext_resource type="Script" uid="uid://b1mmy2747hcyg" path="res://worlds/homeworld/portals/safari_portal.gd" id="1_sxj5b"]
 [ext_resource type="Texture2D" uid="uid://cx8xteo5gmlu6" path="res://assets/worlds/homeworld/portals/portal_safari_spritesheet.png" id="1_yywg3"]
 [ext_resource type="Texture2D" uid="uid://c0uhur6j714f2" path="res://assets/worlds/homeworld/portals/portal_safari.png" id="2_sxj5b"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="4_2lots"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kq248"]
 atlas = ExtResource("1_yywg3")
@@ -94,6 +95,16 @@ sprite_frames = SubResource("SpriteFrames_mc4ac")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 24)
 shape = SubResource("CapsuleShape2D_sxj5b")
+
+[node name="PressELabel" type="Label" parent="."]
+visible = false
+z_index = 5
+offset_left = -84.0
+offset_top = -97.0
+offset_right = 85.0
+offset_bottom = -73.0
+theme = ExtResource("4_2lots")
+text = "Druk op E of F!"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]

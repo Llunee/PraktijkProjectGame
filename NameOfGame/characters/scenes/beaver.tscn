@@ -63,6 +63,7 @@ position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_sltg0")
 
 [node name="PressELabel" type="Label" parent="."]
+visible = false
 offset_left = -84.0
 offset_top = -97.0
 offset_right = 85.0

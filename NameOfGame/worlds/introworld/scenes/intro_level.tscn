@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d4kxsb0n5yqn8"]
+[gd_scene load_steps=16 format=4 uid="uid://d4kxsb0n5yqn8"]
 
 [ext_resource type="Script" uid="uid://0tfnrmw0hsrb" path="res://worlds/introworld/scripts/intro_level.gd" id="1_aosbt"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="1_q0jir"]

@@ -4,8 +4,8 @@ mentor: Welkom in de thuiswereld van [naam spel]! In deze wereld staan verschill
 Door ieder portaal kun je een nieuwe wereld binnenstappen. Maar let goed op…\
 Elk portaal heeft zijn eigen rekenopdrachten!
 join portals (safari) center [animation="Fade In"]
-mentor: Bij de safariwereld staat [...] centraal!\
-Voorbeeld som\:
+mentor: Bij de safariwereld staat optellen en aftrekken centraal!\
+Voorbeeld som\: 12 + 85 = 97.
 leave portals [animation="Fade Out" length="0.1" wait="true"]
 join portals (jungle) center [animation="Fade In"]
 mentor: Bij de junglewereld staat [...] centraal!\

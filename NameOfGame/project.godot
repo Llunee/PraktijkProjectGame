@@ -106,6 +106,10 @@ run/main_run_args="--verbose"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 move_right={
