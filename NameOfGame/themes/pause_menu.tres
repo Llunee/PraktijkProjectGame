@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cukn4se7ynugc"]
+
+[ext_resource type="Texture2D" uid="uid://db81tyxhcoedn" path="res://assets/ui/close.png" id="1_xsf57"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwdt5"]
+texture = ExtResource("1_xsf57")
+modulate_color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pbw2"]
+texture = ExtResource("1_xsf57")
+modulate_color = Color(0.601223, 0.601223, 0.60122293, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_st86s"]
+texture = ExtResource("1_xsf57")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ets0d"]
+texture = ExtResource("1_xsf57")
+modulate_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxTexture_fwdt5")
+Button/styles/hover = SubResource("StyleBoxTexture_6pbw2")
+Button/styles/normal = SubResource("StyleBoxTexture_st86s")
+Button/styles/pressed = SubResource("StyleBoxTexture_ets0d")

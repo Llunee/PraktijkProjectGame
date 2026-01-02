@@ -3,6 +3,7 @@ extends Node
 signal player_damaged
 signal player_reset
 signal coins_updated
+signal spriteframes_updated
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -51,6 +52,8 @@ func set_animal(animal_name: Animals):
 			spriteframes = froggy_spriteframes
 		Animals.PANDA:
 			spriteframes = panda_spriteframes
+			
+	emit_signal("spriteframes_updated")
 			
 func set_safari_world_finished(happened : bool):
 	safari_world_finished = happened
