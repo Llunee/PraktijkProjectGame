@@ -1,9 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://kvtvuglr4ues"]
+[gd_scene load_steps=17 format=3 uid="uid://kvtvuglr4ues"]
 
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
 [ext_resource type="Script" uid="uid://ccx3b3x3f1h0l" path="res://titlescreen/pause_menu.gd" id="2_pijhd"]
 [ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="4_qjimk"]
+[ext_resource type="PackedScene" uid="uid://bbrq6jaavdyga" path="res://character-picker/scenes/panda_button.tscn" id="5_fftlo"]
+[ext_resource type="Theme" uid="uid://cukn4se7ynugc" path="res://themes/pause_menu.tres" id="5_i367n"]
+[ext_resource type="Script" uid="uid://32cpkmpd6nvr" path="res://character-picker/scenes/panda_button_pause_menu.gd" id="6_80j4n"]
+[ext_resource type="PackedScene" uid="uid://boe77o10v7u3y" path="res://character-picker/scenes/froggy_button.tscn" id="7_i367n"]
+[ext_resource type="Script" uid="uid://p6iap5ghrmlk" path="res://character-picker/scenes/froggy_button_pause_menu.gd" id="8_80j4n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
 texture = ExtResource("4_qjimk")
@@ -76,18 +81,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -44.0
-offset_right = 139.5
-offset_bottom = 331.0
+offset_left = -100.0
+offset_top = -187.5
+offset_right = 100.0
+offset_bottom = 187.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Container" type="VBoxContainer" parent="NinePatchRect/GridContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Resume" type="Button" parent="NinePatchRect/GridContainer/Container"]
+[node name="ChangeAnimal" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
@@ -96,9 +103,11 @@ theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.0056
 theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
-text = "Doorgaan"
+text = "Verander van karakter"
+autowrap_mode = 2
 
 [node name="Consoles" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
@@ -125,7 +134,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Close" type="Button" parent="NinePatchRect"]
-custom_minimum_size = Vector2(150, 60)
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -146,9 +155,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_sjs17")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vmyb1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_myy0f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vmyb1")
-text = "Sluiten"
+text = "Terug naar spel"
 
 [node name="ConsolesOverlay" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,6 +190,7 @@ offset_right = -409.0
 offset_bottom = -534.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 48
 text = "Besturing"
 
 [node name="consoletext" type="Label" parent="ConsolesOverlay/NinePatchRect"]
@@ -201,8 +212,96 @@ offset_left = 807.0
 offset_top = 35.0
 offset_right = 847.0
 offset_bottom = 75.0
+theme = ExtResource("5_i367n")
 
-[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Resume" to="." method="_on_resume_pressed"]
+[node name="ChangeAnimalOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ChangeAnimalOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Label" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 37.0
+offset_right = -409.0
+offset_bottom = -534.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Verander van dier"
+
+[node name="GridContainer" type="GridContainer" parent="ChangeAnimalOverlay/NinePatchRect"]
+custom_minimum_size = Vector2(625, 410)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -205.0
+offset_right = 312.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 75
+theme_override_constants/v_separation = 75
+columns = 3
+
+[node name="PandaButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
+layout_mode = 2
+script = ExtResource("6_80j4n")
+
+[node name="FroggyButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
+layout_mode = 2
+script = ExtResource("8_80j4n")
+
+[node name="PandaButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
+layout_mode = 2
+script = ExtResource("6_80j4n")
+
+[node name="FroggyButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
+layout_mode = 2
+script = ExtResource("8_80j4n")
+
+[node name="PandaButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
+layout_mode = 2
+script = ExtResource("6_80j4n")
+
+[node name="FroggyButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
+layout_mode = 2
+script = ExtResource("8_80j4n")
+
+[node name="Back" type="Button" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 35.0
+offset_right = 847.0
+offset_bottom = 75.0
+theme = ExtResource("5_i367n")
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/ChangeAnimal" to="." method="_on_change_character_pressed"]
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Consoles" to="." method="_on_consoles_pressed"]
 [connection signal="pressed" from="NinePatchRect/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="ConsolesOverlay/NinePatchRect/Back" to="." method="_on_consoles_back_pressed"]
+[connection signal="pressed" from="ChangeAnimalOverlay/NinePatchRect/Back" to="." method="_on_change_animal_back_pressed"]

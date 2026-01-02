@@ -18,6 +18,7 @@ var respawn_location : Vector2
 func _ready():
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
+	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))
 	screen_size = get_viewport_rect().size
 	respawn_location = global_position
 
@@ -69,5 +70,8 @@ func update_animation():
 	else:
 		sprite.play("idle")
 	
+func change_sprite_frames():
+	sprite.set("sprite_frames", PlayerData.spriteframes)
+
 func Player():
 	pass

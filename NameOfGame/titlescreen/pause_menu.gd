@@ -1,6 +1,7 @@
 extends Control
 
 @onready var consoles_overlay = $ConsolesOverlay
+@onready var change_animal_overlay = $ChangeAnimalOverlay
 
 var is_open = false
 
@@ -29,11 +30,14 @@ func close():
 func _on_close_pressed() -> void:
 	close()
 
-func _on_resume_pressed() -> void:
-	close()
-
 func _on_consoles_pressed() -> void:
 	consoles_overlay.visible = true
 
 func _on_consoles_back_pressed() -> void:
 	consoles_overlay.visible = false
+
+func _on_change_character_pressed() -> void:
+	change_animal_overlay.visible = true
+
+func _on_change_animal_back_pressed() -> void:
+	change_animal_overlay.visible = false
