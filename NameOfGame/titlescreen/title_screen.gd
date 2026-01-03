@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var start_button: Button = %start_button
-@onready var quit_button: Button = %quit_button
 @onready var settings_button: Button = %settings
 
 func _ready() -> void:
