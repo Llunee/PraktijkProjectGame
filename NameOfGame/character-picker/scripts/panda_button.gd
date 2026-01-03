@@ -1,7 +1,5 @@
 extends Control
 
-@onready var button : Button = $Panda
-
 func _ready() -> void:
 	pass 
 

@@ -1,0 +1,5 @@
+[signal arg="freeze_player"]
+join beaver right [animation="Fade In"]
+beaver: Dit portaal is nog in opbouw. Kom terug wanneer het spel een update heeft gehad.
+[signal arg="unfreeze_player"]
+[end_timeline]

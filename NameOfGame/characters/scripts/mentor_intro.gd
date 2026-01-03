@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	animated_sprite.flip_h = facing_right
 
 func _input(event: InputEvent) -> void:
-	if is_player_in_range and event.is_action_pressed("interact"):
+	if is_player_in_range and event.is_action_pressed("interact") and not is_chatting:
 		run_dialog("mentor_intro_level")
 
 func _on_body_entered(body: Node2D) -> void:
@@ -38,7 +38,7 @@ func _on_body_exited(body: Node2D) -> void:
 		interact_label.visible = false
 
 func run_dialog(dialog_name):
-	is_chatting = false
+	is_chatting = true
 	Dialogic.start(dialog_name)
 	
 func _on_dialogic_signal(signal_name: String) -> void:

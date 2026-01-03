@@ -4,9 +4,13 @@ signal player_damaged
 signal player_reset
 signal coins_updated
 signal spriteframes_updated
+signal player_on_ice
+signal player_off_ice
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
+@onready var mouse_spriteframes = preload("res://assets/characters/maincharacter/mouse/mouse_spriteframes.tres")
+@onready var bunny_spriteframes = preload("res://assets/characters/maincharacter/bunny/bunny_spriteframes.tres")
 
 var animal: Animals
 var spriteframes: SpriteFrames
@@ -19,7 +23,9 @@ var safari_world_finished : bool = false
 
 enum Animals {
 	PANDA,
-	FROG
+	FROG,
+	MOUSE,
+	BUNNY
 }
 
 func _ready():
@@ -52,9 +58,21 @@ func set_animal(animal_name: Animals):
 			spriteframes = froggy_spriteframes
 		Animals.PANDA:
 			spriteframes = panda_spriteframes
+		Animals.MOUSE:
+			spriteframes = mouse_spriteframes
+		Animals.BUNNY:
+			spriteframes = bunny_spriteframes
 			
 	emit_signal("spriteframes_updated")
 			
 func set_safari_world_finished(happened : bool):
 	safari_world_finished = happened
 	print(safari_world_finished)
+
+func is_on_ice():
+	emit_signal("player_on_ice")
+	speed = 400
+	
+func is_off_ice():
+	emit_signal("player_off_ice")
+	speed = 300

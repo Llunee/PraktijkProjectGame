@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cpfraltt3ydw3"]
+
+[ext_resource type="Texture2D" uid="uid://bf7aq3wra1xbx" path="res://assets/characters/maincharacter/bunny/bunny_idle.png" id="1_wnrxo"]
+[ext_resource type="Texture2D" uid="uid://b4ll1q5rhdkx6" path="res://assets/characters/maincharacter/bunny/bunny_jump.png" id="2_ycbf2"]
+[ext_resource type="Texture2D" uid="uid://b1vbj64gmjwba" path="res://assets/characters/maincharacter/bunny/bunny_walk.png" id="3_4s2ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxgbi"]
+atlas = ExtResource("1_wnrxo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idikj"]
+atlas = ExtResource("1_wnrxo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4chvj"]
+atlas = ExtResource("3_4s2ed")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd21x"]
+atlas = ExtResource("3_4s2ed")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxgbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idikj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ycbf2")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4chvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd21x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
