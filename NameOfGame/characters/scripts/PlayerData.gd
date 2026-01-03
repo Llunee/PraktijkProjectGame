@@ -4,6 +4,8 @@ signal player_damaged
 signal player_reset
 signal coins_updated
 signal spriteframes_updated
+signal player_on_ice
+signal player_off_ice
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -58,3 +60,11 @@ func set_animal(animal_name: Animals):
 func set_safari_world_finished(happened : bool):
 	safari_world_finished = happened
 	print(safari_world_finished)
+
+func is_on_ice():
+	emit_signal("player_on_ice")
+	speed = 400
+	
+func is_off_ice():
+	emit_signal("player_off_ice")
+	speed = 300
