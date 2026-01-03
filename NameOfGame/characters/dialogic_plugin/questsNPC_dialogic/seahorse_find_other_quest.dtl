@@ -1,0 +1,23 @@
+if {quest_find_seahorse} == "completed":
+	purple_seahorse: Je hebt me al geholpen! 💜
+	[end_timeline]
+
+[signal arg="freeze_player"]
+
+join purple_seahorse right
+purple_seahorse: Hoi… ik ben mijn beste vriend kwijt.
+purple_seahorse: Hij zwemt ergens aan de andere kant, maar ik ben bang om alleen te gaan…
+purple_seahorse: Wil jij me veilig naar hem toe brengen?
+
+- Ja, ik help je!
+	purple_seahorse: Echt? Dank je wel!
+	purple_seahorse: Ik blijf dicht bij je. Pas alsjeblieft goed op me.
+	set {escort_active} = true
+	[signal arg="start_escort"]
+	[signal arg="unfreeze_player"]
+	[end_timeline]
+
+- Nee, sorry…
+	purple_seahorse: Oh… oké. Ik wacht hier dan wel.
+	[signal arg="unfreeze_player"]
+	[end_timeline]

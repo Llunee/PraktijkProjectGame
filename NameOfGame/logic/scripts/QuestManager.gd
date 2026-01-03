@@ -9,6 +9,8 @@ var firstQuest := false
 var hippoQuest := false
 var is_chatting: bool = false
 
+@export var purple_seahorse: CharacterBody2D
+
 @onready var player_inv: Inv = preload("res://inventory/playerInventory.tres")
 @onready var purple_crystal: InvItem = preload("res://inventory/items/purple_crystals.tres")
 @onready var hippo_grass: InvItem = preload("res://inventory/items/hippo_grass.tres")
@@ -47,6 +49,12 @@ func _on_dialogic_signal(signal_name: String):
 				hippo_grass,
 				"hippo_grass_collected"
 			)
+		
+		"start_escort":
+			start_escort()
+		"escort_failed":
+			reset_escort()
+			
 
 
 # Quest logic
@@ -82,6 +90,16 @@ func update_collection(
 
 	return collected
 
+func start_escort():
+	if purple_seahorse:
+		purple_seahorse.start_following()
+		Dialogic.VAR.set_variable("escort_active", true)
+		
+func reset_escort():
+	if purple_seahorse:
+		purple_seahorse.following = false
+		purple_seahorse.global_position = purple_seahorse.start_position
+		Dialogic.VAR.set_variable("escort_active", false)
 
 # Collecting
 func collect_purple_crystal():

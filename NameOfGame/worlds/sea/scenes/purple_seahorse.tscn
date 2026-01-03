@@ -1,20 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://davqj2linm7bs"]
+[gd_scene load_steps=8 format=3 uid="uid://davqj2linm7bs"]
 
 [ext_resource type="Texture2D" uid="uid://cdlh1gokfpf0l" path="res://assets/characters/NPCS/sea/seahorse.png" id="1_1obw1"]
+[ext_resource type="Script" uid="uid://ckohe4a0cne2m" path="res://worlds/sea/scripts/purple_seahorse.gd" id="1_gc5y4"]
 [ext_resource type="Script" uid="uid://mqwgdb56g7vj" path="res://logic/scripts/interact_icon.gd" id="2_gc5y4"]
 [ext_resource type="Texture2D" uid="uid://c38umsqte0qy2" path="res://assets/ui/mark.png" id="3_f078x"]
+[ext_resource type="Script" uid="uid://k522lsx61sso" path="res://worlds/sea/scripts/interaction_area_seahorse.gd" id="5_f078x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6uwpb"]
-radius = 12.0
-height = 34.0
+radius = 8.0
+height = 16.0
 
-[node name="child_seahorse" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gc5y4"]
+radius = 17.029387
+
+[node name="purple_seahorse" type="CharacterBody2D"]
+script = ExtResource("1_gc5y4")
+speed = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1obw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6uwpb")
+disabled = true
 
 [node name="InteractIcon" type="Node2D" parent="."]
 script = ExtResource("2_gc5y4")
@@ -22,3 +30,10 @@ script = ExtResource("2_gc5y4")
 [node name="Sprite2D" type="Sprite2D" parent="InteractIcon"]
 position = Vector2(0, -29.268291)
 texture = ExtResource("3_f078x")
+
+[node name="InteractionArea" type="Area2D" parent="." node_paths=PackedStringArray("seahorse")]
+script = ExtResource("5_f078x")
+seahorse = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_gc5y4")

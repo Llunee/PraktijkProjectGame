@@ -30,12 +30,14 @@ directories/dch_directory={
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
 "elephant": "res://characters/dialogic_plugin/charactersNPC_dialogic/elephant.dch",
 "giraffe": "res://characters/dialogic_plugin/charactersNPC_dialogic/giraffe.dch",
+"green_seahorse": "res://characters/dialogic_plugin/charactersNPC_dialogic/green_seahorse.dch",
 "hippo": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo.dch",
 "hippo_grass": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo_grass.dch",
 "mentor": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor.dch",
 "mouse": "res://characters/dialogic_plugin/charactersNPC_dialogic/mouse.dch",
 "portals": "res://characters/dialogic_plugin/portals_dialogic/portals.dch",
-"purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch"
+"purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch",
+"purple_seahorse": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_seahorse.dch"
 }
 directories/dtl_directory={
 "beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/beaver_story.dtl",
@@ -46,7 +48,10 @@ directories/dtl_directory={
 "introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl",
 "jungle_beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/jungle_beaver_story.dtl",
 "mentor_intro_level": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_intro_level.dtl",
-"mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl"
+"mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl",
+"seahorse_escort_failed": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_failed.dtl",
+"seahorse_escort_success": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_success.dtl",
+"seahorse_find_other_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_find_other_quest.dtl"
 }
 layout/style_directory={
 "": "res://assets/Dialogic_Styles/wood_style.tres",
@@ -75,6 +80,7 @@ text/autopauses={}
 audio/channel_defaults={}
 variables={
 "anwser_sum": 0,
+"escort_active": false,
 "firstQuest": false,
 "hippoQuest": false,
 "hippo_grass_collected": 0,
@@ -82,6 +88,7 @@ variables={
 "purple_crystal_collected": 0,
 "quest_elephant_cactus": "",
 "quest_elephant_mouse": "",
+"quest_find_seahorse": "",
 "quest_giraffe": "",
 "quest_hippo": "",
 "quest_objective_met": false,

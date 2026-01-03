@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://yw4dgyfp0g2v"]
+[gd_scene load_steps=14 format=4 uid="uid://yw4dgyfp0g2v"]
 
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_3auxs"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="2_knyvy"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cv4yud1tsu0ff" path="res://enemies/scenes/jellyfish.tscn" id="9_vdfuh"]
 [ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="10_c7ysm"]
 [ext_resource type="PackedScene" uid="uid://cqsfwm1j2fb0c" path="res://worlds/homeworld/portals/sea_portal.tscn" id="11_0jta2"]
-[ext_resource type="PackedScene" uid="uid://davqj2linm7bs" path="res://worlds/sea/scenes/child_seahorse.tscn" id="12_knyvy"]
+[ext_resource type="PackedScene" uid="uid://davqj2linm7bs" path="res://worlds/sea/scenes/purple_seahorse.tscn" id="12_knyvy"]
+[ext_resource type="PackedScene" uid="uid://o8uy6kng4vu" path="res://worlds/sea/scenes/green_seahorse.tscn" id="13_hs178"]
 
 [node name="SeaLevelOne" type="Node2D"]
 
@@ -62,7 +63,7 @@ tile_set = ExtResource("7_1hydm")
 [node name="Trees" type="TileMapLayer" parent="."]
 
 [node name="Crab" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_orwth")]
-position = Vector2(582, 56)
+position = Vector2(2338, 142)
 player = NodePath("../Player")
 
 [node name="Crab2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_orwth")]
@@ -84,5 +85,14 @@ enemy_hud_scene = ExtResource("10_c7ysm")
 [node name="SeaPortal" parent="." instance=ExtResource("11_0jta2")]
 position = Vector2(6950, 65)
 
-[node name="child_seahorse" parent="." instance=ExtResource("12_knyvy")]
-position = Vector2(2286, 136)
+[node name="purple_seahorse" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_knyvy")]
+position = Vector2(404, 75)
+player = NodePath("../Player")
+
+[node name="green_seahorse" parent="." node_paths=PackedStringArray("purple_seahorse") instance=ExtResource("13_hs178")]
+position = Vector2(6662, 107)
+purple_seahorse = NodePath("../purple_seahorse")
+
+[node name="Crab3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_orwth")]
+position = Vector2(3331, 167)
+player = NodePath("../Player")

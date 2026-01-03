@@ -1,0 +1,12 @@
+[signal arg="freeze_player"]
+
+join green_seahorse left
+green_seahorse: Daar ben je!
+green_seahorse: Ik was zo ongerust… Dank je wel dat je mijn vriend veilig hebt gebracht 💚
+
+set {escort_active} = false
+set {quest_find_seahorse} = "completed"
+
+[signal arg="add_coins"]
+[signal arg="unfreeze_player"]
+[end_timeline]

@@ -1,0 +1,10 @@
+[signal arg="freeze_player"]
+
+purple_seahorse: Ah! Ik ben weer helemaal alleen…
+purple_seahorse: Laten we het opnieuw proberen, alsjeblieft.
+
+set {escort_active} = false
+
+[signal arg="reset_escort"]
+[signal arg="unfreeze_player"]
+[end_timeline]
