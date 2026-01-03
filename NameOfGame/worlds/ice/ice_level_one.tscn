@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cunvjkdhkykrn"]
+[gd_scene load_steps=13 format=4 uid="uid://cunvjkdhkykrn"]
 
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://61n0605njhhw" path="res://items/coin_gold.tscn" id="2_y5lfe"]
 [ext_resource type="PackedScene" uid="uid://ci1jhprdgfal" path="res://items/coin_red.tscn" id="3_m2ln1"]
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="3_ro7lx"]
+[ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="10_m2ln1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lfe"]
 size = Vector2(4940, 1039)
@@ -32,7 +33,7 @@ bbcode_enabled = true
 text = "text"
 
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
-position = Vector2(7185, -3467)
+position = Vector2(59, -2936)
 collision_mask = 3
 
 [node name="IceArea" type="Area2D" parent="."]
@@ -91,6 +92,10 @@ tile_set = ExtResource("2_k2g86")
 
 [node name="Trees" type="TileMapLayer" parent="."]
 position = Vector2(305, -1940)
+
+[node name="IcePortal" parent="." instance=ExtResource("10_m2ln1")]
+position = Vector2(14053, -2252)
+target_scene_path = "res://worlds/homeworld/scenes/home_world.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
