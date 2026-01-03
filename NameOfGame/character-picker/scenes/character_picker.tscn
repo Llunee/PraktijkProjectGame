@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://i37ofdm4rh3a"]
+[gd_scene load_steps=8 format=3 uid="uid://i37ofdm4rh3a"]
 
 [ext_resource type="Theme" uid="uid://clyt8pejv4war" path="res://themes/character_picker_ui.tres" id="1_m0gnx"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_m0gnx"]
 [ext_resource type="Script" uid="uid://b7s1x0ow6c3bj" path="res://character-picker/scripts/character_picker.gd" id="2_mpajy"]
 [ext_resource type="PackedScene" uid="uid://bbrq6jaavdyga" path="res://character-picker/scenes/panda_button.tscn" id="4_m0gnx"]
 [ext_resource type="PackedScene" uid="uid://boe77o10v7u3y" path="res://character-picker/scenes/froggy_button.tscn" id="5_mpajy"]
+[ext_resource type="PackedScene" uid="uid://cctosabqldgdd" path="res://character-picker/scenes/mouse_button.tscn" id="6_mpajy"]
+[ext_resource type="PackedScene" uid="uid://d0bwsnv142inw" path="res://character-picker/scenes/bunny_button.tscn" id="7_50xa3"]
 
 [node name="CharacterPicker" type="Control"]
 layout_mode = 3
@@ -68,10 +70,11 @@ layout_mode = 2
 [node name="FroggyButton3" parent="NinePatchRect/GridContainer" instance=ExtResource("5_mpajy")]
 layout_mode = 2
 
-[node name="PandaButton2" parent="NinePatchRect/GridContainer" instance=ExtResource("4_m0gnx")]
+[node name="MouseButton" parent="NinePatchRect/GridContainer" instance=ExtResource("6_mpajy")]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 
-[node name="FroggyButton2" parent="NinePatchRect/GridContainer" instance=ExtResource("5_mpajy")]
+[node name="BunnyButton" parent="NinePatchRect/GridContainer" instance=ExtResource("7_50xa3")]
 layout_mode = 2
 
 [node name="PandaButton" parent="NinePatchRect/GridContainer" instance=ExtResource("4_m0gnx")]

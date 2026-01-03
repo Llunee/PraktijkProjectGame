@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kvtvuglr4ues"]
+[gd_scene load_steps=21 format=3 uid="uid://kvtvuglr4ues"]
 
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://32cpkmpd6nvr" path="res://character-picker/scenes/panda_button_pause_menu.gd" id="6_80j4n"]
 [ext_resource type="PackedScene" uid="uid://boe77o10v7u3y" path="res://character-picker/scenes/froggy_button.tscn" id="7_i367n"]
 [ext_resource type="Script" uid="uid://p6iap5ghrmlk" path="res://character-picker/scenes/froggy_button_pause_menu.gd" id="8_80j4n"]
+[ext_resource type="PackedScene" uid="uid://cctosabqldgdd" path="res://character-picker/scenes/mouse_button.tscn" id="10_st86s"]
+[ext_resource type="Script" uid="uid://c3s8550rnfa1s" path="res://character-picker/scenes/mouse_button_pause_menu.gd" id="11_ets0d"]
+[ext_resource type="PackedScene" uid="uid://d0bwsnv142inw" path="res://character-picker/scenes/bunny_button.tscn" id="12_j1g0e"]
+[ext_resource type="Script" uid="uid://diwnlmt2xxdpa" path="res://character-picker/scenes/bunny_button_pause_menu.gd" id="13_ets0d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
 texture = ExtResource("4_qjimk")
@@ -215,7 +219,6 @@ offset_bottom = 75.0
 theme = ExtResource("5_i367n")
 
 [node name="ChangeAnimalOverlay" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -276,13 +279,14 @@ script = ExtResource("6_80j4n")
 layout_mode = 2
 script = ExtResource("8_80j4n")
 
-[node name="PandaButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
+[node name="MouseButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("10_st86s")]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-script = ExtResource("6_80j4n")
+script = ExtResource("11_ets0d")
 
-[node name="FroggyButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
+[node name="BunnyButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("12_j1g0e")]
 layout_mode = 2
-script = ExtResource("8_80j4n")
+script = ExtResource("13_ets0d")
 
 [node name="PandaButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
 layout_mode = 2

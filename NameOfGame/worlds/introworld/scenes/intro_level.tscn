@@ -25,7 +25,7 @@ tile_set = ExtResource("1_q0jir")
 
 [node name="Player" parent="." instance=ExtResource("2_jq56v")]
 unique_name_in_owner = true
-position = Vector2(2464, 128)
+position = Vector2(96, 128)
 
 [node name="Mentor" parent="." instance=ExtResource("3_jjk5a")]
 position = Vector2(190.51535, 167.78409)
@@ -35,7 +35,7 @@ script = ExtResource("4_jjk5a")
 position = Vector2(1262.5217, 156.79073)
 
 [node name="geelkeelmarter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_nmhdb")]
-position = Vector2(64, 128)
+position = Vector2(2848, 128)
 scale = Vector2(2, 2)
 player = NodePath("../Player")
 enemy_hud_scene = ExtResource("8_k3eb3")
