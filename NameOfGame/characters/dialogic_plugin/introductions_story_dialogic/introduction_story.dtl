@@ -1,6 +1,6 @@
 [signal arg="freeze_player"]
 join mentor right [animation="Fade In"]
-mentor: Welkom in de thuiswereld van [naam spel]! In deze wereld staan verschillende portalen.\
+mentor: Welkom in de thuiswereld van Critter Quest\: Math Edition! In deze wereld staan verschillende portalen.\
 Door ieder portaal kun je een nieuwe wereld binnenstappen. Maar let goed op…\
 Elk portaal heeft zijn eigen rekenopdrachten!
 join portals (safari) center [animation="Fade In"]

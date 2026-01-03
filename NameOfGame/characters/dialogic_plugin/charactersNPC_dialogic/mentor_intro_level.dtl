@@ -1,6 +1,6 @@
 [signal arg="freeze_player"]
 join mentor right [animation="Fade In"]
-mentor: Hallo avonturier! Welkom in [naam spel]! Ik zal je leren hoe je moet bewegen.
+mentor: Hallo avonturier! Welkom in Critter Quest\: Math Edition! Ik zal je leren hoe je moet bewegen.
 mentor: Je kan zowel met de pijltjes als met WASD spelen. Gebruik de pijltjes naar links en rechts of "A" en "D" om naar links en rechts te lopen!
 mentor: Met de spatiebalk, pijltje omhoog of "W" kan je springen.
 mentor: Gebruik Tab om je inventaris te openen. Mocht je de Tab-knop niet zien, hij zit naast de "Q"!

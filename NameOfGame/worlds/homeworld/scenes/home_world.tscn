@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://db86lj4xekvi7"]
+[gd_scene load_steps=19 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="14_5p35a"]
 [ext_resource type="Texture2D" uid="uid://bh51q777s4ldb" path="res://assets/worlds/homeworld/fence.png" id="14_mh43n"]
 [ext_resource type="PackedScene" uid="uid://ct12gxck72guh" path="res://characters/scenes/beaver.tscn" id="15_shlyg"]
+[ext_resource type="Script" uid="uid://b838gc2w4uuhk" path="res://characters/scenes/beaver_jungle.gd" id="18_cyic0"]
 
 [node name="HomeWorld" type="Node2D"]
 script = ExtResource("1_jjqr7")
@@ -102,6 +103,7 @@ texture = ExtResource("14_mh43n")
 
 [node name="BeaverJungle" parent="." instance=ExtResource("15_shlyg")]
 position = Vector2(-416, 448)
+script = ExtResource("18_cyic0")
 
 [node name="FenceIce" type="Sprite2D" parent="."]
 z_index = -1

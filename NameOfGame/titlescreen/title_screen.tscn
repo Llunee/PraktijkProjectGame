@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bwbdtgcdtqnsl" path="res://assets/characters/maincharacter/PandaLeft.png" id="5_kiwnf"]
 
 [node name="TitleScreen" type="Node2D"]
-position = Vector2(-3, 0)
 script = ExtResource("1_iljhr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -49,7 +48,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
-text = "Panda Math Quest "
+text = "Critter Quest:
+Math edition"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -69,18 +69,10 @@ expand_icon = true
 
 [node name="settings" type="Button" parent="CanvasLayer2/CenterContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 theme = ExtResource("3_aguhy")
 text = "Settings"
 icon = ExtResource("5_kiwnf")
-expand_icon = true
-
-[node name="quit_button" type="Button" parent="CanvasLayer2/CenterContainer/VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 100)
-layout_mode = 2
-theme = ExtResource("3_aguhy")
-text = "Afsluiten"
-icon = ExtResource("4_hclly")
 expand_icon = true

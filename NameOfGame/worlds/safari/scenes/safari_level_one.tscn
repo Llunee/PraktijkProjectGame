@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dptvao563xn4e"]
+[gd_scene load_steps=23 format=4 uid="uid://dptvao563xn4e"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_8xs48"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_fnves"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c7gvseyrj63a3" path="res://assets/characters/NPCS/safari/happy_elephant.png" id="11_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://cdhnvr428gp20" path="res://worlds/safari/scenes/elephant.tscn" id="11_fax6y"]
 [ext_resource type="Texture2D" uid="uid://bepb2mq0x1cjs" path="res://assets/characters/NPCS/mouse.png" id="12_k8ycn"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="14_hn6as"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
 [ext_resource type="Script" uid="uid://dm36ibfx4s5fj" path="res://worlds/safari/scripts/elephant.gd" id="16_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://dpklpqqy4yf8k" path="res://inventory/scenes/purple_crystals.tscn" id="16_fax6y"]
@@ -77,7 +78,7 @@ script = ExtResource("9_fs1hd")
 
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true
-position = Vector2(-1566, 178)
+position = Vector2(-1622, 210)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
 position = Vector2(0, -2)
@@ -87,6 +88,7 @@ position = Vector2(3070, 229)
 player = NodePath("../Player")
 SPEED = 150
 CHASE_SPEED = 300
+enemy_hud_scene = ExtResource("14_hn6as")
 
 [node name="Giraffe" parent="." instance=ExtResource("10_dfh5s")]
 position = Vector2(376, 213)
