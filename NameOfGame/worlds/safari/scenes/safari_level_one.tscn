@@ -78,7 +78,7 @@ script = ExtResource("9_fs1hd")
 
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true
-position = Vector2(-1622, 210)
+position = Vector2(-1641, 216)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
 position = Vector2(0, -2)
