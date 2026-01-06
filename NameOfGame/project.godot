@@ -21,6 +21,7 @@ QuestManager="*res://logic/scripts/QuestManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuizManager="*res://logic/scripts/QuizManager.gd"
 PlayerData="*res://characters/scripts/PlayerData.gd"
+LevelData="*res://logic/scripts/LevelData.gd"
 
 [dialogic]
 

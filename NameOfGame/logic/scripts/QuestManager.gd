@@ -33,6 +33,7 @@ func _on_dialogic_signal(signal_name: String):
 	match signal_name:
 		"add_coins":
 			PlayerData.add_coins(5)
+			LevelData.update_quests(LevelData.get_current_world())
 
 		"firstQuest":
 			start_quest(

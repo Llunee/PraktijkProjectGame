@@ -392,9 +392,45 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SafariProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="SafariLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/LevelsContainer"]
 layout_mode = 2
 text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="SafariQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="SafariCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -412,9 +448,45 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SeaProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="SeaLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/LevelsContainer"]
 layout_mode = 2
 text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="SeaQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="SeaCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -432,9 +504,45 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="IceProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="IceLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/LevelsContainer"]
 layout_mode = 2
 text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="IceQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="IceCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -451,9 +559,45 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JungleProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="JungleLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/LevelsContainer"]
 layout_mode = 2
 text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="JungleQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="JungleCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
 horizontal_alignment = 1
 vertical_alignment = 1
 

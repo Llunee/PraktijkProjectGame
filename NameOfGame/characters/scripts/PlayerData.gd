@@ -6,7 +6,6 @@ signal coins_updated
 signal spriteframes_updated
 signal player_on_ice
 signal player_off_ice
-signal progress_updated
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -31,13 +30,6 @@ enum Animals {
 	FROG,
 	MOUSE,
 	BUNNY
-}
-
-enum Worlds {
-	SAFARI,
-	SEA,
-	ICE,
-	JUNGLE
 }
 
 func _ready():
@@ -79,7 +71,6 @@ func set_animal(animal_name: Animals):
 			
 func set_safari_world_finished(happened : bool):
 	safari_world_finished = happened
-	update_progress(Worlds.SAFARI, 100)
 
 func is_on_ice():
 	emit_signal("player_on_ice")
@@ -88,16 +79,3 @@ func is_on_ice():
 func is_off_ice():
 	emit_signal("player_off_ice")
 	speed = 300
-
-func update_progress(world : Worlds, amount : int):
-	match world:
-		Worlds.SAFARI:
-			safari_progress = amount
-		Worlds.SEA:
-			sea_progress = amount
-		Worlds.ICE:
-			ice_progress = amount
-		Worlds.JUNGLE:
-			jungle_progress = amount
-	
-	emit_signal("progress_updated")

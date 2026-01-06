@@ -12,7 +12,7 @@ extends Node2D
 var checkpoint_passed : bool = false
 
 func _ready() -> void:
-	PlayerData.update_progress(PlayerData.Worlds.SAFARI, 50)
+	LevelData.update_level_progress(LevelData.Worlds.SAFARI)
 	for gold_coin_marker in gold_coin_spawn_points:
 		spawn_item(gold_coin_marker.global_position, gold_coin_scene)
 	for red_coin_marker in red_coin_spawn_points:

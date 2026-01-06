@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body == player:
 		PlayerData.add_coins(coin_value)
+		LevelData.update_coins(LevelData.get_current_world(), coin_value)
 		emit_signal("collected", global_position)
 		await get_tree().create_timer(0.1).timeout 
 		self.queue_free()
