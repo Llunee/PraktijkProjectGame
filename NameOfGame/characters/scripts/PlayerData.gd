@@ -20,6 +20,10 @@ var speed: float = 300.0
 var jump_velocity: float = -450.0
 var coin_amount : int
 var safari_world_finished : bool = false
+var safari_progress : int = 0
+var sea_progress : int = 0
+var ice_progress : int = 0
+var jungle_progress : int = 0
 
 enum Animals {
 	PANDA,
@@ -67,7 +71,6 @@ func set_animal(animal_name: Animals):
 			
 func set_safari_world_finished(happened : bool):
 	safari_world_finished = happened
-	print(safari_world_finished)
 
 func is_on_ice():
 	emit_signal("player_on_ice")

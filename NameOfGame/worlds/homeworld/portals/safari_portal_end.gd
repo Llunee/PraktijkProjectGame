@@ -22,4 +22,5 @@ func _on_area_exited(body):
 func _process(delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("interact"):
 		PlayerData.set_safari_world_finished(true)
+		LevelData.update_level_progress(LevelData.Worlds.SAFARI)
 		get_tree().change_scene_to_file(target_scene_path)
