@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cunvjkdhkykrn"]
+[gd_scene load_steps=15 format=4 uid="uid://cunvjkdhkykrn"]
 
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ci1jhprdgfal" path="res://items/coin_red.tscn" id="3_m2ln1"]
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="3_ro7lx"]
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="10_m2ln1"]
+[ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_1rgh2"]
+[ext_resource type="Script" uid="uid://k6cte16udd0c" path="res://characters/scripts/mentor_ice_one.gd" id="12_b1csi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lfe"]
 size = Vector2(4940, 1039)
@@ -33,8 +35,13 @@ bbcode_enabled = true
 text = "text"
 
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
+unique_name_in_owner = true
 position = Vector2(59, -2936)
 collision_mask = 3
+
+[node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
+position = Vector2(267, -2916)
+script = ExtResource("12_b1csi")
 
 [node name="IceArea" type="Area2D" parent="."]
 position = Vector2(7450, -3281)
