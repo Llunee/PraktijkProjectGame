@@ -1,0 +1,13 @@
+Avonturier?
+Avonturier! Word wakker!
+[signal arg="wake"]
+join mentor center
+mentor: Oh gelukkig, avonturier, je bent weer wakker!
+mentor: Weet je nog wat er gebeurd is?
+- Nee..
+- Wat?
+mentor: Een mysterieus figuur heeft je bewusteloos geslagen!\
+Hij is nu op weg om alle werelden te vervloeken..\
+We moeten hem tegenhouden!
+[signal arg="end"]
+[end_timeline]

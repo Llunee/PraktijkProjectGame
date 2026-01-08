@@ -51,6 +51,7 @@ directories/dtl_directory={
 "mentor_ice_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_ice_one.dtl",
 "mentor_intro_level": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_intro_level.dtl",
 "mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl",
+"mentor_storyline_start": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_storyline_start.dtl",
 "seahorse_escort_failed": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_failed.dtl",
 "seahorse_escort_success": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_success.dtl",
 "seahorse_find_other_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_find_other_quest.dtl"
