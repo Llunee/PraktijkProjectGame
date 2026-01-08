@@ -1,18 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://kvtvuglr4ues"]
+[gd_scene load_steps=18 format=3 uid="uid://kvtvuglr4ues"]
 
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
 [ext_resource type="Script" uid="uid://ccx3b3x3f1h0l" path="res://titlescreen/pause_menu.gd" id="2_pijhd"]
 [ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="4_qjimk"]
-[ext_resource type="PackedScene" uid="uid://bbrq6jaavdyga" path="res://character-picker/scenes/panda_button.tscn" id="5_fftlo"]
 [ext_resource type="Theme" uid="uid://cukn4se7ynugc" path="res://themes/pause_menu.tres" id="5_i367n"]
-[ext_resource type="Script" uid="uid://32cpkmpd6nvr" path="res://character-picker/scenes/panda_button_pause_menu.gd" id="6_80j4n"]
-[ext_resource type="PackedScene" uid="uid://boe77o10v7u3y" path="res://character-picker/scenes/froggy_button.tscn" id="7_i367n"]
-[ext_resource type="Script" uid="uid://p6iap5ghrmlk" path="res://character-picker/scenes/froggy_button_pause_menu.gd" id="8_80j4n"]
-[ext_resource type="PackedScene" uid="uid://cctosabqldgdd" path="res://character-picker/scenes/mouse_button.tscn" id="10_st86s"]
-[ext_resource type="Script" uid="uid://c3s8550rnfa1s" path="res://character-picker/scenes/mouse_button_pause_menu.gd" id="11_ets0d"]
-[ext_resource type="PackedScene" uid="uid://d0bwsnv142inw" path="res://character-picker/scenes/bunny_button.tscn" id="12_j1g0e"]
-[ext_resource type="Script" uid="uid://diwnlmt2xxdpa" path="res://character-picker/scenes/bunny_button_pause_menu.gd" id="13_ets0d"]
+[ext_resource type="PackedScene" uid="uid://crtvd78xqf73d" path="res://character-picker/scenes/character_button.tscn" id="6_fwdt5"]
+[ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="7_6pbw2"]
+[ext_resource type="Texture2D" uid="uid://c2gj7yg4gp3tn" path="res://assets/characters/maincharacter/froggy/froggy.png" id="8_st86s"]
+[ext_resource type="Texture2D" uid="uid://h0s5sgt48gyv" path="res://assets/characters/maincharacter/mouse/mouse.png" id="9_ets0d"]
+[ext_resource type="Texture2D" uid="uid://b08ohg5rf2lbs" path="res://assets/characters/maincharacter/bunny/bunny.png" id="10_j1g0e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
 texture = ExtResource("4_qjimk")
@@ -232,7 +229,6 @@ offset_bottom = 75.0
 theme = ExtResource("5_i367n")
 
 [node name="ChangeAnimalOverlay" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,49 +263,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Verander van dier"
 
-[node name="GridContainer" type="GridContainer" parent="ChangeAnimalOverlay/NinePatchRect"]
-custom_minimum_size = Vector2(625, 410)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -312.5
-offset_top = -205.0
-offset_right = 312.5
-offset_bottom = 205.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 75
-theme_override_constants/v_separation = 75
-columns = 3
-
-[node name="PandaButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
-layout_mode = 2
-script = ExtResource("6_80j4n")
-
-[node name="FroggyButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
-layout_mode = 2
-script = ExtResource("8_80j4n")
-
-[node name="MouseButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("10_st86s")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-script = ExtResource("11_ets0d")
-
-[node name="BunnyButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("12_j1g0e")]
-layout_mode = 2
-script = ExtResource("13_ets0d")
-
-[node name="PandaButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("5_fftlo")]
-layout_mode = 2
-script = ExtResource("6_80j4n")
-
-[node name="FroggyButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("7_i367n")]
-layout_mode = 2
-script = ExtResource("8_80j4n")
-
 [node name="Back" type="Button" parent="ChangeAnimalOverlay/NinePatchRect"]
 layout_mode = 0
 offset_left = 807.0
@@ -317,6 +270,46 @@ offset_top = 35.0
 offset_right = 847.0
 offset_bottom = 75.0
 theme = ExtResource("5_i367n")
+
+[node name="GridContainer" type="GridContainer" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="CharacterButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+icon = ExtResource("7_6pbw2")
+
+[node name="CharacterButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 1
+icon = ExtResource("8_st86s")
+
+[node name="CharacterButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 2
+icon = ExtResource("9_ets0d")
+
+[node name="CharacterButton4" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 3
+icon = ExtResource("10_j1g0e")
 
 [node name="ProgressOverlay" type="Control" parent="."]
 visible = false

@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://i37ofdm4rh3a"]
+[gd_scene load_steps=9 format=3 uid="uid://i37ofdm4rh3a"]
 
 [ext_resource type="Theme" uid="uid://clyt8pejv4war" path="res://themes/character_picker_ui.tres" id="1_m0gnx"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_m0gnx"]
 [ext_resource type="Script" uid="uid://b7s1x0ow6c3bj" path="res://character-picker/scripts/character_picker.gd" id="2_mpajy"]
-[ext_resource type="PackedScene" uid="uid://bbrq6jaavdyga" path="res://character-picker/scenes/panda_button.tscn" id="4_m0gnx"]
-[ext_resource type="PackedScene" uid="uid://boe77o10v7u3y" path="res://character-picker/scenes/froggy_button.tscn" id="5_mpajy"]
-[ext_resource type="PackedScene" uid="uid://cctosabqldgdd" path="res://character-picker/scenes/mouse_button.tscn" id="6_mpajy"]
-[ext_resource type="PackedScene" uid="uid://d0bwsnv142inw" path="res://character-picker/scenes/bunny_button.tscn" id="7_50xa3"]
+[ext_resource type="PackedScene" uid="uid://crtvd78xqf73d" path="res://character-picker/scenes/character_button.tscn" id="8_clt13"]
+[ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="9_e4qag"]
+[ext_resource type="Texture2D" uid="uid://c2gj7yg4gp3tn" path="res://assets/characters/maincharacter/froggy/froggy.png" id="10_frsbq"]
+[ext_resource type="Texture2D" uid="uid://h0s5sgt48gyv" path="res://assets/characters/maincharacter/mouse/mouse.png" id="11_2t617"]
+[ext_resource type="Texture2D" uid="uid://b08ohg5rf2lbs" path="res://assets/characters/maincharacter/bunny/bunny.png" id="12_e3qhn"]
 
 [node name="CharacterPicker" type="Control"]
 layout_mode = 3
@@ -47,38 +48,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-custom_minimum_size = Vector2(625, 410)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.5
-offset_top = -189.0
-offset_right = 328.5
-offset_bottom = 221.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 75
-theme_override_constants/v_separation = 75
-columns = 3
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
 
-[node name="PandaButton3" parent="NinePatchRect/GridContainer" instance=ExtResource("4_m0gnx")]
-layout_mode = 2
-
-[node name="FroggyButton3" parent="NinePatchRect/GridContainer" instance=ExtResource("5_mpajy")]
-layout_mode = 2
-
-[node name="MouseButton" parent="NinePatchRect/GridContainer" instance=ExtResource("6_mpajy")]
+[node name="CharacterButton" parent="NinePatchRect/GridContainer" instance=ExtResource("8_clt13")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+icon = ExtResource("9_e4qag")
 
-[node name="BunnyButton" parent="NinePatchRect/GridContainer" instance=ExtResource("7_50xa3")]
+[node name="CharacterButton2" parent="NinePatchRect/GridContainer" instance=ExtResource("8_clt13")]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+animal = 1
+icon = ExtResource("10_frsbq")
 
-[node name="PandaButton" parent="NinePatchRect/GridContainer" instance=ExtResource("4_m0gnx")]
+[node name="CharacterButton3" parent="NinePatchRect/GridContainer" instance=ExtResource("8_clt13")]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+animal = 2
+icon = ExtResource("11_2t617")
 
-[node name="FroggyButton" parent="NinePatchRect/GridContainer" instance=ExtResource("5_mpajy")]
+[node name="CharacterButton4" parent="NinePatchRect/GridContainer" instance=ExtResource("8_clt13")]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+animal = 3
+icon = ExtResource("12_e3qhn")
