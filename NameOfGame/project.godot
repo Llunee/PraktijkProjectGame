@@ -48,6 +48,7 @@ directories/dtl_directory={
 "hippo_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/hippo_quest.dtl",
 "introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl",
 "jungle_beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/jungle_beaver_story.dtl",
+"mentor_ice_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_ice_one.dtl",
 "mentor_intro_level": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_intro_level.dtl",
 "mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl",
 "seahorse_escort_failed": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_failed.dtl",
