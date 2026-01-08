@@ -38,8 +38,7 @@ text = "text"
 
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
 unique_name_in_owner = true
-position = Vector2(2026, -2421)
-collision_mask = 3
+position = Vector2(32, -2930)
 
 [node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
 position = Vector2(267, -2916)
@@ -47,8 +46,21 @@ script = ExtResource("12_b1csi")
 
 [node name="Snowfox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
 position = Vector2(2517, -2490)
+collision_mask = 1
 player = NodePath("../Player")
-BOUNDS = Vector2(350, 0)
+BOUNDS = Vector2(250, 0)
+
+[node name="Snowfox2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
+position = Vector2(2066, -2031)
+collision_mask = 1
+player = NodePath("../Player")
+BOUNDS = Vector2(250, 0)
+
+[node name="Snowfox3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
+position = Vector2(13240, -2219)
+collision_mask = 1
+player = NodePath("../Player")
+BOUNDS = Vector2(250, 0)
 
 [node name="IceArea" type="Area2D" parent="."]
 position = Vector2(7450, -3281)
@@ -65,7 +77,7 @@ shape = SubResource("RectangleShape2D_m2ln1")
 
 [node name="HUD" parent="HUDlayer" instance=ExtResource("1_k2g86")]
 
-[node name="SumUI" parent="HUDlayer" instance=ExtResource("9_x4xp4")]
+[node name="SumUI" parent="HUDlayer" node_paths=PackedStringArray("enemies") instance=ExtResource("9_x4xp4")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,6 +89,7 @@ offset_right = 112.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+enemies = [NodePath("../../Snowfox"), NodePath("../../Snowfox2"), NodePath("../../Snowfox3")]
 
 [node name="PauseMenu" parent="HUDlayer" instance=ExtResource("3_ro7lx")]
 visible = false
