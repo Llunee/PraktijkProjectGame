@@ -3,7 +3,7 @@ join mentor right [animation="Fade In"]
 mentor: Hallo avonturier! Welkom in de ijswereld.\
 Hier kom je een aantal nieuwe dingen tegen.
 mentor: Ten eerste\: in deze wereld zul je ijs tegenkomen. Pas op, want dit is glad! Dit betekent dat je doorglijdt bij het lopen en verder zal springen.\
-Ten tweede\: er zijn veel tunnels en grotten in deze wereld. Vaak hebben ze verschillende routes, wat betekent dat je niet alles in één keer zult vinden.
+Ten tweede\: er zijn veel tunnels en grotten in deze wereld. Vaak hebben ze verschillende routes, wat betekent dat je niet alles in de grotten in één keer zult vinden. Soms zal je terug moeten lopen om overal te kunnen komen!
 mentor: Veel succes, avonturier!
 [signal arg="unfreeze_player"]
 [end_timeline]

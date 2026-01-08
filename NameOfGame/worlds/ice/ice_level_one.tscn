@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cunvjkdhkykrn"]
+[gd_scene load_steps=17 format=4 uid="uid://cunvjkdhkykrn"]
 
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://61n0605njhhw" path="res://items/coin_gold.tscn" id="2_y5lfe"]
 [ext_resource type="PackedScene" uid="uid://ci1jhprdgfal" path="res://items/coin_red.tscn" id="3_m2ln1"]
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="3_ro7lx"]
+[ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="9_x4xp4"]
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="10_m2ln1"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_1rgh2"]
 [ext_resource type="Script" uid="uid://k6cte16udd0c" path="res://characters/scripts/mentor_ice_one.gd" id="12_b1csi"]
+[ext_resource type="PackedScene" uid="uid://b78t055e0ltsn" path="res://enemies/scenes/snowfox.tscn" id="13_gpnet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lfe"]
 size = Vector2(4940, 1039)
@@ -36,12 +38,17 @@ text = "text"
 
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
 unique_name_in_owner = true
-position = Vector2(59, -2936)
+position = Vector2(2026, -2421)
 collision_mask = 3
 
 [node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
 position = Vector2(267, -2916)
 script = ExtResource("12_b1csi")
+
+[node name="Snowfox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
+position = Vector2(2517, -2490)
+player = NodePath("../Player")
+BOUNDS = Vector2(350, 0)
 
 [node name="IceArea" type="Area2D" parent="."]
 position = Vector2(7450, -3281)
@@ -57,6 +64,19 @@ shape = SubResource("RectangleShape2D_m2ln1")
 [node name="HUDlayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="HUDlayer" instance=ExtResource("1_k2g86")]
+
+[node name="SumUI" parent="HUDlayer" instance=ExtResource("9_x4xp4")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -35.0
+offset_right = 112.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PauseMenu" parent="HUDlayer" instance=ExtResource("3_ro7lx")]
 visible = false
@@ -76,7 +96,7 @@ expand_mode = 1
 [node name="NoPhysicsTiles" type="TileMapLayer" parent="."]
 z_index = 1
 position = Vector2(10, 20)
-tile_map_data = PackedByteArray("AADrALr/BQAAAAAAAADsALr/BQAAAAAAAADtALr/BQAAAAAAAADuALr/BQAAAAAAAADrALv/BQAEAAIAAADrALz/BQAEAAIAAADrAL3/BQAIAAIAAADsALv/BQAIAAIAAADsALz/BQAGAAIAAADsAL3/BQAGAAIAAADtALv/BQAGAAIAAADtALz/BQAGAAIAAADtAL3/BQAIAAIAAADuALv/BQAEAAIAAADuALz/BQAGAAIAAADuAL3/BQAGAAIAAADrAL7/BQAEAAIAAADsAL7/BQAGAAIAAADtAL7/BQAEAAIAAADuAL7/BQAIAAIAAAAmAKb/BQAIAAIAAAAmAKf/BQAEAAIAAAAmAKj/BQAIAAIAAAAnAKb/BQAGAAIAAAAnAKf/BQAEAAIAAAAnAKj/BQAGAAIAAAAoAKb/BQAIAAIAAAAoAKf/BQAEAAIAAAAoAKj/BQAEAAIAAAApAKb/BQAIAAIAAAApAKf/BQAIAAIAAAApAKj/BQAGAAIAAAAmAKX/BQAAAAAAAAAnAKX/BQAAAAAAAAAoAKX/BQAAAAAAAAApAKX/BQAAAAAAAAAqAKb/BQAIAAIAAAAqAKf/BQAIAAIAAAAqAKj/BQAEAAIAAAArAKb/BQAIAAIAAAArAKf/BQAIAAIAAAArAKj/BQAEAAIAAAA=")
+tile_map_data = PackedByteArray("AADrALr/BQAAAAAAAADsALr/BQAAAAAAAADtALr/BQAAAAAAAADuALr/BQAAAAAAAADrALv/BQAEAAIAAADrALz/BQAEAAIAAADrAL3/BQAIAAIAAADsALv/BQAIAAIAAADsALz/BQAGAAIAAADsAL3/BQAGAAIAAADtALv/BQAGAAIAAADtALz/BQAGAAIAAADtAL3/BQAIAAIAAADuALv/BQAEAAIAAADuALz/BQAGAAIAAADuAL3/BQAGAAIAAADrAL7/BQAEAAIAAADsAL7/BQAGAAIAAADtAL7/BQAEAAIAAADuAL7/BQAIAAIAAAAmAKb/BQAIAAIAAAAmAKf/BQAEAAIAAAAmAKj/BQAIAAIAAAAnAKb/BQAGAAIAAAAnAKf/BQAEAAIAAAAnAKj/BQAGAAIAAAAoAKb/BQAIAAIAAAAoAKf/BQAEAAIAAAAoAKj/BQAEAAIAAAApAKb/BQAIAAIAAAApAKf/BQAIAAIAAAApAKj/BQAGAAIAAAAmAKX/BQAAAAAAAAAnAKX/BQAAAAAAAAAoAKX/BQAAAAAAAAApAKX/BQAAAAAAAAAqAKb/BQAIAAIAAAAqAKf/BQAIAAIAAAAqAKj/BQAEAAIAAAArAKb/BQAIAAIAAAArAKf/BQAIAAIAAAArAKj/BQAEAAIAAAAlAKn/AAAIAAIAAAAmAKn/AAAIAAIAAAAnAKn/AAAGAAIAAAAoAKn/AAAGAAIAAAApAKn/AAAEAAIAAAAqAKn/AAAEAAIAAAAqAKr/AAAEAAIAAAArAKr/AAAEAAIAAAAsAKr/AAAEAAIAAAAsAKn/AAAEAAIAAAArAKn/AAAGAAIAAAAtAKn/AAAGAAIAAAAtAKr/AAAIAAIAAAAtAKv/AAAEAAIAAAAsAKv/AAAGAAIAAAArAKv/AAAEAAIAAAAqAKv/AAAGAAIAAAApAKv/AAAIAAIAAAAoAKv/AAAEAAIAAAAnAKv/AAAEAAIAAAAmAKv/AAAGAAIAAAAmAKr/AAAGAAIAAAAlAKr/AAAEAAIAAAAnAKr/AAAGAAIAAAAoAKr/AAAIAAIAAAApAKr/AAAGAAIAAAAlAKv/AAAIAAIAAAAuAKv/AAAGAAIAAAAvAKv/AAAIAAIAAAAuAKr/AAAEAAIAAAAuAKn/AAAEAAIAAAAsAKj/AAAIAAIAAAA=")
 tile_set = ExtResource("2_k2g86")
 collision_enabled = false
 
@@ -137,7 +157,7 @@ position = Vector2(4384, -2195)
 [node name="GoldCoinSpawns" type="Node" parent="."]
 
 [node name="GoldCoinSpawn" type="Marker2D" parent="GoldCoinSpawns"]
-position = Vector2(1281, -2759)
+position = Vector2(1455, -2519)
 
 [node name="GoldCoinSpawn7" type="Marker2D" parent="GoldCoinSpawns"]
 position = Vector2(8223, -1799)
