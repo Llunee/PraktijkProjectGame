@@ -30,7 +30,7 @@ red_coin_scene = ExtResource("3_m2ln1")
 
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
 unique_name_in_owner = true
-position = Vector2(5243, -2991)
+position = Vector2(43, -2935)
 
 [node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
 position = Vector2(267, -2916)
@@ -202,6 +202,40 @@ z_index = -1
 position = Vector2(5395, -2940)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("15_ftaod")
+
+[node name="SignIce2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7385, -3324)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ftaod")
+
+[node name="Label" type="RichTextLabel" parent="SignIce2"]
+offset_left = -19.333334
+offset_top = -25.333334
+offset_right = 28.000162
+offset_bottom = 2.666666
+theme = ExtResource("16_c3586")
+theme_override_font_sizes/normal_font_size = 13
+text = "Pas op! 
+Glad!"
+fit_content = true
+
+[node name="SignIce3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(10241, -2268)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ftaod")
+
+[node name="Label" type="RichTextLabel" parent="SignIce3"]
+offset_left = -19.333334
+offset_top = -25.333334
+offset_right = 28.000162
+offset_bottom = 2.666666
+theme = ExtResource("16_c3586")
+theme_override_font_sizes/normal_font_size = 13
+text = "Pas op! 
+Glad!"
+fit_content = true
 
 [node name="CheckpointLabel" type="RichTextLabel" parent="."]
 visible = false
