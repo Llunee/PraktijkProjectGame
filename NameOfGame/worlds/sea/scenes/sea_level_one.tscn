@@ -84,6 +84,7 @@ enemy_hud_scene = ExtResource("10_c7ysm")
 
 [node name="SeaPortal" parent="." instance=ExtResource("11_0jta2")]
 position = Vector2(6950, 65)
+target_scene_path = "res://worlds/homeworld/scenes/home_world.tscn"
 
 [node name="purple_seahorse" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_knyvy")]
 position = Vector2(404, 75)
