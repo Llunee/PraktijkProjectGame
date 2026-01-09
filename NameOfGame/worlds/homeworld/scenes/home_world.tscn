@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="3_72xmv"]
 [ext_resource type="Texture2D" uid="uid://dwpn6v10pye8b" path="res://assets/backgrounds/title_screen.png" id="3_shlyg"]
-[ext_resource type="Texture2D" uid="uid://bivxgkdc61xtm" path="res://assets/worlds/homeworld/Shop.png" id="4_b75s3"]
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="5_1vnqv"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="5_2133q"]
 [ext_resource type="PackedScene" uid="uid://cqsfwm1j2fb0c" path="res://worlds/homeworld/portals/sea_portal.tscn" id="6_1vnqv"]
 [ext_resource type="PackedScene" uid="uid://dsqwjr0xqhqx0" path="res://worlds/homeworld/portals/jungle_portal.tscn" id="7_5p35a"]
 [ext_resource type="PackedScene" uid="uid://wefou6fko2mx" path="res://worlds/homeworld/portals/ice_portal.tscn" id="8_mh43n"]
+[ext_resource type="PackedScene" uid="uid://dhl7ufxx3ms72" path="res://worlds/homeworld/scenes/shop.tscn" id="9_cyic0"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="9_pd26j"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
 [ext_resource type="Script" uid="uid://dh4qovolcigil" path="res://characters/scripts/mentor_home.gd" id="12_1vnqv"]
@@ -54,7 +54,7 @@ tile_set = ExtResource("3_72xmv")
 [node name="TreeMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 position = Vector2(0, -31)
-tile_map_data = PackedByteArray("AABRAAwAAgAAAAAAAABZAAwAAgABAAAAAABhAAwAAgACAAAAAAAwAAwAAQAAAAAAAAA2AAwAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AABRAAwAAgAAAAAAAABZAAwAAgABAAAAAABhAAwAAgACAAAAAAAwAAwAAQAAAAAAAAA2AAwAAQAAAAAAAAAhAAwAAwAAAAAAAAARAAwAAwAAAAAAAAAPAAwAAwAAAAAAAAACAAwAAwAAAAAAAADB/wIABAAAAAAAAADF/wIABAAAAAAAAADS/wIABAAAAAAAAADb/wcABAAAAAAAAAA=")
 tile_set = ExtResource("9_pd26j")
 
 [node name="EnvironmentMapLayer" type="TileMapLayer" parent="."]
@@ -62,12 +62,6 @@ z_index = -1
 position = Vector2(-2880, -480)
 tile_map_data = PackedByteArray("AABWAA4AAQADAAAAAABXAA4AAQABAAIAAABZAA4AAQABAAEAAABaAA4AAQAAAAAAAABdAA4AAQAAAAIAAABTAA4AAQAAAAMAAABCAA4AAAAAAAMAAABDAA4AAAAAAAMAAABFAA4AAAADAAIAAABKAA4AAAACAAEAAABLAA4AAAAAAAAAAABMAA4AAAADAAAAAABPAA4AAQACAAAAAABQAA4AAQADAAEAAABRAA4AAQAAAAAAAAA=")
 tile_set = ExtResource("5_1vnqv")
-
-[node name="Shop" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(714.00006, 391.00003)
-scale = Vector2(1.8333334, 1.8333334)
-texture = ExtResource("4_b75s3")
 
 [node name="SafariPortal" parent="." instance=ExtResource("5_2133q")]
 position = Vector2(1647, 424)
@@ -112,3 +106,6 @@ texture = ExtResource("14_mh43n")
 
 [node name="BeaverIce" parent="." instance=ExtResource("15_shlyg")]
 position = Vector2(-1632, 128)
+
+[node name="Shop" parent="." instance=ExtResource("9_cyic0")]
+position = Vector2(832, 391)

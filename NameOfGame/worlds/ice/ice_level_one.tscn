@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b78t055e0ltsn" path="res://enemies/scenes/snowfox.tscn" id="13_gpnet"]
 [ext_resource type="Texture2D" uid="uid://dgkx5g57b2vgl" path="res://assets/tiles/environment/ice/sign_ice.png" id="15_ftaod"]
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="16_c3586"]
+[ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="14_y3nbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lfe"]
 size = Vector2(4940, 1039)
@@ -124,6 +125,8 @@ tile_set = ExtResource("2_k2g86")
 
 [node name="Trees" type="TileMapLayer" parent="."]
 position = Vector2(305, -1940)
+tile_map_data = PackedByteArray("AAALAN7/BAAAAAAAAAAbAN7/BAAAAAAAAAAtAN7/BAAAAAAAAABIAN7/BAAAAAAAAABYAN7/BAAAAAAAAABjAN7/BAAAAAAAAAB2AN7/BAAAAAAAAACRAN7/BAAAAAAAAACOAN7/BAAAAAAAAADrAPP/BAAAAAAAAAD5APP/BAAAAAAAAAD7APP/BAAAAAAAAAALAfP/BAAAAAAAAAAXAfP/BAAAAAAAAAA3AfP/BAAAAAAAAAAzAfP/BAAAAAAAAACwAfT/BAAAAAAAAACpAfT/BAAAAAAAAAA=")
+tile_set = ExtResource("14_y3nbg")
 
 [node name="IcePortal" parent="." instance=ExtResource("10_m2ln1")]
 position = Vector2(14053, -2252)
