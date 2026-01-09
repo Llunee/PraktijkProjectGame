@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dbvkdctskuxbo"]
+[gd_scene load_steps=24 format=4 uid="uid://dbvkdctskuxbo"]
 
 [ext_resource type="Script" uid="uid://blx57afjwh712" path="res://worlds/safari/scripts/safari_level_two.gd" id="1_mfu4k"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_sja4e"]
@@ -21,21 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="15_rda1a"]
 [ext_resource type="PackedScene" uid="uid://cdhnvr428gp20" path="res://worlds/safari/scenes/elephant.tscn" id="19_0iwhw"]
 [ext_resource type="Script" uid="uid://hldm4c4tg32w" path="res://worlds/safari/scripts/elephant_level_two.gd" id="20_gfyke"]
+[ext_resource type="Texture2D" uid="uid://cgrbm37amekpj" path="res://assets/tiles/environment/safari/sign_safari.png" id="22_c0v5c"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="23_g1o1x"]
 
 [node name="SafariLevelTwo" type="Node2D"]
 script = ExtResource("1_mfu4k")
 gold_coin_scene = ExtResource("2_7x1v6")
 red_coin_scene = ExtResource("3_bpl0m")
-
-[node name="CheckpointLabel" type="RichTextLabel" parent="."]
-visible = false
-z_index = 100
-offset_left = 7017.0
-offset_top = -553.0
-offset_right = 7250.0
-offset_bottom = -513.0
-bbcode_enabled = true
-text = "text"
 
 [node name="cave" type="ColorRect" parent="."]
 offset_left = 1348.0
@@ -96,7 +88,7 @@ tile_map_data = PackedByteArray("AAAOAP7/AAADAAIAAAAZAP3/AAACAAAAAAApAPz/AAACAAI
 tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
-position = Vector2(-3718, -79)
+position = Vector2(-3781, -89)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
@@ -138,17 +130,14 @@ player = NodePath("../Player")
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(17164, 138)
 player = NodePath("../Player")
-enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="Snake2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(5103, -479)
 player = NodePath("../Player")
-enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="Snake3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_ix4rs")]
 position = Vector2(9281, 168)
 player = NodePath("../Player")
-enemy_hud_scene = ExtResource("15_rda1a")
 
 [node name="lion" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_bpl0m")]
 position = Vector2(22390, -238)
@@ -190,3 +179,30 @@ position = Vector2(7131, -468)
 z_index = -1
 position = Vector2(-275.00003, -199)
 script = ExtResource("20_gfyke")
+
+[node name="CheckpointLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 100
+offset_left = 7091.0
+offset_top = -584.0
+offset_right = 7324.0
+offset_bottom = -544.0
+bbcode_enabled = true
+text = "text"
+
+[node name="SignSafari" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7134, -496)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_c0v5c")
+
+[node name="CheckpointSignLabel" type="Label" parent="."]
+z_index = -1
+offset_left = 7101.0
+offset_top = -522.0
+offset_right = 7189.0
+offset_bottom = -499.0
+theme = ExtResource("23_g1o1x")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5764706)
+theme_override_font_sizes/font_size = 15
+text = "Checkpoint"

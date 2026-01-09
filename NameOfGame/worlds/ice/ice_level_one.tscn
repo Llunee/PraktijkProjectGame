@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cunvjkdhkykrn"]
+[gd_scene load_steps=19 format=4 uid="uid://cunvjkdhkykrn"]
 
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="1_akvxf"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_crlo6"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_1rgh2"]
 [ext_resource type="Script" uid="uid://k6cte16udd0c" path="res://characters/scripts/mentor_ice_one.gd" id="12_b1csi"]
 [ext_resource type="PackedScene" uid="uid://b78t055e0ltsn" path="res://enemies/scenes/snowfox.tscn" id="13_gpnet"]
+[ext_resource type="Texture2D" uid="uid://dgkx5g57b2vgl" path="res://assets/tiles/environment/ice/sign_ice.png" id="15_ftaod"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="16_c3586"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="14_y3nbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5lfe"]
@@ -27,19 +29,9 @@ script = ExtResource("1_lvce3")
 gold_coin_scene = ExtResource("2_y5lfe")
 red_coin_scene = ExtResource("3_m2ln1")
 
-[node name="CheckpointLabel" type="RichTextLabel" parent="."]
-visible = false
-z_index = 100
-offset_left = 5281.0
-offset_top = -2978.0
-offset_right = 5514.0
-offset_bottom = -2938.0
-bbcode_enabled = true
-text = "text"
-
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
 unique_name_in_owner = true
-position = Vector2(32, -2930)
+position = Vector2(43, -2935)
 
 [node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
 position = Vector2(267, -2916)
@@ -207,6 +199,66 @@ position = Vector2(3663, -2172)
 
 [node name="GoldCoinSpawn6" type="Marker2D" parent="GoldCoinSpawns"]
 position = Vector2(2941, -2386)
+
+[node name="SignIce" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5395, -2940)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ftaod")
+
+[node name="SignIce2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(7385, -3324)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ftaod")
+
+[node name="Label" type="RichTextLabel" parent="SignIce2"]
+offset_left = -19.333334
+offset_top = -25.333334
+offset_right = 28.000162
+offset_bottom = 2.666666
+theme = ExtResource("16_c3586")
+theme_override_font_sizes/normal_font_size = 13
+text = "Pas op! 
+Glad!"
+fit_content = true
+
+[node name="SignIce3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(10241, -2268)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ftaod")
+
+[node name="Label" type="RichTextLabel" parent="SignIce3"]
+offset_left = -19.333334
+offset_top = -25.333334
+offset_right = 28.000162
+offset_bottom = 2.666666
+theme = ExtResource("16_c3586")
+theme_override_font_sizes/normal_font_size = 13
+text = "Pas op! 
+Glad!"
+fit_content = true
+
+[node name="CheckpointLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 100
+offset_left = 5348.0
+offset_top = -3027.0
+offset_right = 5581.0
+offset_bottom = -2987.0
+bbcode_enabled = true
+text = "text"
+
+[node name="CheckpointSignLabel" type="Label" parent="."]
+z_index = -1
+offset_left = 5362.0
+offset_top = -2968.0
+offset_right = 5470.0
+offset_bottom = -2944.0
+theme = ExtResource("16_c3586")
+theme_override_font_sizes/font_size = 15
+text = "Checkpoint"
 
 [connection signal="body_entered" from="IceArea" to="." method="_on_ice_area_body_entered"]
 [connection signal="body_exited" from="IceArea" to="." method="_on_ice_area_body_exited"]
