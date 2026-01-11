@@ -69,7 +69,7 @@ target_scene_path = "res://worlds/safari/scenes/safari_level_one.tscn"
 
 [node name="SeaPortal" parent="." instance=ExtResource("6_1vnqv")]
 position = Vector2(2581, 424)
-target_scene_path = "res://worlds/sea/sea_level_one.tscn"
+target_scene_path = "res://worlds/sea/scenes/sea_level_one.tscn"
 
 [node name="JunglePortal" parent="." instance=ExtResource("7_5p35a")]
 position = Vector2(-505, 424)
