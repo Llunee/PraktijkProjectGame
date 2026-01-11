@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://yw4dgyfp0g2v"]
+[gd_scene load_steps=15 format=4 uid="uid://yw4dgyfp0g2v"]
 
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="1_3auxs"]
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="2_knyvy"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="6_1nbx1"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="7_1hydm"]
 [ext_resource type="PackedScene" uid="uid://iycltcngjtt7" path="res://enemies/scenes/crab.tscn" id="8_orwth"]
+[ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="8_tga1g"]
 [ext_resource type="PackedScene" uid="uid://cv4yud1tsu0ff" path="res://enemies/scenes/jellyfish.tscn" id="9_vdfuh"]
 [ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="10_c7ysm"]
 [ext_resource type="PackedScene" uid="uid://cqsfwm1j2fb0c" path="res://worlds/homeworld/portals/sea_portal.tscn" id="11_0jta2"]
@@ -35,7 +36,7 @@ offset_right = 112.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-enemies = [NodePath("../../Crab"), NodePath("../../Jellyfish")]
+enemies = [NodePath("../../Crab"), NodePath("../../Jellyfish"), NodePath("../../Crab2"), NodePath("../../Jellyfish2"), NodePath("../../Crab3")]
 
 [node name="PauseMenu" parent="HUDlayer" instance=ExtResource("4_tga1g")]
 visible = false
@@ -53,7 +54,7 @@ texture = ExtResource("5_p2iji")
 expand_mode = 1
 
 [node name="Environment" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAPf/AQACAAIAAAACAPf/AQACAAIAAAADAPf/AQACAAEAAAAEAPf/AQACAAIAAAAFAPf/AQAAAAIAAAAGAPf/AQABAAEAAAAHAPf/AQAAAAMAAAAIAPf/AQADAAAAAAAJAPf/AQADAAEAAAAKAPf/AQABAAIAAAALAPf/AQACAAAAAAAMAPf/AQADAAAAAAANAPf/AQABAAAAAAAOAPf/AQABAAIAAAAPAPf/AQAAAAMAAAAQAPf/AQABAAIAAAARAPf/AQABAAEAAAASAPf/AQACAAAAAAATAPf/AQAAAAMAAAAUAPf/AQABAAIAAAAVAPf/AQACAAAAAAAWAPf/AQABAAIAAAAXAPf/AQADAAMAAAAYAPf/AQABAAEAAAAZAPf/AQABAAAAAAAaAPf/AQADAAIAAAAbAPf/AQADAAMAAAAcAPf/AQABAAAAAAAdAPf/AQABAAIAAAAeAPf/AQABAAMAAAAOAAEAAQAAAAIAAAASAAEAAQACAAEAAAATAAEAAQABAAAAAAAYAAEAAQACAAMAAAAXAAEAAQACAAMAAAAWAAEAAQACAAMAAAAZAAEAAQACAAMAAAAuAAIAAQACAAMAAAAvAAIAAQADAAAAAAA5AAIAAQACAAAAAAA6AAIAAQAAAAAAAAA4AAIAAQADAAMAAABAAAEAAQABAAIAAABIAAEAAQABAAIAAABMAAEAAQADAAIAAABXAAEAAQADAAMAAABSAAEAAQAAAAMAAABQAAEAAQABAAEAAABRAAEAAQAAAAEAAABbAAEAAQAAAAEAAABaAAEAAQAAAAEAAABdAAEAAQACAAAAAABjAAEAAQACAAMAAABkAAEAAQACAAAAAABiAAEAAQACAAEAAABhAAEAAQACAAMAAABgAAEAAQACAAMAAABqAAEAAQACAAMAAABuAAEAAQACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAOAAEAAQAAAAIAAAASAAEAAQACAAEAAAATAAEAAQABAAAAAAAYAAEAAQACAAMAAAAXAAEAAQACAAMAAAAWAAEAAQACAAMAAAAZAAEAAQACAAMAAAAuAAIAAQACAAMAAAAvAAIAAQADAAAAAAA5AAIAAQACAAAAAAA6AAIAAQAAAAAAAAA4AAIAAQADAAMAAABAAAEAAQABAAIAAABIAAEAAQABAAIAAABMAAEAAQADAAIAAABXAAEAAQADAAMAAABSAAEAAQAAAAMAAABQAAEAAQABAAEAAABRAAEAAQAAAAEAAABbAAEAAQAAAAEAAABaAAEAAQAAAAEAAABdAAEAAQACAAAAAABjAAEAAQACAAMAAABkAAEAAQACAAAAAABiAAEAAQACAAEAAABhAAEAAQACAAMAAABgAAEAAQACAAMAAABqAAEAAQACAAMAAABuAAEAAQACAAMAAAA=")
 tile_set = ExtResource("6_1nbx1")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
@@ -61,6 +62,9 @@ tile_map_data = PackedByteArray("AAD9/wMAAQAEAAYAAAD+/wMAAQAAAAAAAAD//wMAAQAAAAA
 tile_set = ExtResource("7_1hydm")
 
 [node name="Trees" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AABIAAEAAgABAAAAAABQAAEAAgABAAAAAABAAAEAAgABAAAAAABYAAEAAgACAAAAAAA4AAEAAgAAAAAAAAA=")
+tile_set = ExtResource("8_tga1g")
 
 [node name="Crab" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_orwth")]
 position = Vector2(2338, 142)
