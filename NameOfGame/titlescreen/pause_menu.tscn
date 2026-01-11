@@ -1,0 +1,603 @@
+[gd_scene load_steps=18 format=3 uid="uid://kvtvuglr4ues"]
+
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
+[ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
+[ext_resource type="Script" uid="uid://ccx3b3x3f1h0l" path="res://titlescreen/pause_menu.gd" id="2_pijhd"]
+[ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="4_qjimk"]
+[ext_resource type="Theme" uid="uid://cukn4se7ynugc" path="res://themes/pause_menu.tres" id="5_i367n"]
+[ext_resource type="PackedScene" uid="uid://crtvd78xqf73d" path="res://character-picker/scenes/character_button.tscn" id="6_fwdt5"]
+[ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="7_6pbw2"]
+[ext_resource type="Texture2D" uid="uid://c2gj7yg4gp3tn" path="res://assets/characters/maincharacter/froggy/froggy.png" id="8_st86s"]
+[ext_resource type="Texture2D" uid="uid://h0s5sgt48gyv" path="res://assets/characters/maincharacter/mouse/mouse.png" id="9_ets0d"]
+[ext_resource type="Texture2D" uid="uid://b08ohg5rf2lbs" path="res://assets/characters/maincharacter/bunny/bunny.png" id="10_j1g0e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
+texture = ExtResource("4_qjimk")
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjimk"]
+texture = ExtResource("4_qjimk")
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80j4n"]
+texture = ExtResource("4_qjimk")
+expand_margin_left = 15.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
+modulate_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjs17"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vmyb1"]
+modulate_color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myy0f"]
+texture = ExtResource("4_qjimk")
+modulate_color = Color(0.733005, 0.733005, 0.733005, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmyb1"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1och7")
+script = ExtResource("2_pijhd")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -187.5
+offset_right = 100.0
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ChangeAnimal" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
+theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
+text = "Verander van karakter"
+autowrap_mode = 2
+
+[node name="Consoles" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
+theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
+text = "Besturing"
+
+[node name="Progress" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
+theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
+text = "Voortgang"
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -5.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_sjs17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vmyb1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_myy0f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmyb1")
+text = "Terug naar spel"
+
+[node name="ConsolesOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ConsolesOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="consoles" type="Label" parent="ConsolesOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 37.0
+offset_right = -409.0
+offset_bottom = -534.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Besturing"
+
+[node name="consoletext" type="Label" parent="ConsolesOverlay/NinePatchRect"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 215.0
+offset_right = 618.0
+offset_bottom = 374.0
+text = "Rechts: D of >
+Links: A of <
+Springen: Spatie, W of /\\
+Interactie: E of F
+Pauze: Escape
+Inventory: Tab"
+
+[node name="Back" type="Button" parent="ConsolesOverlay/NinePatchRect"]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 35.0
+offset_right = 847.0
+offset_bottom = 75.0
+theme = ExtResource("5_i367n")
+
+[node name="ChangeAnimalOverlay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ChangeAnimalOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Label" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 37.0
+offset_right = -409.0
+offset_bottom = -534.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Verander van dier"
+
+[node name="Back" type="Button" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 35.0
+offset_right = 847.0
+offset_bottom = 75.0
+theme = ExtResource("5_i367n")
+
+[node name="GridContainer" type="GridContainer" parent="ChangeAnimalOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="CharacterButton" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+icon = ExtResource("7_6pbw2")
+
+[node name="CharacterButton2" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 1
+icon = ExtResource("8_st86s")
+
+[node name="CharacterButton3" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 2
+icon = ExtResource("9_ets0d")
+
+[node name="CharacterButton4" parent="ChangeAnimalOverlay/NinePatchRect/GridContainer" instance=ExtResource("6_fwdt5")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+animal = 3
+icon = ExtResource("10_j1g0e")
+
+[node name="ProgressOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ProgressOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ivd5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="title" type="Label" parent="ProgressOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+offset_top = 37.0
+offset_right = -409.0
+offset_bottom = -534.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Voortgang"
+
+[node name="Back" type="Button" parent="ProgressOverlay/NinePatchRect"]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 35.0
+offset_right = 847.0
+offset_bottom = 75.0
+theme = ExtResource("5_i367n")
+
+[node name="GridContainer" type="GridContainer" parent="ProgressOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 200
+theme_override_constants/v_separation = 100
+columns = 2
+
+[node name="SafariContainer" type="VBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="SafariLabel" type="RichTextLabel" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=yellow]Safariwereld[/color]
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="SafariLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/LevelsContainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="SafariQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="SafariCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SafariContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeaContainer" type="VBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="Sealabel" type="RichTextLabel" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[color=navyblue]Zeewereld[/color]
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="SeaLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/LevelsContainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="SeaQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="SeaCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/SeaContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IceContainer" type="VBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="IceLabel" type="RichTextLabel" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[color=lightblue]IJswereld[/color]
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="IceLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/LevelsContainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="IceQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="IceCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/IceContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JungleContainer" type="VBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer"]
+layout_mode = 2
+
+[node name="JungleLabel" type="RichTextLabel" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=forestgreen]Junglewereld[/color]
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Levels" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/LevelsContainer"]
+layout_mode = 2
+text = "Levels:"
+
+[node name="JungleLevelProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/LevelsContainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questscontainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quests" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer"]
+layout_mode = 2
+text = "Quests:"
+
+[node name="JungleQuestProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/CoinsContainer"]
+layout_mode = 2
+text = "Muntjes:"
+
+[node name="JungleCoinsProgressLabel" type="Label" parent="ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/CoinsContainer"]
+layout_mode = 2
+text = "0/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/ChangeAnimal" to="." method="_on_change_character_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Consoles" to="." method="_on_consoles_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Progress" to="." method="_on_progress_pressed"]
+[connection signal="pressed" from="NinePatchRect/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="ConsolesOverlay/NinePatchRect/Back" to="." method="_on_consoles_back_pressed"]
+[connection signal="pressed" from="ChangeAnimalOverlay/NinePatchRect/Back" to="." method="_on_change_animal_back_pressed"]
+[connection signal="pressed" from="ProgressOverlay/NinePatchRect/Back" to="." method="_on_progress_back_pressed"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://iycltcngjtt7"]
+
+[ext_resource type="Texture2D" uid="uid://crf5jnrklbgnj" path="res://assets/characters/enemies/sea/crab.png" id="1_4hmjh"]
+[ext_resource type="Script" uid="uid://xhc3jtm8yqr0" path="res://enemies/scripts/crab.gd" id="1_ebbfp"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="3_qke6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebbfp"]
+atlas = ExtResource("1_4hmjh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qke6x"]
+atlas = ExtResource("1_4hmjh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kk2l"]
+atlas = ExtResource("1_4hmjh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6n1u"]
+atlas = ExtResource("1_4hmjh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thflk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebbfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qke6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kk2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6n1u")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvdut"]
+radius = 9.046935
+height = 33.979996
+
+[node name="Crab" type="CharacterBody2D"]
+script = ExtResource("1_ebbfp")
+enemy_hud_scene = ExtResource("3_qke6x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -14)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_thflk")
+animation = &"walk"
+
+[node name="PlayerRaycast" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-1, 7)
+target_position = Vector2(-175, 0)
+
+[node name="FloorRaycastRight" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(15, 7)
+target_position = Vector2(0, 15)
+
+[node name="FloorRaycastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-18, 7)
+target_position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.1920929e-07, 0)
+rotation = -1.5712142
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_jvdut")
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]

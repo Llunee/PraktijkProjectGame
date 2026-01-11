@@ -3,11 +3,10 @@ extends Node
 signal quiz_finished(success: bool)
 
 @onready var quiz_ui_scene = preload("res://logic/scenes/enemy_quiz_ui.tscn")
+
 var quiz_ui_instance: CanvasLayer
 var all_questions = []
-var selected_questions = []
-var current_question = 0
-var correct_answers = 0
+var question_pool = []
 var enemy_ref: Node = null
 
 func _ready():
@@ -25,18 +24,13 @@ func start_quiz(enemy):
 	if all_questions.is_empty():
 		push_warning("⚠ Geen quizvragen geladen!")
 		return
-	
+
 	enemy_ref = enemy
-	current_question = 0
-	correct_answers = 0
 
-	# Kies max 3 willekeurige vragen (of minder als er minder zijn)
-	var question_count = min(3, all_questions.size())
-	selected_questions = all_questions.duplicate()
-	selected_questions.shuffle()
-	selected_questions = selected_questions.slice(0, question_count)
+	question_pool = all_questions.duplicate()
+	question_pool.shuffle()
 
-	# UI-instantie aanmaken (één keer)
+	# UI aanmaken (of hergebruiken)
 	if !quiz_ui_instance:
 		quiz_ui_instance = quiz_ui_scene.instantiate()
 		get_tree().root.add_child(quiz_ui_instance)
@@ -44,33 +38,39 @@ func start_quiz(enemy):
 	else:
 		quiz_ui_instance.show()
 
-	show_question()
+	show_next_question()
 
-func show_question():
-	if current_question >= selected_questions.size():
-		end_quiz()
+func show_next_question():
+	# Enemy dood → quiz gewonnen
+	if enemy_ref == null or enemy_ref.hp <= 0:
+		end_quiz(true)
 		return
 
-	var q = selected_questions[current_question]
+	# Geen vragen meer → opnieuw schudden
+	if question_pool.is_empty():
+		question_pool = all_questions.duplicate()
+		question_pool.shuffle()
+
+	var question = question_pool.pop_front()
 	quiz_ui_instance.show()
-	quiz_ui_instance.show_question(q)
+	quiz_ui_instance.show_question(question)
 
 func _on_answer_selected(index):
-	var q = selected_questions[current_question]
-	if index == q["answer"]:
-		correct_answers += 1
+	var current_question = quiz_ui_instance.current_question_data
+
+	if index == current_question["answer"]:
 		if enemy_ref:
 			enemy_ref.take_damage(1)
 
-	current_question += 1
-	show_question()
+	# Meteen door → geen pauze
+	show_next_question()
 
-func end_quiz():
+func end_quiz(success: bool):
 	if quiz_ui_instance:
 		quiz_ui_instance.hide()
-	
+
 	if enemy_ref and enemy_ref.player:
 		enemy_ref.player.set_process_input(true)
 		enemy_ref.player.set_physics_process(true)
-		
-	emit_signal("quiz_finished", correct_answers == 3)
+
+	emit_signal("quiz_finished", success)

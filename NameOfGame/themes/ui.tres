@@ -1,19 +1,22 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cghoexrjpxrh2"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cghoexrjpxrh2"]
 
-[ext_resource type="Texture2D" uid="uid://db81tyxhcoedn" path="res://assets/ui/close.png" id="1_hbfgb"]
 [ext_resource type="FontFile" uid="uid://ba3bjnbsyad4e" path="res://assets/fonts/BoldPixels.ttf" id="1_k5lm2"]
 [ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="2_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://bo6doan2dsneq" path="res://assets/ui/dialog_box.png" id="4_v6eyv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffde8"]
-texture = ExtResource("1_hbfgb")
+texture = ExtResource("2_h6ia1")
 modulate_color = Color(0.92581546, 0.797468, 0.7722842, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6ega"]
-texture = ExtResource("1_hbfgb")
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("2_h6ia1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gpds"]
-texture = ExtResource("1_hbfgb")
+texture = ExtResource("2_h6ia1")
 modulate_color = Color(0.45436192, 0.25568733, 0.22366035, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf7g0"]
@@ -48,11 +51,12 @@ content_margin_bottom = 20.0
 texture = ExtResource("4_v6eyv")
 
 [resource]
+default_font = ExtResource("1_k5lm2")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 24
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_k5lm2")
 Button/styles/hover = SubResource("StyleBoxTexture_ffde8")
 Button/styles/normal = SubResource("StyleBoxTexture_n6ega")
 Button/styles/pressed = SubResource("StyleBoxTexture_7gpds")

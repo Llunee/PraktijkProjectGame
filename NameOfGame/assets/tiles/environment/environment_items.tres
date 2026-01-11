@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bqxc7irmdndpi"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bqxc7irmdndpi"]
 
 [ext_resource type="Texture2D" uid="uid://cd4t5tjqntd81" path="res://assets/tiles/environment/safari/environment_safari.png" id="1_cxjk8"]
 [ext_resource type="Texture2D" uid="uid://bfv7y8j4gxhch" path="res://assets/tiles/environment/sea/environment_sprites.png" id="2_tpvwe"]
+[ext_resource type="Texture2D" uid="uid://cw17tnbjujw2m" path="res://assets/tiles/environment/ice/environment-ice.png" id="3_54yrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hhfo"]
 texture = ExtResource("1_cxjk8")
@@ -40,7 +41,26 @@ texture_region_size = Vector2i(64, 64)
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uki8i"]
+texture = ExtResource("3_54yrh")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
 [resource]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_2hhfo")
 sources/1 = SubResource("TileSetAtlasSource_54yrh")
+sources/2 = SubResource("TileSetAtlasSource_uki8i")

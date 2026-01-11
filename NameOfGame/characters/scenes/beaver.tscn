@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://ct12gxck72guh"]
+
+[ext_resource type="Script" uid="uid://kmddbgo0bawb" path="res://characters/scripts/beaver.gd" id="1_147dw"]
+[ext_resource type="Texture2D" uid="uid://canfxhmlhxcuf" path="res://assets/characters/NPCS/homeworld/beaver-back.png" id="1_sixdt"]
+[ext_resource type="Texture2D" uid="uid://btfjtl0lcnxa4" path="res://assets/characters/NPCS/homeworld/beaver-chat.png" id="2_147dw"]
+[ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="4_wm66e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm66e"]
+atlas = ExtResource("1_sixdt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgvqi"]
+atlas = ExtResource("1_sixdt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgdti"]
+atlas = ExtResource("2_147dw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu6b0"]
+atlas = ExtResource("2_147dw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnmql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm66e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgvqi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgdti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu6b0")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sltg0"]
+size = Vector2(192, 144)
+
+[node name="Beaver" type="Area2D"]
+script = ExtResource("1_147dw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_hnmql")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_sltg0")
+
+[node name="PressELabel" type="Label" parent="."]
+visible = false
+offset_left = -84.0
+offset_top = -97.0
+offset_right = 85.0
+offset_bottom = -73.0
+theme = ExtResource("4_wm66e")
+text = "Druk op E of F!"

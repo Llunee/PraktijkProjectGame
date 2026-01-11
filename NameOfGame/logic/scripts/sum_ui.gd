@@ -1,7 +1,6 @@
 extends Control
 
-@export var snake: CharacterBody2D
-@export var lion: CharacterBody2D
+@export var enemies : Array[CharacterBody2D]
 
 @onready var number_one_label: Label = $NinePatchRect/GridContainer/NumberOne/Label
 @onready var operator_label: Label = $NinePatchRect/GridContainer/Operator/Label
@@ -10,33 +9,32 @@ extends Control
 
 var is_open : bool = false
 var sum_info : Dictionary
+var enemy : CharacterBody2D
 
 func _ready() -> void:
-	if snake:
-		snake.connect("hit_player", Callable(self, "_on_player_hit"))
-		sum_info = Question_creator.generate_question(2)
-	if lion:
-		lion.connect("hit_player", Callable(self, "_on_player_hit"))
-		sum_info = Question_creator.generate_question(2)
+	if enemies:
+		for e in enemies:
+			e.connect("hit_player", Callable(self, "_on_player_hit"))
+		create_sum_info()
 	close()
-
-
-func _process(delta: float) -> void:
-	pass
-
 
 func open():
 	get_tree().paused = true
 	
 	visible = true
 	is_open = true
-	
+	await get_tree().process_frame
+	line_edit.grab_focus()
 
 func close():
 	get_tree().paused = false
 	visible = false
 	is_open = false
 
+func create_sum_info():
+	# difficulty increases with every level
+	var current_level : int = LevelData.get_current_level()
+	sum_info = Question_creator.generate_question(current_level + 1)
 
 func fill_labels():
 	if !sum_info:
@@ -44,23 +42,34 @@ func fill_labels():
 	
 	number_one_label.text = str(sum_info["a"])
 	number_two_label.text = str(sum_info["b"])
-	operator_label.text = str(sum_info["operator"])
+	
+	var displayed_operator : String = ""
+	
+	match str(sum_info["operator"]):
+		"*":
+			displayed_operator = "×"
+		"/":
+			displayed_operator = ":"
+		"-": 
+			displayed_operator = "-"
+		"+":
+			displayed_operator = "+"
+	
+	operator_label.text = displayed_operator
 	line_edit.text = ""
-
 
 func _on_answer_text_submitted(answer: String) -> void:
 	if answer.to_int() == sum_info["answer"]:
 		close()
-		if snake:
-			snake.take_damage(1)
-		if lion:
-			lion.take_damage(1)
+		enemy.take_damage(1)
 	else:
 		close()
 		PlayerData.take_damage(1)
 		
 		
-func _on_player_hit():
+func _on_player_hit(enemy_hit : CharacterBody2D):
+	print(enemy_hit)
+	enemy = enemy_hit
 	sum_info = Question_creator.generate_question(2)
 	fill_labels()
 	open()

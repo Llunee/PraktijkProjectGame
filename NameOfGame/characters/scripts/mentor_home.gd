@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var player = %Player
+@onready var interact_label = $Control/PressELabel
 
 var is_player_in_range: bool = false
 var is_chatting: bool = false
@@ -22,19 +23,22 @@ func _process(delta: float) -> void:
 	animated_sprite.flip_h = facing_right
 
 func _input(event: InputEvent) -> void:
-	if is_player_in_range and event.is_action_pressed("talk"):
+	if is_player_in_range and event.is_action_pressed("interact") and not is_chatting:
 		run_dialog("introduction_story")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_player_in_range = true
+		interact_label.text = "Druk op E of F!"
+		interact_label.visible = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_player_in_range = false
+		interact_label.visible = false
 
 func run_dialog(dialog_name):
-	is_chatting = false
+	is_chatting = true
 	Dialogic.start(dialog_name)
 	
 func _on_dialogic_signal(signal_name: String) -> void:

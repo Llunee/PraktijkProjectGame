@@ -17,5 +17,5 @@ func _on_area_exited(body):
 		player_inside = false
 
 func _process(delta: float) -> void:
-	if player_inside and Input.is_action_just_pressed("teleport"):
+	if player_inside and Input.is_action_just_pressed("interact"):
 		get_tree().change_scene_to_file(target_scene_path)

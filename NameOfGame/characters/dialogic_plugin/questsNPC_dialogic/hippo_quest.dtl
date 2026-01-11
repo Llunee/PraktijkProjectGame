@@ -21,7 +21,8 @@ leave hippo_grass
 
 - Nee, ga ik niet doen
 	hippo: Dat begrijp ik… hopelijk vindt iemand anders tijd om te helpen.
-	jump 
+	[signal arg="unfreeze_player"]
+	[end_timeline]
 
 label quest_start
 [signal arg="hippoQuest"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk4yi7mi06xp1"]
+
+[ext_resource type="Script" uid="uid://c8nf1gr4hixws" path="res://titlescreen/intro_scene.gd" id="1_kjgrn"]
+[ext_resource type="Texture2D" uid="uid://dwpn6v10pye8b" path="res://assets/backgrounds/title_screen.png" id="2_aqu20"]
+
+[node name="IntroScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjgrn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10579247, 0.13641709, 0.13936427, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aqu20")

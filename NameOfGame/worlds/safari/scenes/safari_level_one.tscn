@@ -1,22 +1,27 @@
-[gd_scene load_steps=18 format=4 uid="uid://dptvao563xn4e"]
+[gd_scene load_steps=23 format=4 uid="uid://dptvao563xn4e"]
 
 [ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="1_8xs48"]
 [ext_resource type="Texture2D" uid="uid://x5oyyi1jjhjy" path="res://assets/backgrounds/safari/safari_background.png" id="1_fnves"]
 [ext_resource type="PackedScene" uid="uid://bqo0pxgtcls70" path="res://worlds/homeworld/sum_ui.tscn" id="2_gbq4e"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="2_x57a3"]
+[ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="3_cd74u"]
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="3_gbq4e"]
 [ext_resource type="TileSet" uid="uid://bqxc7irmdndpi" path="res://assets/tiles/environment/environment_items.tres" id="4_8xs48"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="5_dfh5s"]
 [ext_resource type="PackedScene" uid="uid://chcb21jm423ut" path="res://worlds/safari/scenes/hippo_swim.tscn" id="6_fax6y"]
 [ext_resource type="PackedScene" uid="uid://b5sciffoo4doq" path="res://enemies/scenes/snake.tscn" id="7_x57a3"]
 [ext_resource type="Texture2D" uid="uid://df5o8rd8rya7x" path="res://assets/characters/NPCS/safari/ostrich.png" id="9_5qiaw"]
+[ext_resource type="Script" uid="uid://b7d6g2qpsfjqd" path="res://characters/scripts/mentor_safari_one.gd" id="9_fs1hd"]
 [ext_resource type="PackedScene" uid="uid://bbum5vueic20f" path="res://worlds/safari/scenes/giraffe.tscn" id="10_dfh5s"]
 [ext_resource type="Texture2D" uid="uid://gdjhxmg3klh1" path="res://assets/characters/NPCS/safari/hippo.png" id="10_fs1hd"]
 [ext_resource type="Texture2D" uid="uid://c7gvseyrj63a3" path="res://assets/characters/NPCS/safari/happy_elephant.png" id="11_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://cdhnvr428gp20" path="res://worlds/safari/scenes/elephant.tscn" id="11_fax6y"]
 [ext_resource type="Texture2D" uid="uid://bepb2mq0x1cjs" path="res://assets/characters/NPCS/mouse.png" id="12_k8ycn"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="14_hn6as"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
+[ext_resource type="Script" uid="uid://dm36ibfx4s5fj" path="res://worlds/safari/scripts/elephant.gd" id="16_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://dpklpqqy4yf8k" path="res://inventory/scenes/purple_crystals.tscn" id="16_fax6y"]
+[ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="18_cd74u"]
 
 [node name="SafariLevelOne" type="Node2D"]
 
@@ -24,12 +29,15 @@
 
 [node name="HUD" parent="HUD" instance=ExtResource("1_8xs48")]
 
-[node name="SumUI" parent="HUD" node_paths=PackedStringArray("snake") instance=ExtResource("2_gbq4e")]
+[node name="SumUI" parent="HUD" node_paths=PackedStringArray("enemies") instance=ExtResource("2_gbq4e")]
 offset_left = 467.0
 offset_top = 303.0
 offset_right = 691.0
 offset_bottom = 373.0
-snake = NodePath("../../Snake")
+enemies = [NodePath("../../Snake")]
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("3_cd74u")]
+visible = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -64,9 +72,13 @@ position = Vector2(5488, 322)
 scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("12_k8ycn")
 
+[node name="Mentor" parent="." instance=ExtResource("18_cd74u")]
+position = Vector2(-1466, 232)
+script = ExtResource("9_fs1hd")
+
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true
-position = Vector2(-1566, 178)
+position = Vector2(-1641, 216)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
 position = Vector2(0, -2)
@@ -76,12 +88,14 @@ position = Vector2(3070, 229)
 player = NodePath("../Player")
 SPEED = 150
 CHASE_SPEED = 300
+enemy_hud_scene = ExtResource("14_hn6as")
 
 [node name="Giraffe" parent="." instance=ExtResource("10_dfh5s")]
 position = Vector2(376, 213)
 
 [node name="Elephant" parent="." instance=ExtResource("11_fax6y")]
 position = Vector2(5321.0005, 345.00003)
+script = ExtResource("16_5wcrv")
 
 [node name="Ostrich" type="Sprite2D" parent="."]
 visible = false

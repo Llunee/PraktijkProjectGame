@@ -1,0 +1,11 @@
+[signal arg="freeze_player"]
+join mentor right [animation="Fade In"]
+mentor: Hallo avonturier! Welkom in Critter Quest\: Math Edition! Ik zal je leren hoe je moet bewegen.
+mentor: Je kan zowel met de pijltjes als met WASD spelen. Gebruik de pijltjes naar links en rechts of "A" en "D" om naar links en rechts te lopen!
+mentor: Met de spatiebalk, pijltje omhoog of "W" kan je springen.
+mentor: Gebruik Tab om je inventaris te openen. Mocht je de Tab-knop niet zien, hij zit naast de "Q"!
+mentor: In dit level zul je twee vijanden tegenkomen. Wanneer je ze aanraakt, vallen ze niet direct aan. Ze stellen je eerst een vraag. Hierbij kan het zijn dat je het antwoord moet intypen, of moet aanklikken met de muis.
+mentor: Aan het eind van het level vind je een portaal naar de thuiswereld. Druk op "E" of "F" terwijl je voor het portaal staat om naar de thuiswereld te gaan.
+mentor: Veel geluk avonturier! Ik zie je in de thuiswereld weer!
+[signal arg="unfreeze_player"]
+[end_timeline]

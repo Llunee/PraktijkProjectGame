@@ -21,29 +21,45 @@ QuestManager="*res://logic/scripts/QuestManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuizManager="*res://logic/scripts/QuizManager.gd"
 PlayerData="*res://characters/scripts/PlayerData.gd"
+LevelData="*res://logic/scripts/LevelData.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "baobuns": "res://characters/dialogic_plugin/charactersNPC_dialogic/baobuns.dch",
+"beaver": "res://characters/dialogic_plugin/charactersNPC_dialogic/beaver.dch",
 "bruno": "res://characters/dialogic_plugin/charactersNPC_dialogic/bruno.dch",
 "elephant": "res://characters/dialogic_plugin/charactersNPC_dialogic/elephant.dch",
 "giraffe": "res://characters/dialogic_plugin/charactersNPC_dialogic/giraffe.dch",
+"green_seahorse": "res://characters/dialogic_plugin/charactersNPC_dialogic/green_seahorse.dch",
 "hippo": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo.dch",
 "hippo_grass": "res://characters/dialogic_plugin/charactersNPC_dialogic/hippo_grass.dch",
 "mentor": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor.dch",
 "mouse": "res://characters/dialogic_plugin/charactersNPC_dialogic/mouse.dch",
 "portals": "res://characters/dialogic_plugin/portals_dialogic/portals.dch",
-"purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch"
+"purple_crystal": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_crystal.dch",
+"purple_seahorse": "res://characters/dialogic_plugin/charactersNPC_dialogic/purple_seahorse.dch"
 }
 directories/dtl_directory={
+"beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/beaver_story.dtl",
 "elephant_mouse_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_mouse_quest.dtl",
+"elephant_stuck_in_cactus": "res://characters/dialogic_plugin/questsNPC_dialogic/elephant_stuck_in_cactus.dtl",
 "firstQuest": "res://characters/dialogic_plugin/questsNPC_dialogic/firstQuest.dtl",
 "hippo_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/hippo_quest.dtl",
-"introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl"
+"introduction_story": "res://characters/dialogic_plugin/introductions_story_dialogic/introduction_story.dtl",
+"jungle_beaver_story": "res://characters/dialogic_plugin/charactersNPC_dialogic/jungle_beaver_story.dtl",
+"mentor_ice_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_ice_one.dtl",
+"mentor_intro_level": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_intro_level.dtl",
+"mentor_safari_one": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_safari_one.dtl",
+"mentor_storyline_start": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_storyline_start.dtl",
+"seahorse_escort_failed": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_failed.dtl",
+"seahorse_escort_success": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_success.dtl",
+"seahorse_find_other_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_find_other_quest.dtl"
 }
 layout/style_directory={
-"custom_styles": "res://assets/Dialogic_Styles/custom_styles.tres"
+"": "res://assets/Dialogic_Styles/wood_style.tres",
+"custom_styles": "res://assets/Dialogic_Styles/custom_styles.tres",
+"wood_style": "res://assets/Dialogic_Styles/wood_style.tres"
 }
 extensions_folder="res://addons/dialogic"
 text/letter_speed=0.01
@@ -67,18 +83,26 @@ text/autopauses={}
 audio/channel_defaults={}
 variables={
 "anwser_sum": 0,
+"escort_active": false,
 "firstQuest": false,
 "hippoQuest": false,
 "hippo_grass_collected": 0,
+"player_answer": "",
 "purple_crystal_collected": 0,
+"quest_elephant_cactus": "",
 "quest_elephant_mouse": "",
+"quest_find_seahorse": "",
 "quest_giraffe": "",
 "quest_hippo": "",
-"quest_objective_met": false
+"quest_objective_met": false,
+"spell_answer": "",
+"spell_count": 0,
+"spell_question": ""
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://assets/Dialogic_Styles/custom_styles.tres"]
-layout/default_style="Default"
+layout/style_list=["res://assets/Dialogic_Styles/custom_styles.tres", "res://assets/Dialogic_Styles/wood_style.tres"]
+layout/default_style="res://assets/Dialogic_Styles/wood_style.tres"
+text/input_action="read"
 
 [display]
 
@@ -93,6 +117,10 @@ run/main_run_args="--verbose"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -134,11 +162,13 @@ jump={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 ]
 }
-talk={
+interact={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 ]
 }
 inv={
@@ -155,6 +185,8 @@ read={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(241, 19),"global_position":Vector2(250, 67),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 ]
 }
 dialogic_default_action={
@@ -169,6 +201,11 @@ dialogic_default_action={
 teleport={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

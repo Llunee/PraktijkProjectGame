@@ -11,9 +11,24 @@ static func rand_digits(d: int, operator: String) -> int:
 	return int(round(value / 10)) * 10
 
 static func generate_question(difficulty: int) -> Dictionary:
+	var rng = RandomNumberGenerator.new()
+	
+	# set weights per operation
+	var current_world : LevelData.Worlds = LevelData.get_current_world()
+	var weights = PackedFloat32Array([1, 1, 1, 1])
+	match current_world:
+		LevelData.Worlds.SAFARI:
+			weights = PackedFloat32Array([2, 2, 0.25, 0.25])
+		LevelData.Worlds.SEA:
+			weights = PackedFloat32Array([0.25, 0.25, 2, 0.25])
+		LevelData.Worlds.ICE:
+			weights = PackedFloat32Array([0.25, 0.25, 0.25, 2])
+		LevelData.Worlds.JUNGLE:
+			pass # jungle does not exist yet
+	
 	# Pick operation
 	var operations = ["+", "-", "/", "*"]
-	var op = operations[randi() % operations.size()]
+	var op = operations[rng.rand_weighted(weights)]
 	
 	var a: int
 	var b: int

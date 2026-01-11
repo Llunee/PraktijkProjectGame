@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
 @export var hp: int = 3
+@export var enemy_hud_scene: PackedScene
+@export var hud_offset: Vector2 = Vector2.ZERO
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var ray_cast_horizontal: RayCast2D = $Sprite2D/RayCast2DHorizontaal
@@ -18,6 +20,7 @@ var right_bounds: Vector2
 var left_bounds: Vector2
 
 var quiz_active: bool = false
+var enemy_hud: EnemyHUD
 
 enum States {
 	WANDER,
@@ -30,6 +33,11 @@ func _ready():
 	right_bounds = self.position + Vector2(250, 0)
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	QuizManager.connect("quiz_finished", Callable(self, "_on_quiz_finished"))
+	
+	if enemy_hud_scene:
+		enemy_hud = enemy_hud_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(enemy_hud)
+		enemy_hud.setup(hp)
 
 func _physics_process(delta: float) -> void:
 	if quiz_active:
@@ -39,6 +47,10 @@ func _physics_process(delta: float) -> void:
 	change_direction()
 	handle_movement(delta)
 	look_for_player()
+
+func _process(_delta):
+	if enemy_hud:
+		enemy_hud.global_position = global_position + hud_offset
 
 func look_for_player():
 	if ray_cast_horizontal.is_colliding():
@@ -116,9 +128,18 @@ func start_quiz():
 
 func take_damage(amount: int):
 	hp -= amount
-	print("Enemy HP:", hp)
+	if enemy_hud:
+		enemy_hud.set_health(hp)
+	
 	if hp <= 0:
-		queue_free()
+		die()
+	else:
+		emit_signal("hit_player", self)
+
+func die():
+	if enemy_hud:
+		enemy_hud.queue_free()
+	queue_free()
 
 func _on_quiz_finished(success: bool):
 	quiz_active = false

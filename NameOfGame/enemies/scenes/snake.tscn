@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5sciffoo4doq"]
+[gd_scene load_steps=29 format=3 uid="uid://b5sciffoo4doq"]
 
 [ext_resource type="Script" uid="uid://bbmqarj16sgr4" path="res://enemies/scripts/snake.gd" id="1_o2scv"]
 [ext_resource type="Texture2D" uid="uid://c3ta4nscg7rph" path="res://assets/characters/enemies/snake/idle/snake_idle.png" id="1_pox6b"]
 [ext_resource type="Texture2D" uid="uid://wfjr82mihfhq" path="res://assets/characters/enemies/snake/walk/snake_slither.png" id="2_rku0m"]
+[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="2_x4dtx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rku0m"]
 radius = 3.99999
@@ -174,6 +175,7 @@ animations = [{
 [node name="Snake" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_o2scv")
+enemy_hud_scene = ExtResource("2_x4dtx")
 
 [node name="WalkCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
@@ -191,17 +193,17 @@ position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_aulw7")
 animation = &"idle"
 
-[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="PlayerRaycast" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 4)
 target_position = Vector2(-75, 0)
 
-[node name="HoleCheckLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="FloorRaycastLeft" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(-31.073074, 4.2633286)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 15)
 
-[node name="HoleCheckRight" type="RayCast2D" parent="AnimatedSprite2D"]
+[node name="FloorRaycastRight" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(33.226418, 4.2633286)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 15)
 
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 10.0

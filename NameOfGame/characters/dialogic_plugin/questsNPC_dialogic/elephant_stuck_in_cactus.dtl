@@ -1,0 +1,58 @@
+if {quest_elephant_cactus} == "completed":
+	elephant: Je hebt me al gered, avonturier!
+	[end_timeline]
+
+
+join elephant center
+[signal arg="freeze_player"]
+
+elephant: Help mij, avonturier!
+elephant: Een magisch wezen heeft deze cactus tot leven gewekt.
+elephant: Alleen door magische spreuken te breken kan ik loskomen!
+
+elephant: We beginnen…
+
+set {spell_count} = 0
+jump next_spell
+
+label next_spell
+[signal arg="generate_spell"] 
+jump spell_question
+
+label spell_question
+elephant: Spreuk {spell_count} van 3
+elephant: {spell_question}
+
+[text_input text="Antwoord..." var="player_answer"]
+
+if {player_answer} == {spell_answer}:
+	jump spell_correct
+else:
+	jump spell_wrong
+
+
+label spell_correct
+elephant: De magie verzwakt!
+set {spell_count} = {spell_count} + 1
+
+if {spell_count} >= 3:
+	jump quest_complete
+else:
+	jump next_spell
+
+
+label spell_wrong
+elephant: Nee! De cactus houdt stand!
+elephant: Probeer de spreuk opnieuw!
+jump spell_question
+
+
+label quest_complete
+elephant: HET WERKT!!!
+elephant: De magie van het wezen is gebroken!
+elephant: Ik ben vrij dankzij jou!
+
+set {quest_elephant_cactus} = "completed"
+[signal arg="add_coins"]
+[signal arg="unfreeze_player"]
+[end_timeline]
