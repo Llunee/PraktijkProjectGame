@@ -15,7 +15,7 @@ func _ready() -> void:
 	if enemies:
 		for e in enemies:
 			e.connect("hit_player", Callable(self, "_on_player_hit"))
-		sum_info = Question_creator.generate_question(2)
+		create_sum_info()
 	close()
 
 func open():
@@ -30,6 +30,11 @@ func close():
 	get_tree().paused = false
 	visible = false
 	is_open = false
+
+func create_sum_info():
+	# difficulty increases with every level
+	var current_level : int = LevelData.get_current_level()
+	sum_info = Question_creator.generate_question(current_level + 1)
 
 func fill_labels():
 	if !sum_info:

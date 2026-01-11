@@ -83,7 +83,7 @@ func update_level_progress(world : Worlds):
 	
 	emit_signal("progress_updated")
 
-func get_current_world():
+func get_current_world() -> Worlds:
 	var scene_file_name = get_tree().current_scene.scene_file_path.to_lower()
 	var current_world : Worlds = Worlds.JUNGLE
 	
@@ -98,7 +98,7 @@ func get_current_world():
 	
 	return current_world
 
-func get_current_level():
+func get_current_level() -> int:
 	var scene_file_name = get_tree().current_scene.scene_file_path.to_lower()
 	var current_level : int = 1
 	
