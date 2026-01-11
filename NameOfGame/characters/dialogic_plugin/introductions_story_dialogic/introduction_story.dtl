@@ -7,17 +7,16 @@ join portals (safari) center [animation="Fade In"]
 mentor: Bij de safariwereld staat optellen en aftrekken centraal!\
 Voorbeeld som\: 12 + 85 = 97.
 leave portals [animation="Fade Out" length="0.1" wait="true"]
-join portals (jungle) center [animation="Fade In"]
-mentor: Bij de junglewereld staat [...] centraal!\
-Voorbeeld som\:
+join portals (sea) center [animation="Fade In"]
+mentor: Bij de zeewereld staat delen centraal!\
+Voorbeeld som\: 24 \: 6 = 4.
 leave portals [animation="Fade Out" length="0.1" wait="true"]
 join portals (ice) center [animation="Fade In"]
-mentor: Bij de ijswereld staat [...] centraal!\
-Voorbeeld som\:
+mentor: Bij de ijswereld staat vermenigvuldigen centraal!\
+Voorbeeld som\: 3 × 4 = 12.
 leave portals [animation="Fade Out" length="0.1" wait="true"]
-join portals (sea) center [animation="Fade In"]
-mentor: Bij de zeewereld staat [...] centraal!\
-Voorbeeld som\:
+join portals (jungle) center [animation="Fade In"]
+mentor: De junglewereld is momenteel nog gesloten.
 leave portals [animation="Fade Out"]
 mentor: Ben jij klaar om te kiezen en de uitdaging aan te gaan?
 [signal arg="unfreeze_player"]
