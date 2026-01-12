@@ -65,6 +65,7 @@ func _on_change_animal_back_pressed() -> void:
 
 func _on_progress_pressed() -> void:
 	progress_overlay.visible = true
+	on_progress_update()
 
 func _on_progress_back_pressed() -> void:
 	progress_overlay.visible = false
