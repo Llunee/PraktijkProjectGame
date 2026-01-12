@@ -6,10 +6,12 @@ extends Control
 @onready var operator_label: Label = $NinePatchRect/GridContainer/Operator/Label
 @onready var number_two_label: Label = $NinePatchRect/GridContainer/NumberTwo/Label
 @onready var line_edit: LineEdit = $NinePatchRect/GridContainer/Answer
+@onready var player_timer: Timer = $Player_timer
 
 var is_open : bool = false
 var sum_info : Dictionary
 var enemy : CharacterBody2D
+var time_spent: float = 0
 
 func _ready() -> void:
 	if enemies:
@@ -62,14 +64,22 @@ func _on_answer_text_submitted(answer: String) -> void:
 	if answer.to_int() == sum_info["answer"]:
 		close()
 		enemy.take_damage(1)
+		PlayerData.update_difficulty(time_spent, true)
 	else:
 		close()
 		PlayerData.take_damage(1)
-		
+		PlayerData.update_difficulty(time_spent, false)
+	player_timer.stop()
+	time_spent = 0
 		
 func _on_player_hit(enemy_hit : CharacterBody2D):
 	print(enemy_hit)
+	player_timer.start()
 	enemy = enemy_hit
-	sum_info = Question_creator.generate_question(2)
+	sum_info = Question_creator.generate_question(PlayerData.difficulty)
 	fill_labels()
 	open()
+
+
+func _on_player_timer_timeout() -> void:
+	time_spent += player_timer.wait_time
