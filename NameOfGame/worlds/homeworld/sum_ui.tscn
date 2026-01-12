@@ -117,4 +117,8 @@ alignment = 1
 max_length = 4
 caret_blink = true
 
+[node name="Player_timer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="text_submitted" from="NinePatchRect/GridContainer/Answer" to="." method="_on_answer_text_submitted"]
+[connection signal="timeout" from="Player_timer" to="." method="_on_player_timer_timeout"]
