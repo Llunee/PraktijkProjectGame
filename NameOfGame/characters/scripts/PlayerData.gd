@@ -24,6 +24,7 @@ var safari_progress : int = 0
 var sea_progress : int = 0
 var ice_progress : int = 0
 var jungle_progress : int = 0
+var difficulty: int = 2
 
 enum Animals {
 	PANDA,
@@ -79,3 +80,6 @@ func is_on_ice():
 func is_off_ice():
 	emit_signal("player_off_ice")
 	speed = 300
+
+func update_difficulty(time: float, correct: bool):
+	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
