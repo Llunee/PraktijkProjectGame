@@ -12,7 +12,8 @@ func _ready() -> void:
 func _on_area_entered(body):
 	if body.is_in_group("player"):
 		player_inside = true
-		interact_label.visible = true
+		if PlayerData.safari_world_finished:
+			interact_label.visible = true
 
 func _on_area_exited(body):
 	if body.is_in_group("player"):
@@ -20,5 +21,7 @@ func _on_area_exited(body):
 		interact_label.visible = false
 
 func _process(delta: float) -> void:
+	if not PlayerData.safari_world_finished:
+		return
 	if player_inside and Input.is_action_just_pressed("interact"):
 		get_tree().change_scene_to_file(target_scene_path)
