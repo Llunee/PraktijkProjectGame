@@ -20,6 +20,7 @@ signal hit_player
 @onready var chase_timer: Timer = $ChaseTimer
 @onready var damage_timer: Timer = $DamageTimer
 @onready var hitbox: Area2D = $Hitbox
+@onready var body_collision: CollisionShape2D = $CollisionShape2D
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2
@@ -29,6 +30,8 @@ var player_died: bool = false
 var left_target_position = Vector2.ZERO
 var right_target_position = Vector2.ZERO
 var enemy_hud: EnemyHUD
+var max_health: int
+var spawn_position: Vector2
 
 enum States {
 	WANDER,
@@ -39,6 +42,8 @@ var current_state = States.WANDER
 
 
 func _ready():
+	spawn_position = global_position
+	max_health = HEALTH
 	left_bounds = self.position - BOUNDS
 	right_bounds = self.position + BOUNDS
 	var raycast_length = player_raycast.target_position
@@ -174,9 +179,40 @@ func take_damage(amount: int):
 		die()
 
 func die():
+	visible = false
+	set_physics_process(false)
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+	
+	if body_collision:
+		body_collision.disabled = true
+	
 	if enemy_hud:
 		enemy_hud.queue_free()
-	queue_free()
+		enemy_hud = null
+
+func reset_enemy():
+	player_died = false
+	global_position = spawn_position
+	velocity = Vector2.ZERO
+
+	HEALTH = max_health
+	current_state = States.WANDER
+	change_state(current_state)
+
+	visible = true
+	set_physics_process(true)
+	hitbox.monitoring = true
+	hitbox.monitorable = true
+	
+	if body_collision:
+		body_collision.disabled = false
+
+	if enemy_hud_scene:
+		enemy_hud = enemy_hud_scene.instantiate()
+		add_child(enemy_hud)
+		enemy_hud.position = hud_offset
+		enemy_hud.set_health(HEALTH)
 
 # event functions
 func _on_chase_timer_timeout() -> void:
@@ -191,3 +227,4 @@ func _on_player_died():
 func _on_player_respawned():
 	await get_tree().create_timer(1.0).timeout
 	player_died = false
+	reset_enemy()
