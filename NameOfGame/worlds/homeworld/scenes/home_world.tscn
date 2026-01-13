@@ -1,6 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://db86lj4xekvi7"]
 
 [ext_resource type="Script" uid="uid://ca1qc17qqyh42" path="res://worlds/homeworld/scripts/home_world.gd" id="1_jjqr7"]
+[ext_resource type="PackedScene" uid="uid://2js5sxpl1u0" path="res://worlds/homeworld/hud.tscn" id="2_cyic0"]
 [ext_resource type="PackedScene" uid="uid://c15n2rhyambd" path="res://characters/scenes/player.tscn" id="2_pd26j"]
 [ext_resource type="TileSet" uid="uid://dqmb13l4b00me" path="res://assets/tiles/tilesets/all_tiles.tres" id="3_72xmv"]
 [ext_resource type="Texture2D" uid="uid://dwpn6v10pye8b" path="res://assets/backgrounds/title_screen.png" id="3_shlyg"]
@@ -13,7 +14,6 @@
 [ext_resource type="TileSet" uid="uid://bk5fbf1bk80uy" path="res://assets/tiles/trees/trees.tres" id="9_pd26j"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="11_2133q"]
 [ext_resource type="Script" uid="uid://dh4qovolcigil" path="res://characters/scripts/mentor_home.gd" id="12_1vnqv"]
-[ext_resource type="PackedScene" uid="uid://rdcqwo7ams75" path="res://logic/scenes/dialog_ui.tscn" id="13_5p35a"]
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="14_5p35a"]
 [ext_resource type="Texture2D" uid="uid://bh51q777s4ldb" path="res://assets/worlds/homeworld/fence.png" id="14_mh43n"]
 [ext_resource type="PackedScene" uid="uid://ct12gxck72guh" path="res://characters/scenes/beaver.tscn" id="15_shlyg"]
@@ -24,9 +24,7 @@ script = ExtResource("1_jjqr7")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="DialogUI" parent="HUD" instance=ExtResource("13_5p35a")]
-visible = false
-dialog_script = "res://logic/scripts/JSON/home_world_mentor_dialog.json"
+[node name="HUD" parent="HUD" instance=ExtResource("2_cyic0")]
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("14_5p35a")]
 visible = false
