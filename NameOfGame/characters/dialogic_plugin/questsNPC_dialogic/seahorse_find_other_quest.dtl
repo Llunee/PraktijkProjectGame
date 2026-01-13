@@ -1,5 +1,5 @@
 if {quest_find_seahorse} == "completed":
-	purple_seahorse: Je hebt me al geholpen! 💜
+	purple_seahorse: Je hebt me al geholpen! 
 	[end_timeline]
 
 [signal arg="freeze_player"]

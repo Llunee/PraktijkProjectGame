@@ -29,6 +29,7 @@ if {quest_objective_met} == false:
 	[end_timeline]
 if {quest_objective_met} == true:
 	[signal arg="freeze_player"]
+	[signal arg="give_gems"]
 	giraffe: Je hebt ze allemaal gevonden!" Nu de laatste test\: Wat is 21 + 15?
 	- 37
 		jump Fout

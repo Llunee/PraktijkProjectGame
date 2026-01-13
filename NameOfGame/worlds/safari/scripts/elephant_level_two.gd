@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var interact_icon: Node2D = $InteractIcon
-@onready var player = %Player
+@export var player: CharacterBody2D
 
 var is_player_in_range: bool = false
 var is_chatting: bool = false
@@ -37,18 +37,15 @@ func run_dialog(dialog_name: String) -> void:
 	Dialogic.start(dialog_name)
 
 func _on_dialogic_signal(signal_name: String) -> void:
-	match signal_name:
-		"freeze_player":
-			if player:
-				player.set_physics_process(false)
-
-		"unfreeze_player":
-			if player:
-				player.set_physics_process(true)
+	if player:
+		if signal_name == "freeze_player":
+			player.set_physics_process(false)  
+		elif signal_name == "unfreeze_player":
+			player.set_physics_process(true)
 			is_chatting = false
-
-		"generate_spell":
+		elif  signal_name == "generate_spell":
 			_generate_spell()
+
 
 func _generate_spell() -> void:
 	var spell_count := 0

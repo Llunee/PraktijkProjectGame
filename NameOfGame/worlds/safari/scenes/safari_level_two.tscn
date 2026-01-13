@@ -144,8 +144,9 @@ position = Vector2(22390, -238)
 player = NodePath("../Player")
 enemy_hud_scene = ExtResource("15_rda1a")
 
-[node name="hippo" parent="." instance=ExtResource("15_q4k3y")]
+[node name="hippo" parent="." node_paths=PackedStringArray("player") instance=ExtResource("15_q4k3y")]
 position = Vector2(13513, 160)
+player = NodePath("../Player")
 
 [node name="RedCoinSpawns" type="Node" parent="."]
 
@@ -175,10 +176,11 @@ position = Vector2(13885, 151)
 [node name="Checkpoint" type="Marker2D" parent="."]
 position = Vector2(7131, -468)
 
-[node name="Elephant" parent="." instance=ExtResource("19_0iwhw")]
+[node name="Elephant" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_0iwhw")]
 z_index = -1
 position = Vector2(-275.00003, -199)
 script = ExtResource("20_gfyke")
+player = NodePath("../Player")
 
 [node name="CheckpointLabel" type="RichTextLabel" parent="."]
 visible = false

@@ -4,26 +4,22 @@ extends Area2D
 @onready var player = %Player
 var is_player_in_range: bool = false
 var is_chatting: bool = false
-@onready var player_inv: Inv = preload("res://inventory/playerInventory.tres")
-	
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	
+
 func _input(event: InputEvent) -> void:
 	if is_player_in_range and event.is_action_pressed("interact") and not is_chatting:
 		print("talk")
-		run_dialog("firstQuest")
+		run_dialog("secondGiraffe")
 
 func _on_body_entered(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = true
 		print("Druk op 'E' om te praten.")
-		if not is_quest_completed():
-			interact_icon.visible = true
-		else:
-			interact_icon.visible = false
+		interact_icon.visible = true
 
 func _on_body_exited(body) -> void:
 	if body.name == "Player":
@@ -35,7 +31,7 @@ func run_dialog(dialog_name):
 	is_chatting = true
 	interact_icon.visible = false
 	Dialogic.start(dialog_name)
-	
+
 func _on_dialogic_signal(signal_name: String) -> void:
 	if player:
 		if signal_name == "freeze_player":
@@ -43,6 +39,3 @@ func _on_dialogic_signal(signal_name: String) -> void:
 		elif signal_name == "unfreeze_player":
 			player.set_physics_process(true)
 			is_chatting = false
-
-func is_quest_completed() -> bool:
-	return Dialogic.VAR.get("quest_giraffe") == "completed"
