@@ -5,9 +5,9 @@ class_name SmallEnemyBase
 signal hit_player
 
 @export var player: CharacterBody2D
-@export var SPEED: int = 75
-@export var CHASE_SPEED: int = 150
-@export var ACCELLERATION: int = 400
+@export var SPEED: int = 150
+@export var CHASE_SPEED: int = 450
+@export var ACCELLERATION: int = 600
 @export var HEALTH: int = 2
 @export var BOUNDS : Vector2 = Vector2(175, 0)
 @export var enemy_hud_scene: PackedScene
@@ -19,6 +19,7 @@ signal hit_player
 @onready var hole_check_right: RayCast2D = $AnimatedSprite2D/FloorRaycastRight
 @onready var chase_timer: Timer = $ChaseTimer
 @onready var damage_timer: Timer = $DamageTimer
+@onready var hitbox: Area2D = $Hitbox
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2
@@ -62,7 +63,6 @@ func _physics_process(delta: float) -> void:
 	if !player_died:
 		look_for_player()
 		move_and_slide()
-		collide_with_player(get_last_slide_collision())
 
 func change_state(new_state: States):
 	current_state = new_state
@@ -85,14 +85,11 @@ func look_for_player():
 		stop_chase()
 
 
-func collide_with_player(collision_info):
-	if !collision_info:
-		return
-		
+func collide_with_player(body):
 	if damage_timer.time_left > 0:
 		return
 	
-	if collision_info.get_collider() == player:
+	if body == player:
 		emit_signal("hit_player", self)
 		damage_timer.start()
 

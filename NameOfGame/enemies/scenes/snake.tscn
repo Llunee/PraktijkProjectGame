@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5sciffoo4doq"]
+[gd_scene load_steps=31 format=3 uid="uid://b5sciffoo4doq"]
 
 [ext_resource type="Script" uid="uid://bbmqarj16sgr4" path="res://enemies/scripts/snake.gd" id="1_o2scv"]
 [ext_resource type="Texture2D" uid="uid://c3ta4nscg7rph" path="res://assets/characters/enemies/snake/idle/snake_idle.png" id="1_pox6b"]
@@ -172,6 +172,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4dtx"]
+radius = 6.3875318
+height = 68.42491
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4dtx"]
+size = Vector2(26.409714, 31.614544)
+
 [node name="Snake" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_o2scv")
@@ -220,6 +227,20 @@ one_shot = true
 wait_time = 4.0
 one_shot = true
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="WalkCollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, -1)
+rotation = -1.57234
+shape = SubResource("CapsuleShape2D_x4dtx")
+disabled = true
+
+[node name="IdleCollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.1617279, -3.3388805)
+shape = SubResource("RectangleShape2D_x4dtx")
+disabled = true
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
 [connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="collide_with_player"]
