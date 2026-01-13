@@ -25,6 +25,7 @@ var sea_progress : int = 0
 var ice_progress : int = 0
 var jungle_progress : int = 0
 var difficulty: int = 2
+var is_sum_ui_open : bool = false
 
 enum Animals {
 	PANDA,
@@ -80,6 +81,12 @@ func is_on_ice():
 func is_off_ice():
 	emit_signal("player_off_ice")
 	speed = 300
+
+func sum_ui_open():
+	is_sum_ui_open = true
+
+func sum_ui_closed():
+	is_sum_ui_open = false
 
 func update_difficulty(time: float, correct: bool):
 	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)

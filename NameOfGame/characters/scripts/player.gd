@@ -67,6 +67,9 @@ func collect(item):
 	inv.insert(item)
 
 func handle_damage():
+	sprite.modulate = Color(1, 0, 0, 0.25)
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color.WHITE
 	if PlayerData.is_dead():
 		die()
 
