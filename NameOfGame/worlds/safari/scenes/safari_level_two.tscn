@@ -88,7 +88,7 @@ tile_map_data = PackedByteArray("AAAOAP7/AAADAAIAAAAZAP3/AAACAAAAAAApAPz/AAACAAI
 tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
-position = Vector2(-3781, -89)
+position = Vector2(13288, 147)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
@@ -175,10 +175,11 @@ position = Vector2(13885, 151)
 [node name="Checkpoint" type="Marker2D" parent="."]
 position = Vector2(7131, -468)
 
-[node name="Elephant" parent="." instance=ExtResource("19_0iwhw")]
+[node name="Elephant" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_0iwhw")]
 z_index = -1
 position = Vector2(-275.00003, -199)
 script = ExtResource("20_gfyke")
+player = NodePath("../Player")
 
 [node name="CheckpointLabel" type="RichTextLabel" parent="."]
 visible = false
