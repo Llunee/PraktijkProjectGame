@@ -38,7 +38,8 @@ enum Worlds {
 	SAFARI,
 	SEA,
 	ICE,
-	JUNGLE
+	JUNGLE,
+	INTRO
 }
 
 func _ready() -> void:
@@ -93,8 +94,10 @@ func get_current_world() -> Worlds:
 		current_world = Worlds.SEA
 	elif scene_file_name.contains("ice"):
 		current_world = Worlds.ICE
-	else:
+	elif scene_file_name.contains("jungle"):
 		current_world = Worlds.JUNGLE
+	else:
+		current_world = Worlds.INTRO
 	
 	return current_world
 

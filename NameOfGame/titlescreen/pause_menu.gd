@@ -32,6 +32,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		if PlayerData.is_sum_ui_open:
+			return
 		if is_open:
 			close()
 		else:

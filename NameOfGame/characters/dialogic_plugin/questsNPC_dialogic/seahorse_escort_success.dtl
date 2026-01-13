@@ -2,7 +2,7 @@
 
 join green_seahorse left
 green_seahorse: Daar ben je!
-green_seahorse: Ik was zo ongerust… Dank je wel dat je mijn vriend veilig hebt gebracht 💚
+green_seahorse: Ik was zo ongerust… Dank je wel dat je mijn vriend veilig terug hebt gebracht <3
 
 set {escort_active} = false
 set {quest_find_seahorse} = "completed"

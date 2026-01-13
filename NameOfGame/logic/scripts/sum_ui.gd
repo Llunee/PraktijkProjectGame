@@ -21,6 +21,7 @@ func _ready() -> void:
 	close()
 
 func open():
+	PlayerData.sum_ui_open()
 	get_tree().paused = true
 	
 	visible = true
@@ -29,6 +30,7 @@ func open():
 	line_edit.grab_focus()
 
 func close():
+	PlayerData.sum_ui_closed()
 	get_tree().paused = false
 	visible = false
 	is_open = false
