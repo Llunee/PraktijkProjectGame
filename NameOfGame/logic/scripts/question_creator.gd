@@ -15,6 +15,10 @@ static func generate_question(difficulty: int) -> Dictionary:
 	
 	# set weights per operation
 	var current_world : LevelData.Worlds = LevelData.get_current_world()
+	# make sure intro questions are super easy
+	if current_world == LevelData.Worlds.INTRO:
+		difficulty = 1
+	
 	var weights = PackedFloat32Array([1, 1, 1, 1])
 	match current_world:
 		LevelData.Worlds.SAFARI:
@@ -57,7 +61,10 @@ static func generate_question(difficulty: int) -> Dictionary:
 	# ---------------------------
 	elif op == "/":
 		answer = randi_range(1, 9)   # keep division kid-friendly
-		b = rand_digits(difficulty, op) / 10 # make sure it doesn't ask things like 200/50
+		while true:
+			b = int(rand_digits(difficulty, op) / 10)
+			if b >= 1:
+				break
 		a = answer * b               # ensures a / b = answer
 		question = "%d / %d" % [a, b]
 

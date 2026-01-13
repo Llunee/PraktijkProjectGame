@@ -44,7 +44,6 @@ hud_offset = Vector2(-27.5, -60)
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nmhdb")]
 position = Vector2(1706.3167, 169.07994)
 player = NodePath("../Player")
-enemy_hud_scene = ExtResource("8_k3eb3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
