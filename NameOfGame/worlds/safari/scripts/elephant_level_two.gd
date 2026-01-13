@@ -37,7 +37,6 @@ func run_dialog(dialog_name: String) -> void:
 	Dialogic.start(dialog_name)
 
 func _on_dialogic_signal(signal_name: String) -> void:
-	print("Signal received:", signal_name, "Player is", player)
 	if player:
 		if signal_name == "freeze_player":
 			player.set_physics_process(false)  
