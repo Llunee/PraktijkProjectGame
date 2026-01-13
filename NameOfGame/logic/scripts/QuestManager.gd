@@ -56,6 +56,12 @@ func _on_dialogic_signal(signal_name: String):
 		"escort_failed":
 			reset_escort()
 			
+		"give_gems":
+			remove_items_from_inventory(purple_crystal, 5)
+			Dialogic.VAR.set_variable("quest_giraffe", "completed")
+			Dialogic.VAR.set_variable("quest_objective_met", true)
+			print("5 paarse kristallen zijn afgegeven!")
+			
 
 
 # Quest logic
@@ -128,3 +134,20 @@ func count_item(item: InvItem) -> int:
 
 func sync_dialogic(var_name: StringName, value):
 	Dialogic.VAR.set_variable(var_name, value)
+
+func remove_items_from_inventory(item: InvItem, amount: int):
+	print("Removing item:", item, "Amount:", amount)  
+	if item:
+		print("Item name:", item.name) 
+	
+	var remaining = amount
+	for slot in player_inv.slots:
+		if slot.item and slot.item == item:
+			if slot.amount >= remaining:
+				slot.amount -= remaining
+				remaining = 0
+			else:
+				remaining -= slot.amount
+				slot.amount = 0
+		if remaining <= 0:
+			break
