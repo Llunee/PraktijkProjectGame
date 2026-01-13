@@ -3,12 +3,18 @@ class_name Question_creator
 static func rand_digits(d: int, operator: String) -> int:
 	var min_val = int(pow(10, d - 1))
 	var max_val = int(pow(10, d)) - 1
+	min_val = max(min_val, 1)
+
 	var value = randi_range(min_val, max_val)
-	
+
 	if operator == "+" or operator == "-":
 		return value
-		
-	return int(round(value / 10)) * 10
+
+	if d == 1:
+		return value
+
+	value = int(round(value / 10.0)) * 10
+	return max(value, 10)
 
 static func generate_question(difficulty: int) -> Dictionary:
 	var rng = RandomNumberGenerator.new()
@@ -60,12 +66,14 @@ static func generate_question(difficulty: int) -> Dictionary:
 	# (ensure integer answer)
 	# ---------------------------
 	elif op == "/":
-		answer = randi_range(1, 9)   # keep division kid-friendly
-		while true:
-			b = int(rand_digits(difficulty, op) / 10)
-			if b >= 1:
-				break
-		a = answer * b               # ensures a / b = answer
+		answer = randi_range(1, 9)
+
+		if difficulty == 1:
+			b = randi_range(1, 9)
+		else:
+			b = rand_digits(difficulty, op) / 10
+
+		a = answer * b
 		question = "%d / %d" % [a, b]
 
 	# ---------------------------

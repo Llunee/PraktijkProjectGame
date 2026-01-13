@@ -167,6 +167,9 @@ func handle_gravity(delta: float):
 		velocity.y += gravity * delta
 
 func take_damage(amount: int):
+	animated_sprite.modulate = Color(1, 0, 0, 0.25)
+	await get_tree().create_timer(0.2).timeout
+	animated_sprite.modulate = Color.WHITE
 	HEALTH -= amount
 	if enemy_hud:
 		enemy_hud.set_health(HEALTH)
