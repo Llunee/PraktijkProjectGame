@@ -195,7 +195,11 @@ func reset_enemy():
 	player_died = false
 	global_position = spawn_position
 	velocity = Vector2.ZERO
-
+	
+	if enemy_hud:
+		enemy_hud.queue_free()
+		enemy_hud = null
+	
 	HEALTH = max_health
 	current_state = States.WANDER
 	change_state(current_state)
@@ -212,6 +216,7 @@ func reset_enemy():
 		enemy_hud = enemy_hud_scene.instantiate()
 		add_child(enemy_hud)
 		enemy_hud.position = hud_offset
+		enemy_hud.setup(max_health)
 		enemy_hud.set_health(HEALTH)
 
 # event functions
