@@ -10,11 +10,7 @@ class_name Snake
 
 func _ready():
 	super()
-	
-	if enemy_hud_scene:
-		enemy_hud = enemy_hud_scene.instantiate()
-		get_tree().current_scene.add_child.call_deferred(enemy_hud)
-		enemy_hud.setup(HEALTH)
+	add_hud()	
 
 func _process(_delta):
 	if enemy_hud:
@@ -44,6 +40,15 @@ func change_state(new_state: States):
 			wander_timer.stop()
 			chase_timer.stop()
 
+func add_hud():
+	if enemy_hud:
+		enemy_hud.queue_free()
+		enemy_hud = null
+	if enemy_hud_scene:
+		enemy_hud = enemy_hud_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(enemy_hud)
+		enemy_hud.setup(HEALTH)
+
 func die():
 	super()
 	shape_idle.disabled = true
@@ -54,6 +59,7 @@ func reset_enemy():
 	shape_idle.disabled = false
 	shape_walk.disabled = false
 	change_state(States.IDLE)
+	add_hud()
 
 func _set_shape_for(mode: String):
 	shape_idle.disabled = mode != "idle"
