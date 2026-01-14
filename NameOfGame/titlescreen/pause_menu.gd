@@ -23,6 +23,7 @@ extends Control
 @onready var ice_quests_progress_label = $ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer/IceQuestProgressLabel
 @onready var jungle_quests_progress_label = $ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer/JungleQuestProgressLabel
 
+@onready var player = get_tree().get_current_scene().get_node("Player")
 
 var is_open = false
 
@@ -99,10 +100,15 @@ func _on_download_pressed() -> void:
 
 	var image = get_viewport().get_texture().get_image()
 
-	var pictures_dir = get_pictures_dir()
+	var png_buffer = image.save_png_to_buffer()
 	var time = Time.get_datetime_string_from_system().replace(":", "-")
-	var path = pictures_dir + "/progress_"+ time + ".png"
-	image.save_png(path)
+	var filename  = "progress_"+ time + ".png"
+	
+	if OS.has_feature("web"):
+		JavaScriptBridge.download_buffer(png_buffer, filename)
+	else:
+		var pictures_dir = get_pictures_dir()
+		image.save_png(pictures_dir + "/" + filename)
 	
 	download_toast.visible = true # do not disable in this screen in case child needs to ask what it means
 
@@ -129,3 +135,7 @@ func update_quests():
 	sea_quests_progress_label.text = str(LevelData.finished_sea_quests) + "/" + str(LevelData.max_sea_quests)
 	ice_quests_progress_label.text = str(LevelData.finished_ice_quests) + "/" + str(LevelData.max_ice_quests)
 	jungle_quests_progress_label.text = str(LevelData.finished_jungle_quests) + "/" + str(LevelData.max_jungle_quests)
+
+
+func _on_save_pressed() -> void:
+	SaveManager.save_game(player)

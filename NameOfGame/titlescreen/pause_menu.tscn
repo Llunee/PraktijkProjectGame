@@ -132,6 +132,18 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
 text = "Voortgang"
 
+[node name="Save" type="Button" parent="NinePatchRect/GridContainer/Container"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
+theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+theme_override_colors/font_hover_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
+text = "Opslaan"
+
 [node name="Label" type="Label" parent="NinePatchRect"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
@@ -632,6 +644,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/ChangeAnimal" to="." method="_on_change_character_pressed"]
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Consoles" to="." method="_on_consoles_pressed"]
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Progress" to="." method="_on_progress_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="NinePatchRect/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="ConsolesOverlay/NinePatchRect/Back" to="." method="_on_consoles_back_pressed"]
 [connection signal="pressed" from="ChangeAnimalOverlay/NinePatchRect/Back" to="." method="_on_change_animal_back_pressed"]
