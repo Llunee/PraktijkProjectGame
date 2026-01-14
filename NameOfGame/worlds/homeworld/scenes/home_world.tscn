@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://kvtvuglr4ues" path="res://titlescreen/pause_menu.tscn" id="14_5p35a"]
 [ext_resource type="Texture2D" uid="uid://bh51q777s4ldb" path="res://assets/worlds/homeworld/fence.png" id="14_mh43n"]
 [ext_resource type="PackedScene" uid="uid://ct12gxck72guh" path="res://characters/scenes/beaver.tscn" id="15_shlyg"]
-[ext_resource type="Script" uid="uid://b838gc2w4uuhk" path="res://characters/scenes/beaver_jungle.gd" id="18_cyic0"]
+[ext_resource type="Script" uid="uid://b838gc2w4uuhk" path="res://characters/scripts/beaver_jungle.gd" id="18_cyic0"]
 [ext_resource type="Texture2D" uid="uid://cgrbm37amekpj" path="res://assets/tiles/environment/safari/sign_safari.png" id="19_2o20u"]
 [ext_resource type="Texture2D" uid="uid://dgkx5g57b2vgl" path="res://assets/tiles/environment/ice/sign_ice.png" id="19_woba3"]
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="20_woba3"]
