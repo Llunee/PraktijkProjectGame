@@ -23,6 +23,7 @@ extends Control
 @onready var ice_quests_progress_label = $ProgressOverlay/NinePatchRect/GridContainer/IceContainer/Questscontainer/IceQuestProgressLabel
 @onready var jungle_quests_progress_label = $ProgressOverlay/NinePatchRect/GridContainer/JungleContainer/Questscontainer/JungleQuestProgressLabel
 
+@onready var player = get_tree().get_current_scene().get_node("Player")
 
 var is_open = false
 
@@ -129,3 +130,7 @@ func update_quests():
 	sea_quests_progress_label.text = str(LevelData.finished_sea_quests) + "/" + str(LevelData.max_sea_quests)
 	ice_quests_progress_label.text = str(LevelData.finished_ice_quests) + "/" + str(LevelData.max_ice_quests)
 	jungle_quests_progress_label.text = str(LevelData.finished_jungle_quests) + "/" + str(LevelData.max_jungle_quests)
+
+
+func _on_save_pressed() -> void:
+	SaveManager.save_game(player)
