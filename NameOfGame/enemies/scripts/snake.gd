@@ -44,6 +44,17 @@ func change_state(new_state: States):
 			wander_timer.stop()
 			chase_timer.stop()
 
+func die():
+	super()
+	shape_idle.disabled = true
+	shape_walk.disabled = true
+
+func reset_enemy():
+	super()
+	shape_idle.disabled = false
+	shape_walk.disabled = false
+	change_state(States.IDLE)
+
 func _set_shape_for(mode: String):
 	shape_idle.disabled = mode != "idle"
 	hit_shape_idle.disabled = mode != "idle"
