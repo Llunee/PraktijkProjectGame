@@ -90,3 +90,24 @@ func sum_ui_closed():
 
 func update_difficulty(time: float, correct: bool):
 	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
+	
+# saving things
+func to_dict(position: Vector2) -> Dictionary:
+	return {
+		"difficulty": difficulty,
+		"animal": animal,
+		"position": {
+			"x": position.x,
+			"y": position.y
+		}
+	}
+
+func from_dict(data: Dictionary, player_node: Node2D):
+	difficulty = data.get("difficulty", 2)
+	set_animal(data.get("animal", Animals.FROG))
+
+	var pos = data.get("position", {})
+	player_node.global_position = Vector2(
+		pos.get("x", 0),
+		pos.get("y", 0)
+	)
