@@ -39,19 +39,19 @@ script = ExtResource("12_b1csi")
 
 [node name="Snowfox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
 position = Vector2(2517, -2490)
-collision_mask = 1
+platform_floor_layers = 4294901760
 player = NodePath("../Player")
 BOUNDS = Vector2(250, 0)
 
 [node name="Snowfox2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
 position = Vector2(2066, -2031)
-collision_mask = 1
+platform_floor_layers = 4294901760
 player = NodePath("../Player")
 BOUNDS = Vector2(250, 0)
 
 [node name="Snowfox3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_gpnet")]
 position = Vector2(13240, -2219)
-collision_mask = 1
+platform_floor_layers = 4294901760
 player = NodePath("../Player")
 BOUNDS = Vector2(250, 0)
 
