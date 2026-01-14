@@ -99,10 +99,15 @@ func _on_download_pressed() -> void:
 
 	var image = get_viewport().get_texture().get_image()
 
-	var pictures_dir = get_pictures_dir()
+	var png_buffer = image.save_png_to_buffer()
 	var time = Time.get_datetime_string_from_system().replace(":", "-")
-	var path = pictures_dir + "/progress_"+ time + ".png"
-	image.save_png(path)
+	var filename  = "progress_"+ time + ".png"
+	
+	if OS.has_feature("web"):
+		JavaScriptBridge.download_buffer(png_buffer, filename)
+	else:
+		var pictures_dir = get_pictures_dir()
+		image.save_png(pictures_dir + "/" + filename)
 	
 	download_toast.visible = true # do not disable in this screen in case child needs to ask what it means
 
