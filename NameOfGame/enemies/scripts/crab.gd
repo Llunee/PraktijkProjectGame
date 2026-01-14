@@ -2,6 +2,7 @@ extends SmallEnemyBase
 
 func _ready():
 	super()
+	CHASE_SPEED = 600
 	
 	if enemy_hud_scene:
 		enemy_hud = enemy_hud_scene.instantiate()

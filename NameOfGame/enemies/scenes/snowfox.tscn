@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b78t055e0ltsn"]
+[gd_scene load_steps=7 format=3 uid="uid://b78t055e0ltsn"]
 
 [ext_resource type="Texture2D" uid="uid://b3xm784aa5ptx" path="res://assets/characters/NPCS/ice/snowfox.png" id="1_6h128"]
 [ext_resource type="Script" uid="uid://c8kvqoc407o54" path="res://enemies/scripts/snowfox.gd" id="1_14jxm"]
 [ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="2_5bv50"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14jxm"]
-size = Vector2(52.03312, 48.27408)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bv50"]
+radius = 28.974762
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bv50"]
 animations = [{
@@ -18,6 +18,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgiu1"]
+radius = 32.134533
+
 [node name="Snowfox" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_14jxm")
@@ -26,8 +29,8 @@ HEALTH = 3
 enemy_hud_scene = ExtResource("2_5bv50")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.13066483, 3.0595336)
-shape = SubResource("RectangleShape2D_14jxm")
+position = Vector2(-3.8193169, -0.89043283)
+shape = SubResource("CircleShape2D_5bv50")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
@@ -54,4 +57,11 @@ one_shot = true
 [node name="DamageTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitCollision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-3.8193169, -0.89043283)
+shape = SubResource("CircleShape2D_wgiu1")
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="collide_with_player"]

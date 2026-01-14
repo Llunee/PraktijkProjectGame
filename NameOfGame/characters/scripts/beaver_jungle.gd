@@ -38,11 +38,13 @@ func _on_dialogic_signal(signal_name: String) -> void:
 	if player:
 		if signal_name == "freeze_player":
 			player.set_physics_process(false)
+			is_chatting = true
 			if player.global_position.x > global_position.x:
 				animated_sprite.flip_h = true  
 			animated_sprite.play("talk")
 		elif signal_name == "unfreeze_player":
 			player.set_physics_process(true)
+			await get_tree().create_timer(1).timeout
 			is_chatting = false
 			animated_sprite.flip_h = false  
 			animated_sprite.play("idle")

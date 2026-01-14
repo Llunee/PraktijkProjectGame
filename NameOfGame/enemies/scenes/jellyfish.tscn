@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv4yud1tsu0ff"]
+[gd_scene load_steps=10 format=3 uid="uid://cv4yud1tsu0ff"]
 
 [ext_resource type="Script" uid="uid://bkrg8bu17hnha" path="res://enemies/scripts/jellyfish.gd" id="1_4p4c5"]
 [ext_resource type="Texture2D" uid="uid://cxak27d0fe4tv" path="res://assets/characters/enemies/sea/jellyfish.png" id="1_jr4bu"]
@@ -42,6 +42,10 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jr4bu"]
 radius = 11.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p4c5"]
+radius = 13.0
+height = 35.0
+
 [node name="Jellyfish" type="CharacterBody2D"]
 script = ExtResource("1_4p4c5")
 
@@ -72,4 +76,11 @@ one_shot = true
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitCollision" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_4p4c5")
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="collide_with_player"]
