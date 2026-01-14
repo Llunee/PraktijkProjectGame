@@ -22,6 +22,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuizManager="*res://logic/scripts/QuizManager.gd"
 PlayerData="*res://characters/scripts/PlayerData.gd"
 LevelData="*res://logic/scripts/LevelData.gd"
+SaveManager="*res://logic/scripts/SaveManager.gd"
 
 [dialogic]
 
@@ -54,7 +55,8 @@ directories/dtl_directory={
 "mentor_storyline_start": "res://characters/dialogic_plugin/charactersNPC_dialogic/mentor_storyline_start.dtl",
 "seahorse_escort_failed": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_failed.dtl",
 "seahorse_escort_success": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_escort_success.dtl",
-"seahorse_find_other_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_find_other_quest.dtl"
+"seahorse_find_other_quest": "res://characters/dialogic_plugin/questsNPC_dialogic/seahorse_find_other_quest.dtl",
+"secondGiraffe": "res://characters/dialogic_plugin/questsNPC_dialogic/secondGiraffe.dtl"
 }
 layout/style_directory={
 "": "res://assets/Dialogic_Styles/wood_style.tres",

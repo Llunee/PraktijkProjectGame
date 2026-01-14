@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://iycltcngjtt7"]
+[gd_scene load_steps=11 format=3 uid="uid://iycltcngjtt7"]
 
 [ext_resource type="Texture2D" uid="uid://crf5jnrklbgnj" path="res://assets/characters/enemies/sea/crab.png" id="1_4hmjh"]
 [ext_resource type="Script" uid="uid://xhc3jtm8yqr0" path="res://enemies/scripts/crab.gd" id="1_ebbfp"]
@@ -41,8 +41,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvdut"]
-radius = 9.046935
-height = 33.979996
+radius = 8.999999
+height = 34.999996
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qke6x"]
+radius = 10.000208
+height = 38.000416
 
 [node name="Crab" type="CharacterBody2D"]
 script = ExtResource("1_ebbfp")
@@ -78,4 +82,13 @@ one_shot = true
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HitCollision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1.1920929e-07, 0)
+rotation = -1.5712142
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_qke6x")
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="collide_with_player"]

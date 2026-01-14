@@ -5,6 +5,8 @@ class_name Snake
 @onready var idle_timer: Timer = $IdleTimer
 @onready var shape_idle: CollisionShape2D = $IdleCollisionShape2D
 @onready var shape_walk: CollisionShape2D = $WalkCollisionShape2D
+@onready var hit_shape_idle: CollisionShape2D = $Hitbox/IdleCollisionShape2D
+@onready var hit_shape_walk: CollisionShape2D = $Hitbox/WalkCollisionShape2D
 
 func _ready():
 	super()
@@ -42,9 +44,22 @@ func change_state(new_state: States):
 			wander_timer.stop()
 			chase_timer.stop()
 
+func die():
+	super()
+	shape_idle.disabled = true
+	shape_walk.disabled = true
+
+func reset_enemy():
+	super()
+	shape_idle.disabled = false
+	shape_walk.disabled = false
+	change_state(States.IDLE)
+
 func _set_shape_for(mode: String):
 	shape_idle.disabled = mode != "idle"
+	hit_shape_idle.disabled = mode != "idle"
 	shape_walk.disabled = mode != "walk"
+	hit_shape_walk.disabled = mode != "walk"
 
 func _on_wander_timer_timeout():
 	if current_state != States.CHASE:

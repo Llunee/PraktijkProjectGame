@@ -38,7 +38,8 @@ enum Worlds {
 	SAFARI,
 	SEA,
 	ICE,
-	JUNGLE
+	JUNGLE,
+	INTRO
 }
 
 func _ready() -> void:
@@ -93,8 +94,10 @@ func get_current_world() -> Worlds:
 		current_world = Worlds.SEA
 	elif scene_file_name.contains("ice"):
 		current_world = Worlds.ICE
-	else:
+	elif scene_file_name.contains("jungle"):
 		current_world = Worlds.JUNGLE
+	else:
+		current_world = Worlds.INTRO
 	
 	return current_world
 
@@ -128,3 +131,56 @@ func get_level_progress_percentage(world : Worlds):
 			return ice
 		Worlds.JUNGLE:
 			return jungle
+
+func get_location_dict() -> Dictionary:
+	return {
+		"world": get_current_world(),
+		"level": get_current_level()
+	}
+
+func to_dict() -> Dictionary:
+	return {
+		"coins": {
+			"safari": collected_safari_coins,
+			"sea": collected_sea_coins,
+			"ice": collected_ice_coins,
+			"jungle": collected_jungle_coins
+		},
+		"levels": {
+			"safari": finished_safari_levels,
+			"sea": finished_sea_levels,
+			"ice": finished_ice_levels,
+			"jungle": finished_jungle_levels
+		},
+		"quests": {
+			"safari": finished_safari_quests,
+			"sea": finished_sea_quests,
+			"ice": finished_ice_quests,
+			"jungle": finished_jungle_quests
+		},
+		"location": {
+			"world": get_current_world(),
+			"level": get_current_level()
+		}
+	}
+
+func from_dict(data: Dictionary):
+	var coins = data.get("coins", {})
+	collected_safari_coins = coins.get("safari", 0)
+	collected_sea_coins = coins.get("sea", 0)
+	collected_ice_coins = coins.get("ice", 0)
+	collected_jungle_coins = coins.get("jungle", 0)
+
+	var levels = data.get("levels", {})
+	finished_safari_levels = levels.get("safari", 0)
+	finished_sea_levels = levels.get("sea", 0)
+	finished_ice_levels = levels.get("ice", 0)
+	finished_jungle_levels = levels.get("jungle", 0)
+
+	var quests = data.get("quests", {})
+	finished_safari_quests = quests.get("safari", 0)
+	finished_sea_quests = quests.get("sea", 0)
+	finished_ice_quests = quests.get("ice", 0)
+	finished_jungle_quests = quests.get("jungle", 0)
+
+	emit_signal("progress_updated")

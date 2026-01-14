@@ -25,6 +25,7 @@ var sea_progress : int = 0
 var ice_progress : int = 0
 var jungle_progress : int = 0
 var difficulty: int = 2
+var is_sum_ui_open : bool = false
 
 enum Animals {
 	PANDA,
@@ -81,5 +82,32 @@ func is_off_ice():
 	emit_signal("player_off_ice")
 	speed = 300
 
+func sum_ui_open():
+	is_sum_ui_open = true
+
+func sum_ui_closed():
+	is_sum_ui_open = false
+
 func update_difficulty(time: float, correct: bool):
 	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
+	
+# saving things
+func to_dict(position: Vector2) -> Dictionary:
+	return {
+		"difficulty": difficulty,
+		"animal": animal,
+		"position": {
+			"x": position.x,
+			"y": position.y
+		}
+	}
+
+func from_dict(data: Dictionary, player_node: Node2D):
+	difficulty = data.get("difficulty", 2)
+	set_animal(data.get("animal", Animals.FROG))
+
+	var pos = data.get("position", {})
+	player_node.global_position = Vector2(
+		pos.get("x", 0),
+		pos.get("y", 0)
+	)

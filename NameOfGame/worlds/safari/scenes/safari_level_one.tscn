@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c7gvseyrj63a3" path="res://assets/characters/NPCS/safari/happy_elephant.png" id="11_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://cdhnvr428gp20" path="res://worlds/safari/scenes/elephant.tscn" id="11_fax6y"]
 [ext_resource type="Texture2D" uid="uid://bepb2mq0x1cjs" path="res://assets/characters/NPCS/mouse.png" id="12_k8ycn"]
-[ext_resource type="PackedScene" uid="uid://b6tcmsfl2jgvq" path="res://enemies/scenes/enemy_hud.tscn" id="14_hn6as"]
 [ext_resource type="PackedScene" uid="uid://b41yjh575g6hk" path="res://worlds/homeworld/portals/safari_portal.tscn" id="15_dfh5s"]
+[ext_resource type="Script" uid="uid://cpihhv6p85h21" path="res://worlds/safari/scripts/second_giraffe.gd" id="15_hn6as"]
 [ext_resource type="Script" uid="uid://dm36ibfx4s5fj" path="res://worlds/safari/scripts/elephant.gd" id="16_5wcrv"]
 [ext_resource type="PackedScene" uid="uid://dpklpqqy4yf8k" path="res://inventory/scenes/purple_crystals.tscn" id="16_fax6y"]
 [ext_resource type="PackedScene" uid="uid://ccho0kwjq3oq4" path="res://characters/scenes/mentor.tscn" id="18_cd74u"]
@@ -88,10 +88,14 @@ position = Vector2(3070, 229)
 player = NodePath("../Player")
 SPEED = 150
 CHASE_SPEED = 300
-enemy_hud_scene = ExtResource("14_hn6as")
 
 [node name="Giraffe" parent="." instance=ExtResource("10_dfh5s")]
 position = Vector2(376, 213)
+
+[node name="Giraffe2" parent="." instance=ExtResource("10_dfh5s")]
+position = Vector2(8478, 87.99999)
+scale = Vector2(2.656, 2.656)
+script = ExtResource("15_hn6as")
 
 [node name="Elephant" parent="." instance=ExtResource("11_fax6y")]
 position = Vector2(5321.0005, 345.00003)

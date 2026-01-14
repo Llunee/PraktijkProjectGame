@@ -4,6 +4,7 @@ extends Area2D
 @onready var player = %Player
 var is_player_in_range: bool = false
 var is_chatting: bool = false
+@onready var player_inv: Inv = preload("res://inventory/playerInventory.tres")
 	
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
