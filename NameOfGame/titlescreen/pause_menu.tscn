@@ -98,6 +98,7 @@ alignment = 1
 [node name="ChangeAnimal" type="Button" parent="NinePatchRect/GridContainer/Container"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+tooltip_text = "Speel als een ander dier!"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
 theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
@@ -111,6 +112,7 @@ autowrap_mode = 2
 [node name="Consoles" type="Button" parent="NinePatchRect/GridContainer/Container"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+tooltip_text = "Kijk hoe de besturing werkt!"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
 theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
@@ -123,6 +125,7 @@ text = "Besturing"
 [node name="Progress" type="Button" parent="NinePatchRect/GridContainer/Container"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+tooltip_text = "Zie hoever je bent in het spel!"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
 theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
@@ -135,6 +138,7 @@ text = "Voortgang"
 [node name="Save" type="Button" parent="NinePatchRect/GridContainer/Container"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+tooltip_text = "Sla het spel op!"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.0018410641, 0.0018410682, 0.0018410768, 1)
 theme_override_colors/font_pressed_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
@@ -143,6 +147,27 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_4vcn4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qjimk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_80j4n")
 text = "Opslaan"
+
+[node name="Control" type="Control" parent="NinePatchRect/GridContainer/Container"]
+layout_mode = 2
+
+[node name="RestartLevel" type="Button" parent="NinePatchRect/GridContainer/Container/Control"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -5.0
+offset_right = 115.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Ga terug naar je vorige checkpoint! Alle vijanden zullen respawnen."
+text = "Terug naar 
+startpunt"
 
 [node name="Label" type="Label" parent="NinePatchRect"]
 custom_minimum_size = Vector2(0, 50)
@@ -325,6 +350,7 @@ animal = 3
 icon = ExtResource("10_j1g0e")
 
 [node name="ProgressOverlay" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -645,8 +671,13 @@ horizontal_alignment = 1
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Consoles" to="." method="_on_consoles_pressed"]
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Progress" to="." method="_on_progress_pressed"]
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/Container/Control/RestartLevel" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="NinePatchRect/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="ConsolesOverlay/NinePatchRect/Back" to="." method="_on_consoles_back_pressed"]
 [connection signal="pressed" from="ChangeAnimalOverlay/NinePatchRect/Back" to="." method="_on_change_animal_back_pressed"]
+[connection signal="character_pressed" from="ChangeAnimalOverlay/NinePatchRect/GridContainer/CharacterButton" to="." method="_on_character_button_character_pressed"]
+[connection signal="character_pressed" from="ChangeAnimalOverlay/NinePatchRect/GridContainer/CharacterButton2" to="." method="_on_character_button_character_pressed"]
+[connection signal="character_pressed" from="ChangeAnimalOverlay/NinePatchRect/GridContainer/CharacterButton3" to="." method="_on_character_button_character_pressed"]
+[connection signal="character_pressed" from="ChangeAnimalOverlay/NinePatchRect/GridContainer/CharacterButton4" to="." method="_on_character_button_character_pressed"]
 [connection signal="pressed" from="ProgressOverlay/NinePatchRect/Back" to="." method="_on_progress_back_pressed"]
 [connection signal="pressed" from="ProgressOverlay/NinePatchRect/DownloadButton" to="." method="_on_download_pressed"]

@@ -24,6 +24,7 @@ func _ready():
 	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))
 	PlayerData.connect("player_on_ice", Callable(self, "handle_on_ice"))
 	PlayerData.connect("player_off_ice", Callable(self, "handle_off_ice"))
+	PlayerData.connect("player_reset_level", Callable(self, "reset_level"))
 	screen_size = get_viewport_rect().size
 	respawn_location = global_position
 	handle_off_ice()
@@ -100,6 +101,9 @@ func handle_off_ice():
 	is_on_ice = false
 	ice_timer = 0.0
 	ice_direction = 0.0
+
+func reset_level():
+	die() # otherwise player can reset just before dying and avoid respawning enemies
 
 func Player():
 	pass
