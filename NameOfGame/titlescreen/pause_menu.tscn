@@ -638,7 +638,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1.1551381e-06, 0.9167425, 0.32973242, 1)
 text = "Voortgang gedownload in:
- C:\\Users\\<gebruikersnaam>\\Pictures"
+ C:\\Users\\<gebruikersnaam>\\Downloads"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="NinePatchRect/GridContainer/Container/ChangeAnimal" to="." method="_on_change_character_pressed"]
