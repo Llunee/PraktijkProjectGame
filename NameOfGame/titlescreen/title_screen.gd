@@ -27,13 +27,9 @@ func _unhandled_input(event):
 		_on_start_button_pressed()
 
 func _on_start_button_pressed():
-	if has_save:
-		print("⏩ Save gevonden, laden...")
-		goto_saved_level()
-	else:
-		get_tree().change_scene_to_file(
-			"res://character-picker/scenes/character_picker.tscn"
-		)
+	get_tree().change_scene_to_file(
+		"res://character-picker/scenes/character_picker.tscn"
+	)
 
 func save_exists() -> bool:
 	var json = JavaScriptBridge.eval(
