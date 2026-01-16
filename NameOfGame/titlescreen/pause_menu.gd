@@ -136,6 +136,13 @@ func update_quests():
 	ice_quests_progress_label.text = str(LevelData.finished_ice_quests) + "/" + str(LevelData.max_ice_quests)
 	jungle_quests_progress_label.text = str(LevelData.finished_jungle_quests) + "/" + str(LevelData.max_jungle_quests)
 
-
 func _on_save_pressed() -> void:
 	SaveManager.save_game(player)
+
+func _on_restart_level_pressed() -> void:
+	PlayerData.reset_level()
+	close()
+
+func _on_character_button_character_pressed() -> void:
+	change_animal_overlay.visible = false
+	close()
