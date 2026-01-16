@@ -167,7 +167,7 @@ grow_horizontal = 2
 grow_vertical = 0
 tooltip_text = "Ga terug naar je vorige checkpoint! Alle vijanden zullen respawnen."
 text = "Terug naar 
-startpunt"
+checkpoint"
 
 [node name="Label" type="Label" parent="NinePatchRect"]
 custom_minimum_size = Vector2(0, 50)
