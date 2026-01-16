@@ -45,7 +45,7 @@ func load_game(player_node: Node2D) -> bool:
 	if json == null:
 		print("ℹ️ No save found")
 		return false
-
+	
 	var data = JSON.parse_string(json)
 	if data == null:
 		push_error("❌ Save data corrupted")
@@ -56,3 +56,13 @@ func load_game(player_node: Node2D) -> bool:
 
 	print("✅ Game loaded")
 	return true
+
+func load_after_scene_change():
+	await get_tree().process_frame
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player == null:
+		push_error("SaveManager: Player not found after scene load")
+		return
+
+	load_game(player)

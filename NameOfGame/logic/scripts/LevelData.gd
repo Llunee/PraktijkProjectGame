@@ -39,7 +39,8 @@ enum Worlds {
 	SEA,
 	ICE,
 	JUNGLE,
-	INTRO
+	INTRO,
+	HOME
 }
 
 func _ready() -> void:
@@ -96,6 +97,8 @@ func get_current_world() -> Worlds:
 		current_world = Worlds.ICE
 	elif scene_file_name.contains("jungle"):
 		current_world = Worlds.JUNGLE
+	elif scene_file_name.contains("home"):
+		current_world = Worlds.HOME
 	else:
 		current_world = Worlds.INTRO
 	
@@ -112,7 +115,7 @@ func get_current_level() -> int:
 	elif scene_file_name.contains("three"):
 		current_level = 3
 	else:
-		current_level = 4
+		current_level = 0
 	
 	return current_level
 
