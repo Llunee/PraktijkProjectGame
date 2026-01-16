@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://kvtvuglr4ues"]
+[gd_scene load_steps=21 format=3 uid="uid://kvtvuglr4ues"]
 
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
@@ -32,6 +32,17 @@ expand_margin_top = 5.0
 expand_margin_right = 15.0
 expand_margin_bottom = 5.0
 modulate_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwdt5"]
+texture = ExtResource("4_qjimk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pbw2"]
+texture = ExtResource("4_qjimk")
+modulate_color = Color(0.30692276, 0.30692267, 0.3069227, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_st86s"]
+texture = ExtResource("4_qjimk")
+modulate_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjs17"]
 texture = ExtResource("4_qjimk")
@@ -150,6 +161,7 @@ text = "Opslaan"
 
 [node name="Control" type="Control" parent="NinePatchRect/GridContainer/Container"]
 layout_mode = 2
+theme = ExtResource("1_1och7")
 
 [node name="RestartLevel" type="Button" parent="NinePatchRect/GridContainer/Container/Control"]
 custom_minimum_size = Vector2(230, 0)
@@ -166,6 +178,13 @@ offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 0
 tooltip_text = "Ga terug naar je vorige checkpoint! Alle vijanden zullen respawnen."
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_fwdt5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6pbw2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_st86s")
 text = "Terug naar 
 checkpoint"
 
