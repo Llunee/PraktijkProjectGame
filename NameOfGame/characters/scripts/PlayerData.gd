@@ -109,20 +109,19 @@ func to_dict(position: Vector2) -> Dictionary:
 
 func from_dict(data: Dictionary, player_node: Node2D):
 	difficulty = data.get("difficulty", 2)
-	var animal_to_load = _get_animal(data.get("animal"))
-	set_animal(animal_to_load)
+	if data.has("animal"):
+		var animal_to_load : Animals = _get_animal(data["animal"])
+		set_animal(animal_to_load)
 
 	var pos = data.get("position", {})
 	player_node.global_position = Vector2(
 		pos.get("x", 0),
 		pos.get("y", 0)
 	)
-	print(pos)
-	print(player_node.global_position)
 
 func _get_animal(number: float):
-	number = int(number)
-	match number:
+	var number_int = int(number)
+	match number_int:
 		0: return Animals.PANDA
 		1: return Animals.FROG
 		2: return Animals.MOUSE
