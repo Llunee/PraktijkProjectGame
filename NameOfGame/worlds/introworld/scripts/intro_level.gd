@@ -1,0 +1,14 @@
+extends Node2D
+
+#@export var gold_coin_scene: PackedScene
+#@onready var gold_coin_spawn_points = $GoldCoinSpawns.get_children()
+#
+#func _ready() -> void:
+	#for gold_coin_marker in gold_coin_spawn_points:
+		#spawn_item(gold_coin_marker.global_position, gold_coin_scene)
+#
+#func spawn_item(pos: Vector2, scene: PackedScene) -> void:
+	#var item = scene.instantiate()
+	#add_child(item)
+	#item.global_position = pos
+	#item.player = $Player
