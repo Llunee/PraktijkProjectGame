@@ -6,6 +6,7 @@ signal coins_updated
 signal spriteframes_updated
 signal player_on_ice
 signal player_off_ice
+signal player_reset_level
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -40,6 +41,9 @@ func _ready():
 func reset():
 	health = max_health
 	emit_signal("player_reset")
+
+func reset_level():
+	emit_signal("player_reset_level")
 
 func take_damage(amount: int):
 	health = max(health - amount, 0)
