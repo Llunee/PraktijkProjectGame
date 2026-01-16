@@ -22,13 +22,14 @@ func _ready() -> void:
 		continue_button.disabled = false
 
 	start_button.pressed.connect(_on_start_button_pressed)
-	continue_button.pressed.connect(_on_continue_button_pressed)
+	#continue_button.pressed.connect(_on_continue_button_pressed)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("start_game"):
 		_on_start_button_pressed()
 
 func _on_start_button_pressed():
+	PlayerData.loaded_from_save = false
 	get_tree().change_scene_to_file(
 		"res://character-picker/scenes/character_picker.tscn"
 	)
@@ -45,7 +46,8 @@ func goto_saved_level():
 
 	if level_path == "":
 		return
-
+	
+	PlayerData.loaded_from_save = true
 	get_tree().change_scene_to_file(level_path)
 
 func read_json():

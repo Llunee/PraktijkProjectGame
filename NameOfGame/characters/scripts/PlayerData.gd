@@ -28,6 +28,7 @@ var ice_progress : int = 0
 var jungle_progress : int = 0
 var difficulty: int = 2
 var is_sum_ui_open : bool = false
+var loaded_from_save : bool = false
 
 enum Animals {
 	PANDA,
@@ -118,6 +119,7 @@ func from_dict(data: Dictionary, player_node: Node2D):
 		pos.get("x", 0),
 		pos.get("y", 0)
 	)
+	loaded_from_save = true
 
 func _get_animal(number: float):
 	var number_int = int(number)

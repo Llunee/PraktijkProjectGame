@@ -32,6 +32,7 @@ red_coin_scene = ExtResource("3_m2ln1")
 [node name="Player" parent="." instance=ExtResource("1_crlo6")]
 unique_name_in_owner = true
 position = Vector2(43, -2935)
+start_location = Vector2(43, -2935)
 
 [node name="Mentor" parent="." instance=ExtResource("11_1rgh2")]
 position = Vector2(267, -2916)

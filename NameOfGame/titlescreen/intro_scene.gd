@@ -20,4 +20,5 @@ func _on_dialogic_signal(signal_name: String) -> void:
 		var tween = create_tween()
 		tween.tween_property(texture_rect, "modulate:a", 1.0, 2.0)
 	elif signal_name == "end":
+		PlayerData.loaded_from_save = false
 		get_tree().change_scene_to_file("res://worlds/introworld/scenes/intro_level.tscn")

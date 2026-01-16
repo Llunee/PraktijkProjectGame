@@ -89,6 +89,7 @@ tile_set = ExtResource("4_hm0sf")
 
 [node name="Player" parent="." instance=ExtResource("5_k340r")]
 position = Vector2(-3754, -84)
+start_location = Vector2(-3754, -84)
 
 [node name="SafariPortal" parent="." instance=ExtResource("6_008j7")]
 position = Vector2(22624, -256)
