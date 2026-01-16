@@ -58,11 +58,14 @@ func load_game(player_node: Node2D) -> bool:
 	return true
 
 func load_after_scene_change():
+	await get_tree().scene_changed
 	await get_tree().process_frame
+
+	print(get_tree_string_pretty())
 
 	var player = get_tree().get_first_node_in_group("player")
 	if player == null:
-		push_error("SaveManager: Player not found after scene load")
+		push_error("Player not found after scene load")
 		return
 
 	load_game(player)
