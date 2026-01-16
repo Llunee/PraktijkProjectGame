@@ -47,7 +47,7 @@ func goto_saved_level():
 		return
 
 	get_tree().change_scene_to_file(level_path)
-	save_manager.load_after_scene_change()
+	#save_manager.load_after_scene_change()
 
 func read_json():
 	var file = "res://logic/scripts/JSON/levels.json"

@@ -19,6 +19,7 @@ var ice_timer := 0.0
 var ice_direction := 0.0
 
 func _ready():
+	PlayerData.player_loaded_in(self)
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))

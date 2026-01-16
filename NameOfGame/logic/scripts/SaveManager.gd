@@ -7,6 +7,7 @@ const SAVE_KEY := "mygame_save_v1"
 
 func _ready():
 	player_data.connect("coins_updated", _autosave)
+	player_data.connect("player_loaded", load_game)
 	progress.connect("progress_updated", _autosave)
 
 func _autosave():
@@ -58,9 +59,9 @@ func load_game(player_node: Node2D) -> bool:
 	return true
 
 func load_after_scene_change():
-	await get_tree().scene_changed
-	await get_tree().process_frame
-
+	#await get_tree().scene_changed
+	#await get_tree().process_frame
+#
 	print(get_tree_string_pretty())
 
 	var player = get_tree().get_first_node_in_group("player")

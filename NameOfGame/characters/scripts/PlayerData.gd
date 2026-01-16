@@ -7,6 +7,7 @@ signal spriteframes_updated
 signal player_on_ice
 signal player_off_ice
 signal player_reset_level
+signal player_loaded
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -108,8 +109,6 @@ func to_dict(position: Vector2) -> Dictionary:
 
 func from_dict(data: Dictionary, player_node: Node2D):
 	difficulty = data.get("difficulty", 2)
-	print(data.get("player").get("animal"))
-	print(data.get("animal"))
 	var animal_to_load = _get_animal(data.get("animal"))
 	set_animal(animal_to_load)
 
@@ -130,3 +129,6 @@ func _get_animal(number: float):
 		3: return Animals.BUNNY
 		
 	return Animals.PANDA
+
+func player_loaded_in(player : CharacterBody2D):
+	emit_signal("player_loaded", player)
