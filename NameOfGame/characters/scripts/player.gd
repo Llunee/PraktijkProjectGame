@@ -10,6 +10,7 @@ var kill_height = 500
 
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $leaf/CPUParticles2D
+@onready var camera = $Camera2D
 
 var screen_size
 var facing_right : bool = false
@@ -33,6 +34,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	respawn_location = start_location
 	handle_off_ice()
+	SaveManager.request_load(self)
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -116,6 +118,10 @@ func _on_player_loaded():
 	if PlayerData.loaded_from_save:
 		print("loaded from save!")
 		global_position = loaded_location
+		print(camera)
+		if camera:
+			camera.reset_smoothing()
+			camera.force_update_scroll()
 	else:
 		print("not loaded from save!")
 		global_position = start_location

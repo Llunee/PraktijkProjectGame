@@ -128,7 +128,7 @@ func from_dict(data: Dictionary, player_node: Node2D):
 		pos.get("y", 0)
 	)
 	loaded_from_save = true
-	emit_signal("player_loaded", player_node)
+	emit_signal("player_loaded")
 
 func _get_animal(number: float):
 	var number_int = int(number)

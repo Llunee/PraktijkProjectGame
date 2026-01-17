@@ -10,7 +10,7 @@ var is_loading := false
 func _ready():
 	player_data.connect("coins_updated", _autosave)
 	progress.connect("progress_updated", _autosave)
-	get_tree().node_added.connect(_on_node_added)
+	#get_tree().node_added.connect(_on_node_added)
 
 func _autosave():
 	if is_loading:
@@ -69,6 +69,10 @@ func load_game(player_node: Node2D) -> bool:
 	print("✅ Game loaded")
 	return true
 
-func _on_node_added(node):
-	if node.is_in_group("player"):
-		load_game(node)
+#func _on_node_added(node):
+	#if node.is_in_group("player"):
+		#load_game(node)
+
+func request_load(player: Node2D):
+	await player.ready
+	load_game(player)
