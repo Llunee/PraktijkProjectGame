@@ -109,17 +109,26 @@ func to_dict(position: Vector2) -> Dictionary:
 	}
 
 func from_dict(data: Dictionary, player_node: Node2D):
-	difficulty = data.get("difficulty", 2)
-	if data.has("animal"):
-		var animal_to_load : Animals = _get_animal(data["animal"])
+	var saved_world = int(data.get("progress").get("location").get("world"))
+	var saved_level =  int(data.get("progress").get("location").get("level"))
+	var current_world = LevelData.get_current_world()
+	var current_level = LevelData.get_current_level()
+	if saved_world != current_world or saved_level != current_level:
+		return
+	
+	var player_data = data.get("player")
+	difficulty = player_data.get("difficulty", 2)
+	if player_data.has("animal"):
+		var animal_to_load : Animals = _get_animal(player_data["animal"])
 		set_animal(animal_to_load)
 
-	var pos = data.get("position", {})
+	var pos = player_data.get("position", {})
 	player_node.global_position = Vector2(
 		pos.get("x", 0),
 		pos.get("y", 0)
 	)
 	loaded_from_save = true
+	emit_signal("player_loaded", player_node)
 
 func _get_animal(number: float):
 	var number_int = int(number)
@@ -130,6 +139,3 @@ func _get_animal(number: float):
 		3: return Animals.BUNNY
 		
 	return Animals.PANDA
-
-func player_loaded_in(player : CharacterBody2D):
-	emit_signal("player_loaded", player)

@@ -63,7 +63,9 @@ func get_current_level_path(json_save_data : String):
 
 	var location = data.get("progress", {}).get("location", {})
 	var world_index = int(location.get("world", 0))
-	var level_index = int(location.get("level", 0))
+	var level_index = int(location.get("level", 0)) - 1
+	if level_index < 0:
+		level_index = 0
 
 	var world_map = ["safari", "sea", "ice", "jungle", "intro", "home"]
 	var level_map = ["one", "two", "three"]

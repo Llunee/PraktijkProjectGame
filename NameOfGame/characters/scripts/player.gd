@@ -21,8 +21,6 @@ var ice_direction := 0.0
 var loaded_location : Vector2
 
 func _ready():
-	PlayerData.player_loaded_in(self)
-	loaded_location = global_position
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
@@ -30,17 +28,11 @@ func _ready():
 	PlayerData.connect("player_on_ice", Callable(self, "handle_on_ice"))
 	PlayerData.connect("player_off_ice", Callable(self, "handle_off_ice"))
 	PlayerData.connect("player_reset_level", Callable(self, "reset_level"))
+	PlayerData.connect("player_loaded", Callable(self, "_on_player_loaded"))
 	
 	screen_size = get_viewport_rect().size
 	respawn_location = start_location
 	handle_off_ice()
-	
-	if PlayerData.loaded_from_save:
-		print("loaded from save!")
-		global_position = loaded_location
-	else:
-		print("not loaded from save!")
-		global_position = start_location
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -117,6 +109,16 @@ func handle_off_ice():
 
 func reset_level():
 	die() # otherwise player can reset just before dying and avoid respawning enemies
+
+func _on_player_loaded():
+	loaded_location = global_position
+	
+	if PlayerData.loaded_from_save:
+		print("loaded from save!")
+		global_position = loaded_location
+	else:
+		print("not loaded from save!")
+		global_position = start_location
 
 func Player():
 	pass
