@@ -17,3 +17,4 @@ func _on_button_pressed() -> void:
 	
 	if get_tree().current_scene.scene_file_path.to_lower().contains("character_picker"):
 		get_tree().change_scene_to_file("res://titlescreen/intro_scene.tscn")
+		PlayerData.loaded_from_save = false

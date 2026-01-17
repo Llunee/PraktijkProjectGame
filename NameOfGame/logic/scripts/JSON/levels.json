@@ -1,0 +1,21 @@
+[{
+	"safari": {
+		"one": "res://worlds/safari/scenes/safari_level_one.tscn",
+		"two": "res://worlds/safari/scenes/safari_level_two.tscn"
+	},
+	"sea": {
+		"one": "res://worlds/sea/scenes/sea_level_one.tscn"
+	},
+	"ice": {
+		"one": "res://worlds/ice/ice_level_one.tscn"
+	},
+	"jungle": {
+		"one": ""
+	},
+	"intro": {
+		"one": "res://worlds/introworld/scenes/intro_level.tscn"
+	},
+	"home": {
+		"one": "res://worlds/homeworld/scenes/home_world.tscn"
+	},
+}]

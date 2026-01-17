@@ -79,6 +79,7 @@ script = ExtResource("9_fs1hd")
 [node name="Player" parent="." instance=ExtResource("5_dfh5s")]
 unique_name_in_owner = true
 position = Vector2(-1641, 216)
+start_location = Vector2(-1641, 216)
 
 [node name="Hippo_swim" parent="." instance=ExtResource("6_fax6y")]
 position = Vector2(0, -2)
@@ -86,7 +87,6 @@ position = Vector2(0, -2)
 [node name="Snake" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_x57a3")]
 position = Vector2(3070, 229)
 player = NodePath("../Player")
-SPEED = 150
 CHASE_SPEED = 300
 
 [node name="Giraffe" parent="." instance=ExtResource("10_dfh5s")]

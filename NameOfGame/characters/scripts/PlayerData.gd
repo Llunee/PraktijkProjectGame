@@ -7,6 +7,7 @@ signal spriteframes_updated
 signal player_on_ice
 signal player_off_ice
 signal player_reset_level
+signal player_loaded
 
 @onready var froggy_spriteframes = preload("res://assets/characters/maincharacter/froggy/froggy_spriteframes.tres")
 @onready var panda_spriteframes = preload("res://assets/characters/maincharacter/panda_spriteframes.tres")
@@ -27,6 +28,7 @@ var ice_progress : int = 0
 var jungle_progress : int = 0
 var difficulty: int = 2
 var is_sum_ui_open : bool = false
+var loaded_from_save : bool = false
 
 enum Animals {
 	PANDA,
@@ -107,11 +109,33 @@ func to_dict(position: Vector2) -> Dictionary:
 	}
 
 func from_dict(data: Dictionary, player_node: Node2D):
-	difficulty = data.get("difficulty", 2)
-	set_animal(data.get("animal", Animals.FROG))
+	var saved_world = int(data.get("progress").get("location").get("world"))
+	var saved_level =  int(data.get("progress").get("location").get("level"))
+	var current_world = LevelData.get_current_world()
+	var current_level = LevelData.get_current_level()
+	if saved_world != current_world or saved_level != current_level:
+		return
+	
+	var player_data = data.get("player")
+	difficulty = player_data.get("difficulty", 2)
+	if player_data.has("animal"):
+		var animal_to_load : Animals = _get_animal(player_data["animal"])
+		set_animal(animal_to_load)
 
-	var pos = data.get("position", {})
+	var pos = player_data.get("position", {})
 	player_node.global_position = Vector2(
 		pos.get("x", 0),
 		pos.get("y", 0)
 	)
+	loaded_from_save = true
+	emit_signal("player_loaded")
+
+func _get_animal(number: float):
+	var number_int = int(number)
+	match number_int:
+		0: return Animals.PANDA
+		1: return Animals.FROG
+		2: return Animals.MOUSE
+		3: return Animals.BUNNY
+		
+	return Animals.PANDA

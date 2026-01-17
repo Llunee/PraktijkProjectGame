@@ -24,4 +24,5 @@ func _process(delta: float) -> void:
 	if not PlayerData.safari_world_finished:
 		return
 	if player_inside and Input.is_action_just_pressed("interact"):
+		PlayerData.loaded_from_save = false
 		get_tree().change_scene_to_file(target_scene_path)
