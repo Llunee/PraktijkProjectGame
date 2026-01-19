@@ -88,6 +88,18 @@ func is_off_ice():
 	emit_signal("player_off_ice")
 	speed = 300
 
+func is_in_sea():
+	spriteframes.set_animation_speed("walk", 2)
+	spriteframes.set_animation_speed("idle", 2)
+	speed = 200.0
+	jump_velocity = -650.00
+
+func normal_movement():
+	spriteframes.set_animation_speed("walk", 4)
+	spriteframes.set_animation_speed("idle", 4)
+	speed = 300.0
+	jump_velocity = -450.0
+
 func sum_ui_open():
 	is_sum_ui_open = true
 
