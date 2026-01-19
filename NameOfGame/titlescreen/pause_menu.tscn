@@ -1,15 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://kvtvuglr4ues"]
+[gd_scene load_steps=32 format=3 uid="uid://kvtvuglr4ues"]
 
 [ext_resource type="Theme" uid="uid://cghoexrjpxrh2" path="res://themes/ui.tres" id="1_1och7"]
 [ext_resource type="Texture2D" uid="uid://c26l75w0i6rwf" path="res://assets/ui/sum_ui_bg.png" id="2_5ivd5"]
 [ext_resource type="Script" uid="uid://ccx3b3x3f1h0l" path="res://titlescreen/pause_menu.gd" id="2_pijhd"]
 [ext_resource type="Texture2D" uid="uid://twqlgem4fkh6" path="res://assets/ui/square.png" id="4_qjimk"]
 [ext_resource type="Theme" uid="uid://cukn4se7ynugc" path="res://themes/pause_menu.tres" id="5_i367n"]
+[ext_resource type="Texture2D" uid="uid://ba6py2pea3dqj" path="res://assets/buttons/button_D.png" id="5_j1g0e"]
 [ext_resource type="PackedScene" uid="uid://crtvd78xqf73d" path="res://character-picker/scenes/character_button.tscn" id="6_fwdt5"]
+[ext_resource type="Texture2D" uid="uid://cpi2lg8jfwm4t" path="res://assets/buttons/button_Arrow.png" id="6_lacvu"]
 [ext_resource type="Texture2D" uid="uid://b8v84d5lxblmx" path="res://assets/characters/maincharacter/PandaStand.png" id="7_6pbw2"]
+[ext_resource type="Texture2D" uid="uid://cvqdi0vk5j8p1" path="res://assets/buttons/button_A.png" id="7_kevw1"]
+[ext_resource type="Texture2D" uid="uid://ctauomr5h1oad" path="res://assets/buttons/button_space.png" id="8_li3oy"]
 [ext_resource type="Texture2D" uid="uid://c2gj7yg4gp3tn" path="res://assets/characters/maincharacter/froggy/froggy.png" id="8_st86s"]
 [ext_resource type="Texture2D" uid="uid://h0s5sgt48gyv" path="res://assets/characters/maincharacter/mouse/mouse.png" id="9_ets0d"]
+[ext_resource type="Texture2D" uid="uid://dpn2geq680kam" path="res://assets/buttons/button_w.png" id="9_kevw1"]
 [ext_resource type="Texture2D" uid="uid://b08ohg5rf2lbs" path="res://assets/characters/maincharacter/bunny/bunny.png" id="10_j1g0e"]
+[ext_resource type="Texture2D" uid="uid://bfl4rbsvnt0jp" path="res://assets/buttons/button_up.png" id="10_li3oy"]
+[ext_resource type="Texture2D" uid="uid://lhiworl64l4a" path="res://assets/buttons/button_e.png" id="11_dal4r"]
+[ext_resource type="Texture2D" uid="uid://cqdkq7elmub4w" path="res://assets/buttons/button_F.png" id="12_d5v15"]
+[ext_resource type="Texture2D" uid="uid://vds0ndsba0lu" path="res://assets/buttons/button_esc.png" id="13_nvexl"]
+[ext_resource type="Texture2D" uid="uid://do26vgc3jpxj8" path="res://assets/buttons/button_tab.png" id="14_2t526"]
+[ext_resource type="Texture2D" uid="uid://cc4a6wa8ml5kw" path="res://assets/buttons/button_enter.png" id="15_d5v15"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vcn4"]
 texture = ExtResource("4_qjimk")
@@ -228,7 +239,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vmyb1")
 text = "Terug naar spel"
 
 [node name="ConsolesOverlay" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -263,18 +273,175 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Besturing"
 
-[node name="consoletext" type="Label" parent="ConsolesOverlay/NinePatchRect"]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 215.0
-offset_right = 618.0
-offset_bottom = 374.0
-text = "Rechts: D of >
-Links: A of <
-Springen: Spatie, W of /\\
-Interactie: E of F
-Pauze: Escape
-Inventory: Tab"
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.21200001
+anchor_right = 0.83900005
+anchor_bottom = 0.84000003
+offset_left = 0.7999878
+offset_top = -24.200005
+offset_right = 23.899963
+offset_bottom = 12.9999695
+texture = ExtResource("4_qjimk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25800002
+anchor_right = 0.767
+anchor_bottom = 1.0
+offset_left = -9.652008
+offset_right = 5.302002
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="right_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/right_container"]
+layout_mode = 2
+text = "Rechts: "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/right_container"]
+layout_mode = 2
+texture = ExtResource("5_j1g0e")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/right_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect2" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/right_container"]
+layout_mode = 2
+texture = ExtResource("6_lacvu")
+expand_mode = 2
+
+[node name="left_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/left_container"]
+layout_mode = 2
+text = "Links:  "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/left_container"]
+layout_mode = 2
+texture = ExtResource("7_kevw1")
+
+[node name="Label2" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/left_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect2" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/left_container"]
+layout_mode = 2
+texture = ExtResource("6_lacvu")
+expand_mode = 2
+flip_h = true
+
+[node name="jump_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+text = "Springen: "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+texture = ExtResource("8_li3oy")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect2" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+texture = ExtResource("9_kevw1")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect3" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/jump_container"]
+layout_mode = 2
+texture = ExtResource("10_li3oy")
+expand_mode = 3
+
+[node name="interaction_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/interaction_container"]
+layout_mode = 2
+text = "Interactie:  "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/interaction_container"]
+layout_mode = 2
+texture = ExtResource("11_dal4r")
+
+[node name="Label2" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/interaction_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect2" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/interaction_container"]
+layout_mode = 2
+texture = ExtResource("12_d5v15")
+expand_mode = 2
+
+[node name="pause_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/pause_container"]
+layout_mode = 2
+text = "Pauze: "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/pause_container"]
+layout_mode = 2
+texture = ExtResource("13_nvexl")
+
+[node name="inventory_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/inventory_container"]
+layout_mode = 2
+text = "Inventaris: "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/inventory_container"]
+layout_mode = 2
+texture = ExtResource("14_2t526")
+
+[node name="read_container" type="HBoxContainer" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+text = "Lezen: "
+
+[node name="TextureRect" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+texture = ExtResource("11_dal4r")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect2" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+texture = ExtResource("12_d5v15")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+text = " Of "
+
+[node name="TextureRect3" type="TextureRect" parent="ConsolesOverlay/NinePatchRect/TextureRect/VBoxContainer/read_container"]
+layout_mode = 2
+texture = ExtResource("15_d5v15")
+expand_mode = 3
 
 [node name="Back" type="Button" parent="ConsolesOverlay/NinePatchRect"]
 layout_mode = 0
