@@ -24,6 +24,7 @@ var loaded_location : Vector2
 func _ready():
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	
+	PlayerData.update_difficulty()
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))
 	PlayerData.connect("player_on_ice", Callable(self, "handle_on_ice"))
@@ -116,14 +117,11 @@ func _on_player_loaded():
 	loaded_location = global_position
 	
 	if PlayerData.loaded_from_save:
-		print("loaded from save!")
 		global_position = loaded_location
-		print(camera)
 		if camera:
 			camera.reset_smoothing()
 			camera.force_update_scroll()
 	else:
-		print("not loaded from save!")
 		global_position = start_location
 
 func Player():

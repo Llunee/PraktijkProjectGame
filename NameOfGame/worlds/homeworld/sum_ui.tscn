@@ -15,11 +15,12 @@ theme = ExtResource("3_agkjb")
 script = ExtResource("2_ykuur")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(179, 34)
+custom_minimum_size = Vector2(300, 34)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 76.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -31,7 +32,7 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-custom_minimum_size = Vector2(136, 54)
+custom_minimum_size = Vector2(275, 54)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,11 +111,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Answer" type="LineEdit" parent="NinePatchRect/GridContainer"]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "Typ..."
 alignment = 1
-max_length = 4
+max_length = 6
 caret_blink = true
 
 [node name="Player_timer" type="Timer" parent="."]

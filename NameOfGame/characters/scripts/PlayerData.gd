@@ -94,9 +94,17 @@ func sum_ui_open():
 func sum_ui_closed():
 	is_sum_ui_open = false
 
-func update_difficulty(time: float, correct: bool):
-	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
-	
+#func update_difficulty(time: float, correct: bool):
+	#difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
+	#print(difficulty)
+
+func update_difficulty():
+	var current_level : int = LevelData.get_current_level()
+	difficulty = current_level + 1
+	if difficulty >= 4:
+		difficulty = 4
+	print(difficulty)
+
 # saving things
 func to_dict(position: Vector2) -> Dictionary:
 	return {

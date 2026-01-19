@@ -35,4 +35,6 @@ static func calculate_difficulty(avg_time: float, got_it_right: bool, current_di
 	# ---------------------------
 	# Clamp final result
 	# ---------------------------
-	return clamp(new_difficulty, 1.0, 1.0 + max_digits)
+	var cl = clamp(new_difficulty, 1.0, 1.0 + max_digits)
+	print(cl)
+	return cl

@@ -22,7 +22,6 @@ func _ready() -> void:
 		continue_button.disabled = false
 
 	start_button.pressed.connect(_on_start_button_pressed)
-	#continue_button.pressed.connect(_on_continue_button_pressed)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("start_game"):
@@ -30,6 +29,13 @@ func _unhandled_input(event):
 
 func _on_start_button_pressed():
 	PlayerData.loaded_from_save = false
+	
+	# remove save data
+	JavaScriptBridge.eval("""
+		localStorage.removeItem("%s");
+	""" % SAVE_KEY)
+	
+	LevelData.set_no_progress() # make sure progress is reset
 	get_tree().change_scene_to_file(
 		"res://character-picker/scenes/character_picker.tscn"
 	)
