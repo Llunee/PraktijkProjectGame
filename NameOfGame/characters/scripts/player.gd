@@ -11,6 +11,7 @@ var kill_height = 500
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $leaf/CPUParticles2D
 @onready var camera = $Camera2D
+@onready var bubble_particles = $Bubbles
 
 var screen_size
 var facing_right : bool = false
@@ -115,8 +116,12 @@ func handle_in_sea():
 	var current_world = LevelData.get_current_world()
 	if current_world == LevelData.Worlds.SEA:
 		PlayerData.is_in_sea()
+		bubble_particles.emitting = true
+		bubble_particles.visible = true
 	else:
 		PlayerData.normal_movement()
+		bubble_particles.emitting = false
+		bubble_particles.visible = false
 
 func reset_level():
 	die() # otherwise player can reset just before dying and avoid respawning enemies
