@@ -110,6 +110,7 @@ func to_dict(position: Vector2) -> Dictionary:
 	return {
 		"difficulty": difficulty,
 		"animal": animal,
+		"coins": coin_amount,
 		"position": {
 			"x": position.x,
 			"y": position.y
@@ -129,7 +130,9 @@ func from_dict(data: Dictionary, player_node: Node2D):
 	if player_data.has("animal"):
 		var animal_to_load : Animals = _get_animal(player_data["animal"])
 		set_animal(animal_to_load)
-
+	
+	coin_amount = player_data.get("coins", 2)
+	
 	var pos = player_data.get("position", {})
 	player_node.global_position = Vector2(
 		pos.get("x", 0),
