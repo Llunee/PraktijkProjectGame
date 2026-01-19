@@ -39,11 +39,26 @@ enum Worlds {
 	SEA,
 	ICE,
 	JUNGLE,
-	INTRO
+	INTRO,
+	HOME
 }
 
 func _ready() -> void:
 	pass
+
+func set_no_progress():
+	collected_safari_coins = 0
+	collected_sea_coins = 0
+	collected_ice_coins = 0
+	collected_jungle_coins = 0
+	finished_safari_quests = 0
+	finished_sea_quests = 0
+	finished_ice_quests = 0
+	finished_jungle_quests = 0
+	finished_safari_levels = 0
+	finished_sea_levels = 0
+	finished_ice_levels = 0
+	finished_jungle_levels = 0
 
 func update_coins(world : Worlds, amount : int):
 	match world:
@@ -61,26 +76,34 @@ func update_coins(world : Worlds, amount : int):
 func update_quests(world : Worlds):
 	match world:
 		Worlds.SAFARI:
-			finished_safari_quests += 1
+			if finished_safari_quests < max_safari_quests:
+				finished_safari_quests += 1
 		Worlds.SEA:
-			finished_sea_quests += 1
+			if finished_sea_quests < max_sea_quests:
+				finished_sea_quests += 1
 		Worlds.ICE:
-			finished_ice_quests += 1
+			if finished_ice_quests < max_ice_quests:
+				finished_ice_quests += 1
 		Worlds.JUNGLE:
-			finished_jungle_quests += 1
+			if finished_jungle_quests < max_jungle_quests:
+				finished_jungle_quests += 1
 	
 	emit_signal("progress_updated")
 
 func update_level_progress(world : Worlds):
 	match world:
 		Worlds.SAFARI:
-			finished_safari_levels += 1
+			if finished_safari_levels < max_safari_levels:
+				finished_safari_levels += 1
 		Worlds.SEA:
-			finished_sea_levels += 1
+			if finished_sea_levels < max_sea_levels:
+				finished_sea_levels += 1
 		Worlds.ICE:
-			finished_ice_levels += 1
+			if finished_ice_levels < max_ice_levels:
+				finished_ice_levels += 1
 		Worlds.JUNGLE:
-			finished_jungle_levels += 1
+			if finished_jungle_levels < max_jungle_levels:
+				finished_jungle_levels += 1
 	
 	emit_signal("progress_updated")
 
@@ -96,6 +119,8 @@ func get_current_world() -> Worlds:
 		current_world = Worlds.ICE
 	elif scene_file_name.contains("jungle"):
 		current_world = Worlds.JUNGLE
+	elif scene_file_name.contains("home"):
+		current_world = Worlds.HOME
 	else:
 		current_world = Worlds.INTRO
 	
@@ -112,7 +137,7 @@ func get_current_level() -> int:
 	elif scene_file_name.contains("three"):
 		current_level = 3
 	else:
-		current_level = 4
+		current_level = 0
 	
 	return current_level
 

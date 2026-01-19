@@ -28,6 +28,7 @@ func pass_checkpoint():
 		return
 	if player.global_position.x >= checkpoint.global_position.x:
 		checkpoint_passed = true
+		SaveManager.save_game(player)
 		player.update_respawn_location(checkpoint.global_position)
 		checkpoint_label.text = "[wave amp=50.0 freq=5.0 connected=1]Checkpoint![/wave]"
 		checkpoint_label.visible = true
@@ -46,7 +47,6 @@ func _on_ice_area_body_entered(body: Node) -> void:
 		return
 	ice_overlap_count += 1
 	if ice_overlap_count == 1:
-		print("on ice!")
 		PlayerData.is_on_ice()
 		is_on_ice = true
 
@@ -56,6 +56,5 @@ func _on_ice_area_body_exited(body: Node) -> void:
 	ice_overlap_count -= 1
 	if ice_overlap_count <= 0:
 		ice_overlap_count = 0
-		print("not on ice!")
 		PlayerData.is_off_ice()
 		is_on_ice = false

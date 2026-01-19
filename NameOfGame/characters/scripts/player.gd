@@ -6,9 +6,11 @@ signal player_respawned
 var kill_height = 500
 
 @export var inv: Inv
+@export var start_location : Vector2
 
 @onready var sprite = $AnimatedSprite2D
 @onready var particles = $leaf/CPUParticles2D
+@onready var camera = $Camera2D
 
 var screen_size
 var facing_right : bool = false
@@ -17,17 +19,23 @@ var respawn_location : Vector2
 var is_on_ice = false
 var ice_timer := 0.0
 var ice_direction := 0.0
+var loaded_location : Vector2
 
 func _ready():
 	sprite.set("sprite_frames", PlayerData.spriteframes)
+	
+	PlayerData.update_difficulty()
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))
 	PlayerData.connect("player_on_ice", Callable(self, "handle_on_ice"))
 	PlayerData.connect("player_off_ice", Callable(self, "handle_off_ice"))
 	PlayerData.connect("player_reset_level", Callable(self, "reset_level"))
+	PlayerData.connect("player_loaded", Callable(self, "_on_player_loaded"))
+	
 	screen_size = get_viewport_rect().size
-	respawn_location = global_position
+	respawn_location = start_location
 	handle_off_ice()
+	SaveManager.request_load(self)
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -104,6 +112,17 @@ func handle_off_ice():
 
 func reset_level():
 	die() # otherwise player can reset just before dying and avoid respawning enemies
+
+func _on_player_loaded():
+	loaded_location = global_position
+	
+	if PlayerData.loaded_from_save:
+		global_position = loaded_location
+		if camera:
+			camera.reset_smoothing()
+			camera.force_update_scroll()
+	else:
+		global_position = start_location
 
 func Player():
 	pass

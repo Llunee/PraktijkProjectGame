@@ -17,7 +17,6 @@ func _input(event: InputEvent) -> void:
 func _on_body_entered(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = true
-		print("Druk op 'E' om te praten.")
 		if not is_quest_completed():
 			interact_icon.visible = true
 		else:
@@ -27,7 +26,6 @@ func _on_body_exited(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = false
 		interact_icon.visible = false
-		print("Speler is buiten bereik.")
 
 func run_dialog(dialog_name):
 	is_chatting = true

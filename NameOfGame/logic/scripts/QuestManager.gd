@@ -60,13 +60,11 @@ func _on_dialogic_signal(signal_name: String):
 			remove_items_from_inventory(purple_crystal, 5)
 			Dialogic.VAR.set_variable("quest_giraffe", "completed")
 			Dialogic.VAR.set_variable("quest_objective_met", true)
-			print("5 paarse kristallen zijn afgegeven!")
 		
 		"give_grass":
 			remove_items_from_inventory(hippo_grass, 5)
 			Dialogic.VAR.set_variable("hippoQuest", "completed")
 			Dialogic.VAR.set_variable("quest_objective_met", true)
-			print("5 paarse kristallen zijn afgegeven!")
 
 # Quest logic
 func start_quest(
@@ -96,7 +94,6 @@ func update_collection(
 	sync_dialogic(collected_var, collected)
 
 	if collected >= TARGET_AMOUNT:
-		print("Quest doel voltooid! Ga terug naar de NPC.")
 		sync_dialogic("quest_objective_met", true)
 
 	return collected

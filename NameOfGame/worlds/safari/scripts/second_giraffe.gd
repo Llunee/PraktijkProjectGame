@@ -12,20 +12,17 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if is_player_in_range and event.is_action_pressed("interact") and not is_chatting:
-		print("talk")
 		run_dialog("secondGiraffe")
 
 func _on_body_entered(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = true
-		print("Druk op 'E' om te praten.")
 		interact_icon.visible = true
 
 func _on_body_exited(body) -> void:
 	if body.name == "Player":
 		is_player_in_range = false
 		interact_icon.visible = false
-		print("Speler is buiten bereik.")
 
 func run_dialog(dialog_name):
 	is_chatting = true
