@@ -116,14 +116,11 @@ func _on_player_loaded():
 	loaded_location = global_position
 	
 	if PlayerData.loaded_from_save:
-		print("loaded from save!")
 		global_position = loaded_location
-		print(camera)
 		if camera:
 			camera.reset_smoothing()
 			camera.force_update_scroll()
 	else:
-		print("not loaded from save!")
 		global_position = start_location
 
 func Player():

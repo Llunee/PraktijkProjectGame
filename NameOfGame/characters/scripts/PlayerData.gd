@@ -96,6 +96,7 @@ func sum_ui_closed():
 
 func update_difficulty(time: float, correct: bool):
 	difficulty = Difficuly.calculate_difficulty(time, correct, difficulty)
+	print(difficulty)
 	
 # saving things
 func to_dict(position: Vector2) -> Dictionary:

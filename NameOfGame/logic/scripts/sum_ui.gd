@@ -67,6 +67,7 @@ func _on_answer_text_submitted(answer: String) -> void:
 		close()
 		enemy.take_damage(1)
 		PlayerData.update_difficulty(time_spent, true)
+		PlayerData.add_coins(1)
 	else:
 		close()
 		PlayerData.take_damage(1)
@@ -75,7 +76,6 @@ func _on_answer_text_submitted(answer: String) -> void:
 	time_spent = 0
 		
 func _on_player_hit(enemy_hit : CharacterBody2D):
-	print(enemy_hit)
 	player_timer.start()
 	enemy = enemy_hit
 	sum_info = Question_creator.generate_question(PlayerData.difficulty)

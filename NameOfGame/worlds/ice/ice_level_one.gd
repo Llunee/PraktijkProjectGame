@@ -46,7 +46,6 @@ func _on_ice_area_body_entered(body: Node) -> void:
 		return
 	ice_overlap_count += 1
 	if ice_overlap_count == 1:
-		print("on ice!")
 		PlayerData.is_on_ice()
 		is_on_ice = true
 
@@ -56,6 +55,5 @@ func _on_ice_area_body_exited(body: Node) -> void:
 	ice_overlap_count -= 1
 	if ice_overlap_count <= 0:
 		ice_overlap_count = 0
-		print("not on ice!")
 		PlayerData.is_off_ice()
 		is_on_ice = false
