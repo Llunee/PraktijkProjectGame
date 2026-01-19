@@ -66,12 +66,12 @@ func _on_answer_text_submitted(answer: String) -> void:
 	if answer.to_int() == sum_info["answer"]:
 		close()
 		enemy.take_damage(1)
-		PlayerData.update_difficulty(time_spent, true)
+		#PlayerData.update_difficulty(time_spent, true)
 		PlayerData.add_coins(1)
 	else:
 		close()
 		PlayerData.take_damage(1)
-		PlayerData.update_difficulty(time_spent, false)
+		#PlayerData.update_difficulty(time_spent, false)
 	player_timer.stop()
 	time_spent = 0
 		

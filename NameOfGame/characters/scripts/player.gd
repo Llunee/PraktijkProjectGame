@@ -24,6 +24,7 @@ var loaded_location : Vector2
 func _ready():
 	sprite.set("sprite_frames", PlayerData.spriteframes)
 	
+	PlayerData.update_difficulty()
 	PlayerData.connect("player_damaged", Callable(self, "handle_damage"))
 	PlayerData.connect("spriteframes_updated", Callable(self, "change_sprite_frames"))
 	PlayerData.connect("player_on_ice", Callable(self, "handle_on_ice"))

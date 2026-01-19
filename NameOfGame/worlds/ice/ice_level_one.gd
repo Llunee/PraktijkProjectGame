@@ -28,6 +28,7 @@ func pass_checkpoint():
 		return
 	if player.global_position.x >= checkpoint.global_position.x:
 		checkpoint_passed = true
+		SaveManager.save_game(player)
 		player.update_respawn_location(checkpoint.global_position)
 		checkpoint_label.text = "[wave amp=50.0 freq=5.0 connected=1]Checkpoint![/wave]"
 		checkpoint_label.visible = true
