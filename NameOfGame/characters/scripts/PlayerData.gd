@@ -101,6 +101,9 @@ func sum_ui_closed():
 func update_difficulty():
 	var current_level : int = LevelData.get_current_level()
 	difficulty = current_level + 1
+	if difficulty >= 4:
+		difficulty = 4
+	print(difficulty)
 
 # saving things
 func to_dict(position: Vector2) -> Dictionary:
