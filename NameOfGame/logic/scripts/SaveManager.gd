@@ -76,3 +76,4 @@ func load_game(player_node: Node2D) -> bool:
 func request_load(player: Node2D):
 	await player.ready
 	load_game(player)
+	save_game(player)
