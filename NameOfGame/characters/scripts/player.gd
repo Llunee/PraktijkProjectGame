@@ -35,6 +35,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	respawn_location = start_location
 	handle_off_ice()
+	handle_in_sea()
 	SaveManager.request_load(self)
 
 func _physics_process(delta: float) -> void:
@@ -109,6 +110,13 @@ func handle_off_ice():
 	is_on_ice = false
 	ice_timer = 0.0
 	ice_direction = 0.0
+
+func handle_in_sea():
+	var current_world = LevelData.get_current_world()
+	if current_world == LevelData.Worlds.SEA:
+		PlayerData.is_in_sea()
+	else:
+		PlayerData.normal_movement()
 
 func reset_level():
 	die() # otherwise player can reset just before dying and avoid respawning enemies
